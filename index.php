@@ -12,7 +12,11 @@
     Välkommen!
 
     </header>
-
+<nav>
+    <h1>Hej</h1>
+    <h1>Då</h1>
+    
+    </nav>
 <div id="footer">
   contact us @ cheaphealthfood@proes.com
 </div>
