@@ -12,6 +12,7 @@
     Välkommen!
 
     </header>
+    <insert type="text" placeholder="hate">
 
 <div id="footer">
   contact us @ cheaphealthfood@proes.com
