@@ -9,18 +9,15 @@
 <body>
 <header>
 
-    Välkommen!
+    <div id="header">
+      <span>
+          <ul>
+          <li>START</li>
+          </li>RECEPT</li>
+        </ul>
+      </span>
 
-    </header>
-<<<<<<< HEAD
-    <insert type="text" placeholder="hate">
-
-=======
-<nav>
-    <h1>Hej</h1>
-    <h1>Då</h1>
-    
-    </nav>
+    </div>
 >>>>>>> master
 <div id="footer">
   contact us @ cheaphealthfood@proes.com
