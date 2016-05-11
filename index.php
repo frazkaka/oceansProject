@@ -12,8 +12,16 @@
     Välkommen!
 
     </header>
+<<<<<<< HEAD
     <insert type="text" placeholder="hate">
 
+=======
+<nav>
+    <h1>Hej</h1>
+    <h1>Då</h1>
+    
+    </nav>
+>>>>>>> master
 <div id="footer">
   contact us @ cheaphealthfood@proes.com
 </div>
