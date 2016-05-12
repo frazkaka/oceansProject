@@ -26,7 +26,7 @@ body {
 
 }
 .nav li {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Courier new','Oswald', sans-serif;
   font-size: 1.2em;
   line-height: 40px;
   height: 40px;
@@ -59,25 +59,12 @@ body {
     font-size: 1.4em;
   }
 
-  /* Option 1 - Display Inline */
   .nav li {
     display: inline-block;
     margin-right: -4px;
   }
 
-  /* Options 2 - Float
-  .nav li {
-    float: left;
-  }
-  .nav ul {
-    overflow: auto;
-    width: 600px;
-    margin: 0 auto;
-  }
-  .nav {
-    background-color: #444;
-  }
-  */
+
 
 .form-search {
   padding-left: 3%;
