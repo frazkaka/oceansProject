@@ -1,39 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
- <meta charset="utf-8">
-         <title>Projektets hemsida</title>
-         <link rel="icon" href="bakgrund.jpg">
-         <link rel="stylesheet" type="text/css" href="stilmall.css">
-         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
-</head>
-<body>
-  <header>
-    <div class="nav">
-      <ul>
-        <li class="logo">PluggTugg</li>
-        <li class="home"><a href="#">Start</a></li>
-        <li class="contact"><a href="#">Kontakta oss</a></li>
-        <li class="menu1"><a href="#">menu1</a></li>
-        <li class="menu2"><a href="#">menu2</a></li>
-        <li class="menu3"><a href="#">menu3</a></li>
-      </ul>
-      <div class="searchField">
-        <form>
-          <div class="inner-addon left-addon">
-            <i class="glyphicon glyphicon-search"></i>
-            <input type="text" class="form-search" placeholder="Sök i databasen"/>
-        </form>
-      </div>
-    </div>
-  </header>
-
-</body>
-
-
-
+  <head>
+    <meta charset="utf-8">
+    <title>Ocean goes fruitbasket</title>
+    <link rel="icon" href="bakgrund.jpg">
+    <link rel="stylesheet" type="text/css" href="stilmall.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    då testar vi
+  </body>
 </html>
