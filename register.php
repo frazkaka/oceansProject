@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Ocean goes fruitbasket</title>
-    <link rel="stylesheet" href="assets/css/">
+    <link rel="stylesheet" href="css/registercss.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -54,7 +54,7 @@
   </div><!-- /.container-fluid -->
 </nav>
     </header>
-      
+
       <div class="container">
   <h2>Registrera dig</h2>
   <p>Fyll i formuläret nedan för registrering hos PluggTugg:</p>
@@ -66,7 +66,7 @@
       <div class="form-group">
   <label for="sel1">Välj ditt lärosäte:</label>
   <select class="form-control" id="sel1" >
-      <option>	---	</option>         
+      <option>	---	</option>
       <option>	Jag är inte student	</option>
       <option><li role="separator" class="divider"></li></option>
     <option>	Beckmans designhögskola	</option>
@@ -143,6 +143,6 @@ myWindow.focus();
 }
 </script>
 </div>
-      
+
   </body>
 </html>
