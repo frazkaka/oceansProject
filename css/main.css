@@ -1,17 +1,4 @@
 
-.contact-container {
-  padding-left: 30px;
-  padding-top: 15px;
-  margin: 10px;
-}
-#telefonDiv {
-  float:left;
-  padding-right: 10px;
-}
-#emailDiv {
-  float: left;
-  padding-right: 10px;
-}
 .navbar-header {
   background-color: #FFB441;
   padding-left: 45px;
@@ -21,40 +8,6 @@
 }
 ul li a {
   font-family: Verdana;
-}
-#container {
-  padding-left: 60px;
-  padding-right: 60px;
-}
-#leftContainer {
-  text-align: center;
-  border: 1px solid #FFB441;
-  padding-left: 60px;
-  padding-right: 60px;
-  height: 400px;
-  width: 400px;
-  float: left;
-  -webkit-border-radius: 4px;
--webkit-border-bottom-right-radius: 8px;
--moz-border-radius: 4px;
--moz-border-radius-bottomright: 8px;
-border-radius: 4px;
-border-bottom-right-radius: 8px;
-}
-#rightContainer {
-  text-align: center;
-  border: 1px solid #FFB441;
-  padding-left: 60px;
-  padding-right: 60px;
-  height: 400px;
-  width: 400px;
-  float: right;
-  -webkit-border-radius: 4px;
--webkit-border-bottom-right-radius: 8px;
--moz-border-radius: 4px;
--moz-border-radius-bottomright: 8px;
-border-radius: 4px;
-border-bottom-right-radius: 8px;
 }
 
 .sr-only {
@@ -69,6 +22,13 @@ border-bottom-right-radius: 8px;
 #bs-example-navbar-collapse-1 a:hover {
   text-decoration: none;
   font-family: fantasy;
+  color: #FF5500;
+  font-weight: bold;
+}
+#bs-example-navbar-collapse-1 #active a:hover {
+  text-decoration: none;
+  font-family: fantasy;
+  color: white;
   font-weight: bold;
 }
 #active a {
@@ -84,5 +44,8 @@ border-bottom-right-radius: 8px;
 
 }
 .navbar-right {
+
+}
+.dropdown-toggle {
 
 }
