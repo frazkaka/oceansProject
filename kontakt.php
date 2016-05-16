@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>Ocean goes fruitbasket</title>
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/contactcss.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+          <link rel="stylesheet" href="css/main.css">
+          <link rel="stylesheet" href="css/contactcss.css">
+
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -29,7 +31,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a href="index.php">Hem<span class="sr-only">(current)</span></a></li>
-              <li><a href="recipe.php">Recept</a></li>
+              <li><a href="recept.php">Recept</a></li>
               <li><a href="#">PluggTugg Forum</a></li>
             </ul>
             <form class='navbar-form navbar-left' role='search'>
@@ -39,12 +41,12 @@
               <button type='submit' class='btn btn-default'>Sök</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-              <li class='active'><a href="contact.php">Kontakta oss</a></li>
+              <li class='active'><a href="kontakt.php">Kontakta oss</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logga in<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="login.php">Logga in här</a></li>
-                  <li><a href="register.php">Registrera ett konto</a></li>
+                  <li><a href="registrering.php">Registrera ett konto</a></li>
                   <li><a href="#">Something else here</a></li>
                   <li role="separator" class="divider"></li>
                   <li><a href="#">Separated link</a></li>
