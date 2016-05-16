@@ -1,15 +1,30 @@
 .contact-container {
   padding-left: 30px;
   padding-top: 15px;
+  padding-bottom: 20px;
   margin: 10px;
+}
+.contactUs {
+  color: #FFB441;
 }
 #telefonDiv {
   float:left;
+  padding: 5px;
   padding-right: 10px;
 }
 #emailDiv {
   float: left;
+  padding: 5px;
   padding-right: 10px;
+}
+#contact-phone {
+  padding: 5px;
+}
+#contact-email {
+  padding: 5px;
+}
+#faq {
+  padding: 5px;
 }
 .navbar-header {
   background-color: #FFB441;
@@ -21,4 +36,7 @@
 
 ul li a {
   font-family: Verdana;
+}
+li {
+  list-style-type: none;
 }
