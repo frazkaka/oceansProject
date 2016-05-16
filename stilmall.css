@@ -1,1 +1,14 @@
+.contact-container {
 
+  padding-left: 30px;
+  padding-top: 15px;
+  margin: 10px;
+}
+#telefonDiv {
+  float:left;
+  padding-right: 10px;
+}
+#emailDiv {
+  float: left;
+  padding-right: 10px;
+}
