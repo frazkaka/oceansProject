@@ -41,7 +41,7 @@
               <button type='submit' class='btn btn-default'>Sök</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-              <li class='active'><a href="kontakt.php">Kontakta oss</a></li>
+              <li id='active' class='active'><a href="kontakt.php">Kontakta oss</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logga in<span class="caret"></span></a>
                 <ul class="dropdown-menu">
