@@ -29,7 +29,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a href="index.php">Hem<span class="sr-only">(current)</span></a></li>
-              <li class="active"><a href="#">Recept</a></li>
+              <li id='active' class="active"><a href="#">Recept</a></li>
               <li><a href="forum.php">PluggTugg Forum</a></li>
             </ul>
             <form class="navbar-form navbar-left" role="search">
