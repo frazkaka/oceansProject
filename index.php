@@ -35,11 +35,10 @@
               <li><a href="forum.php">PluggTugg Forum</a></li>
             </ul>
             <form class='navbar-form navbar-left' role='search'>
-              <div class='form-group'>
+              <div id='form-group' class='form-group'>
                 <input type='text' id='form-control' class='form-control' placeholder='Sök i databasen..'>
+                <span class='glyphicon glyphicon-search'></span>
               </div>
-
-
               <button type='submit' class='btn btn-default'>Sök</button>
 
             </form>

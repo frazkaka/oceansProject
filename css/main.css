@@ -36,7 +36,7 @@ ul li a {
   background-color: #FF5500;
 }
 #form-control {
-
+  padding: 0 10px 0 29px;
 }
 #form-control:focus {
   color: black;
@@ -52,8 +52,31 @@ ul li a {
 
 }
 .navbar-right {
+}
+#form-control::-webkit-input-placeholder {
+    color: black;
+}
+#form-control:-moz-placeholder {
+    color: blue;
 
 }
+#form-control::-moz-placeholder {
+    color: blue;
+
+}
+<<<<<<< HEAD
+:-ms-input-placeholder {
+    color: blue;
+}
+#form-group {
+  position: relative;
+}
+#form-group .glyphicon-search {
+  padding-top: 10px;
+  position: absolute;
+  left: +8px;
+=======
 .dropdown-toggle {
 
+>>>>>>> master
 }
