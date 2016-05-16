@@ -31,7 +31,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.php">Hem<span class="sr-only">(current)</span></a></li>
               <li><a href="recept.php">Recept</a></li>
-              <li><a href="#">PluggTugg Forum</a></li>
+              <li><a href="forum.php">PluggTugg Forum</a></li>
             </ul>
             <form class='navbar-form navbar-left' role='search'>
               <div class='form-group'>

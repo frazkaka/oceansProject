@@ -29,9 +29,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php">Hem<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Recept</a></li>
-        <li><a href="#">PluggTugg Forum</a></li>
+        <li><a href="index.php">Hem<span class="sr-only">(current)</span></a></li>
+        <li><a href="recept.php">Recept</a></li>
+        <li><a href="forum.php">PluggTugg Forum</a></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -40,12 +40,12 @@
         <button type="submit" class="btn btn-default">Sök</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Kontakta oss</a></li>
+        <li><a href="kontakt.php">Kontakta oss</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logga in<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Logga in här</a></li>
-            <li><a href="#">Registrera ett konto</a></li>
+            <li><a href="login.php">Logga in här</a></li>
+            <li><a href="registreting.php">Registrera ett konto</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
