@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Ocean goes fruitbasket</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="stilmall.css">
+    <link rel="stylesheet" href="/css/main.css">
 
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -36,7 +36,10 @@
               <div class='form-group'>
                 <input type='text' class='form-control' placeholder='Search'>
               </div>
+
+
               <button type='submit' class='btn btn-default'>Sök</button>
+          
             </form>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="contact.php">Kontakta oss</a></li>
