@@ -57,7 +57,7 @@
     </header>
     <div class='contact-container'>
       <div ='contactDiv'>
-      KONTAKTA OSS
+        <p class='contactUs'>KONTAKTA OSS</p>
       </div>
       <div id='telefonDiv'>
         <span class='glyphicon glyphicon-earphone'></span>
