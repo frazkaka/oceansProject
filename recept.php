@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/recept.css">
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   </head>
   <body>
@@ -55,29 +55,6 @@
         </div><!-- /.container-fluid -->
       </nav>
     </header>
-    <nav class="navbar navbar-default" role="navigation" id="categories">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-brand-centered">
-        <ul class="nav navbar-nav" id="links">
-          <li class="active"><a href="#">Kött</a></li>
-          <li><a href="#">Fågel</a></li>
-          <li><a href="#">Fisk</a></li>
-          <li><a href="#">Vegetariskt</a></li>
-          <li><a href="#">Pasta</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-
-    </nav>
     <!-- Page Content -->
     <div class="container">
 
@@ -89,8 +66,17 @@
                 </h1>
             </div>
         </div>
+          <div class="col-lg-12" class="collapse navbar-collapse" id="navbar-brand-centered">
+            <ul class="nav navbar-nav" id="links">
+              <li class="active"><a href="#">Kött</a></li>
+              <li><a href="#">Fågel</a></li>
+              <li><a href="#">Fisk</a></li>
+              <li><a href="#">Vegetariskt</a></li>
+              <li><a href="#">Pasta</a></li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
         <!-- /.row -->
-
         <!-- Projects Row -->
         <div class="row">
             <div class="col-md-4 portfolio-item">
