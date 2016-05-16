@@ -1,4 +1,7 @@
-
+#logo {
+  width: 100px;
+  height: 50px;
+}
 .navbar-header {
   background-color: #FFB441;
   padding-left: 45px;
@@ -30,7 +33,7 @@ ul li a {
   font-family: fantasy;
   color: white;
   font-weight: bold;
-  color: #FF5500;
+  color: white;
 }
 #active a {
   background-color: #FF5500;
@@ -46,27 +49,25 @@ ul li a {
   border: 1px solid black;
 }
 .btn-default:hover {
-  border: 1px solid white;
+  border: 1px solid black;
+  background-color: #FF5500;
 }
-.form-group {
 
-}
 .navbar-right {
 }
 #form-control::-webkit-input-placeholder {
     color: black;
 }
 #form-control:-moz-placeholder {
-    color: blue;
+    color: black;
 
 }
 #form-control::-moz-placeholder {
-    color: blue;
+    color: black;
 
 }
-<<<<<<< HEAD
 :-ms-input-placeholder {
-    color: blue;
+    color: black;
 }
 #form-group {
   position: relative;
@@ -75,8 +76,7 @@ ul li a {
   padding-top: 10px;
   position: absolute;
   left: +8px;
-=======
-.dropdown-toggle {
-
->>>>>>> master
+}
+.dropdown-menu {
+  background-color: #FFB441;
 }
