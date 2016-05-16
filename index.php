@@ -36,7 +36,7 @@
             </ul>
             <form class='navbar-form navbar-left' role='search'>
               <div class='form-group'>
-                <input type='text' class='form-control' placeholder='Search'>
+                <input type='text' id='form-control' class='form-control' placeholder='Sök i databasen..'>
               </div>
 
 

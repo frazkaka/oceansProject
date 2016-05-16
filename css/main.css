@@ -70,10 +70,18 @@ border-bottom-right-radius: 8px;
   text-decoration: none;
   font-family: fantasy;
   font-weight: bold;
+  color: #FF5500;
 }
 #active a {
   background-color: #FF5500;
 }
+#form-control {
+
+}
+#form-control:focus {
+  color: black;
+}
+
 .form-control:hover {
   border: 1px solid black;
 }
