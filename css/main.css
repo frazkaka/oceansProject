@@ -76,7 +76,7 @@ border-bottom-right-radius: 8px;
   background-color: #FF5500;
 }
 #form-control {
-
+  padding: 0 10px 0 29px;
 }
 #form-control:focus {
   color: black;
@@ -92,5 +92,26 @@ border-bottom-right-radius: 8px;
 
 }
 .navbar-right {
+}
+#form-control::-webkit-input-placeholder {
+    color: black;
+}
+#form-control:-moz-placeholder {
+    color: blue;
 
+}
+#form-control::-moz-placeholder {
+    color: blue;
+
+}
+:-ms-input-placeholder {
+    color: blue;
+}
+#form-group {
+  position: relative;
+}
+#form-group .glyphicon-search {
+  padding-top: 10px;
+  position: absolute;
+  left: +8px;
 }
