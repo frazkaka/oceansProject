@@ -66,8 +66,22 @@ border-bottom-right-radius: 8px;
   font-family: fantasy;
   color: white;
 }
+
+#bs-example-navbar-collapse-1 a.active {
+  text-decoration: none;
+  font-family: fantasy;
+  color: white;
+}
+
 #bs-example-navbar-collapse-1 a:hover {
   text-decoration: none;
   font-family: fantasy;
   font-weight: bold;
+}
+.form-control:hover {
+  border: 1px solid black;
+}
+.btn-default:hover {
+  border: 1px solid white;
+}
 }
