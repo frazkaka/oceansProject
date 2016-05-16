@@ -1,4 +1,12 @@
 #categories{
-   margin-top: -20px;
-   border-radius: 40px;
+   margin-top: -21px;
+   border-style: hidden;
+   border-radius: 0 !important;
+   -moz-border-radius: 0 !important;
+   -webkit-border-radius: 0 !important;
+   border-bottom-left-radius: 15px !important;
+   border-bottom-right-radius: 15px !important;
+   margin-left: 7.5%;
+   margin-right: 7.5%;
+   padding-left: 5%;
 }
