@@ -32,7 +32,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li id='active' class="active"><a href="index.php">Hem<span class="sr-only">(current)</span></a></li>
+              <li id='active'><a href="index.php">Hem<span class="sr-only">(current)</span></a></li>
               <li><a href="recept.php">Recept</a></li>
               <li><a href="forum.php">PluggTugg Forum</a></li>
             </ul>
@@ -63,15 +63,7 @@
       </nav>
     </header>
         <!-- ----------------------------------------------- -->
-        <div id="container">
-
-          <div id='leftContainer'>
-            Top 10
-          </div>
-          <div id='rightContainer'>
-            Flöde av bilder
-          </div>
-        </div>
+DETTA ÄR PROFILSIDAN
 
   </body>
 </html>
