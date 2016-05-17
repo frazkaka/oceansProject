@@ -40,8 +40,9 @@
               <div id='form-group' class='form-group'>
                 <input type='text' id='form-control' class='form-control' placeholder='Sök i databasen..' onfocus="this.placeholder =''" onblur="this.placeholder = 'Sök i databasen'">
                 <span class='glyphicon glyphicon-search'></span>
+                
               </div>
-              <button type='submit' class='btn btn-default'>Sök</button>
+              <button type='submit' id='btn-default' class='btn btn-default'>Sök</button>
 
             </form>
             <ul class="nav navbar-nav navbar-right">
