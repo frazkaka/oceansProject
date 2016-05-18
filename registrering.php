@@ -136,7 +136,7 @@
       <input type="password" class="form-control" id="pwd" placeholder="Fyll i lösenord">
     </div>
     <div class="checkbox">
-  
+
       <label><input type="checkbox"> Jag accepterar <a href ="registrering.php" onclick="return conditions();">användarvillkoren</href>.</label>
     </div>
     <button type="submit" class="btn btn-default">Registrera</button>
