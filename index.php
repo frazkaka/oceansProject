@@ -25,7 +25,7 @@
               <span class="icon-bar"></span>
 
             </button>
-           <img id='logo' src='/img/logan.png'>
+           <img id='logo' src='img/logan.png'>
 
       <!--     <a class="navbar-brand" href="index.php">PluggTugg</a> -->
           </div>
