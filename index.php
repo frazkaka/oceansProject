@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Ocean goes fruitbasket</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
 
 
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -16,12 +16,12 @@
     <header>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
+          <!-- After collapse -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
-              <span class="icon-bar"></span>        
+              <span class="icon-bar"></span>
               <span class="icon-bar"></span>
 
             </button>
