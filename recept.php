@@ -22,7 +22,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <img id='logo' src='/img/logan.png'>
+            <img id='logo' src='img/logan.png'>
 
        <!--     <a class="navbar-brand" href="index.php">PluggTugg</a> -->
           </div>
@@ -65,20 +65,55 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Recept
-                    <small>Kött</small>
+                    <small>Alla</small>
                 </h1>
             </div>
         </div>
-          <div class="col-lg-12" class="collapse navbar-collapse" id="navbar-brand-centered">
-            <ul class="nav navbar-nav" id="links">
-              <li class="active"><a href="#">Kött</a></li>
-              <li><a href="#">Fågel</a></li>
-              <li><a href="#">Fisk</a></li>
-              <li><a href="#">Vegetariskt</a></li>
-              <li><a href="#">Pasta</a></li>
-            </ul>
-          </div>
           <!-- /.navbar-collapse -->
+        <div class="col-lg-12" class="collapse navbar-collapse" id="categories">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Alla</a></li>
+            <li><a href="#">Kött</a></li>
+            <li><a href="#">Fågel</a></li>
+            <li><a href="#">Fisk/Skaldjur</a></li>
+            <li><a href="#">Pasta</a></li>
+            <li><a href="#">Soppa/pajer</a></li>
+            <li><a href="#">Vegetariskt</a></li>
+            <li><a href="#">Mackor/wraps</a></li>
+            <li><a href="#">Pannkakor/omelett</a></li>
+            <li><a href="#">Mellanmål</a></li>
+            <li><a href="#">Övrigt</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <div class="btn-group btn-group-sm col-md-4" data-toggle="buttons" id="price">
+          <h5>Filtrera pris</h5>
+          <label class="btn btn-default">
+            <input type="checkbox" checked> 1-5 kr
+          </label>
+          <label class="btn btn-default"> 6-10 kr
+            <input type="checkbox">
+          </label>
+          <label class="btn btn-default"> 11-15 kr
+            <input type="checkbox">
+          </label>
+          <label class="btn btn-default"> 16-20 kr
+            <input type="checkbox">
+          </label>
+          <label class="btn btn-default"> 21-30 kr
+            <input type="checkbox">
+          </label>
+        </div>
+          <div class="col-md-8" id="custom-search-input">
+                 <div class="input-group col-md-8">
+                     <input type="text" class="  search-query form-control" placeholder="Search" />
+                     <span class="input-group-btn">
+                         <button class="btn btn-warning" type="button">
+                             <span class=" glyphicon glyphicon-search"></span>
+                         </button>
+                     </span>
+                 </div>
+            </div>
         <!-- /.row -->
         <!-- Projects Row -->
         <div class="row">
