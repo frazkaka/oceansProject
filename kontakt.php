@@ -77,18 +77,11 @@
         oceansProject@gpros.com
       </div>
     </div>
-    <div id='faq'>
-    <ul>FAQ - vanligaste frågorna
-      <li>- Fråga 1</li>
-      <li>- SVAR</li><br>
-      <li>- Fråga 2</li>
-      <li>- SVAR</li><br>
-      <li>- Fråga 3</li>
-      <li>- SVAR</li><br>
-      <li>- Fråga 4</li>
-      <li>- SVAR</li><br>
-      <li>- Fråga 5</li>
-      <li>- SVAR</li><br>
+    <div id='messageToSite'>
+      <form name='messageContact' action='post' method='#'>
+        <textarea name='textareaContact'></textarea>
+      </form>
+      <button type='button' id='contactButton'></button>
 
     </div>
     <!-- ----------------------------------------------- -->

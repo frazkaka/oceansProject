@@ -9,6 +9,7 @@
 .navbar-default {
   background-color: #FFB441;
 }
+
 ul li a {
   font-family: Verdana;
 }
@@ -155,3 +156,17 @@ This is mid-collapse
     }
 }
 */
+.container-fluid #bs-example-navbar-collapse-1 #active a:hover {
+  text-decoration: none;
+  font-family: Verdana;
+  color: white;
+  font-weight: bold;
+}
+.container-fluid .navbar-default {
+  background-color: #FF5500;
+  color: blue;
+}
+.container-fluid .navbar-default a:hover {
+  background-color: #FF5500;
+  color: blue;
+}

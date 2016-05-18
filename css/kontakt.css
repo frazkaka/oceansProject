@@ -24,10 +24,6 @@
 #contact-email {
   padding: 5px;
 }
-#faq {
-  padding: 5px;
-}
-
 ul li a {
   font-family: Verdana;
 }
@@ -39,4 +35,8 @@ li {
 }
 .glyphicon-earphone {
   color: #FFB441;
+}
+#contactButton {
+  background-color: #FFB441;
+  width: 30px;
 }
