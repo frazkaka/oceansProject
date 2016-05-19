@@ -7,5 +7,6 @@ echo html_nav();
         <!-- ----------------------------------------------- -->
         DETTA ÄR LOGIN SIDAN
 
-  </body>
-</html>
+<?php
+echo footer();
+?>
