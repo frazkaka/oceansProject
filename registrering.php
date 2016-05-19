@@ -78,7 +78,7 @@ include "html-elements/html_nav.php";?>
     </div>
     <div class="checkbox">
 
-      <label><input type="checkbox"> Jag accepterar <a href ="registrering.php" onclick="return conditions();">användarvillkoren</href>.</label>
+      <label><input type="checkbox"> Jag accepterar <a href ="registrering.php" onclick="return conditions();">användarvillkoren</href></a>.</label>
     </div>
     <button type="submit" class="btn btn-default">Registrera</button>
   </form>
