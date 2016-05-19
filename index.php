@@ -7,12 +7,13 @@ include_once "html_header.php";
 echo html_head();
 echo html_nav();
 
-echo "<body>
+echo '
+<div id="container">
+<div id="leftContainer">Top 10</div>
+<div id="rightContainer">Flöde av bilder</div>
 
-<div id='container'>
-<div id='leftContainer'>Top 10</div>
-<div id='rightContainer'>Flöde av bilder</div>
+</div>';
 
-</div></body></html>";
+echo footer();
 
 ?>

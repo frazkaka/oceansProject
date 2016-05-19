@@ -17,7 +17,7 @@ return '<!DOCTYPE HTML>
 
 
 function html_nav(){
-return '<header>
+return '<body><div id="page"> <div id="header"><header>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- After collapse -->
@@ -66,8 +66,17 @@ return '<header>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-    </header>';
+   
+    </header>
+    </div>
+    <div id="content">';
               
               }
+
+function footer(){
+
+    return '</div><div id="footer" class="panel-footer">PluggTugg - Utvecklad av Mikael Fransson, Andreas Englund och Antonia Miocic</div></div></body></html>';
+}
+
 
               ?>

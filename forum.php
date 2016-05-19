@@ -101,6 +101,6 @@ echo html_nav();
     </tbody>
   </table>
 </div>
-</div>
-  </body>
-</html>
+<?php
+echo footer();
+?>
