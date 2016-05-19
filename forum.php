@@ -1,7 +1,5 @@
-<html>
-  <?php include "html-elements/html_head.php";?>
-  <body>
-    <?php include "html-elements/html_nav.php";?>
+
+  <?php include "html-elements/html_head.php"; include "html-elements/html_nav.php";?>
 
      <div class="container" style="margin-top: 35px">
       <div class="page-header page-heading">
@@ -99,6 +97,4 @@
         </tbody>
       </table>
     </div>
-    </div>
-  </body>
-</html>
+     <?php include"html-elements/html_footer.php";?>

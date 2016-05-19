@@ -1,12 +1,6 @@
-<?php
-include_once "html_header.php";
-
-echo html_head();
-echo html_nav();
-?>
+    <?php include "html-elements/html_head.php";
+include "html-elements/html_nav.php";?>
         <!-- ----------------------------------------------- -->
         DETTA ÄR LOGIN SIDAN
 
-<?php
-echo footer();
-?>
+<?php include"html-elements/html_footer.php";?>
