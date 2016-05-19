@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <?php include "html-elements/html_head.php";?>
-  <body>
-    <?php include "html-elements/html_nav.php";?>
+    <?php include "html-elements/html_head.php";
+include "html-elements/html_nav.php";?>
     <!-- Page Content -->
     <div class="container">
 
@@ -207,6 +204,4 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-  </body>
-</html>
+<?php include"html-elements/html_footer.php";?>

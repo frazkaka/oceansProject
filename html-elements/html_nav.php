@@ -1,4 +1,4 @@
-  <header>
+  <body><div id="page"> <div id="header"><header>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- After collapse -->
@@ -47,6 +47,8 @@
         </div><!-- /.container-fluid -->
       </nav>
     </header>
+    </div>
+    <div id="content">
     
     <?php
     function echoActiveClass($navItemUri)

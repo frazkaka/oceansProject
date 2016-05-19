@@ -1,9 +1,5 @@
-<?php
-include_once "html_header.php";
-
-echo html_head();
-echo html_nav();
-?>
+<?php include "html-elements/html_head.php";
+include "html-elements/html_nav.php";?>
 
       <div class="container">
   <h2>Registrera dig</h2>
@@ -94,6 +90,4 @@ myWindow.focus();
 }
 </script>
 </div>
-
-  </body>
-</html>
+ <?php include"html-elements/html_footer.php";?>
