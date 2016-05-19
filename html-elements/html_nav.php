@@ -1,23 +1,4 @@
-<?php
-
-
-function html_head($title = 'Projekt'){
-return '<!DOCTYPE HTML>
-<html>
-  <head>
-    <meta charset="utf-8"> 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/index.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- </head> ';}
-
-
-
-
-function html_nav(){
-return '<header>
+  <header>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- After collapse -->
@@ -37,18 +18,17 @@ return '<header>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li id="active" class="active"><a href="index.php">Hem<span class="sr-only">(current)</span></a></li>
-              <li><a href="recept.php">Recept</a></li>
-              <li><a href="forum.php">PluggTugg Forum</a></li>
+              <!-- <li id="active" class="active"><a href="index.php">Hem<span class="sr-only">(current)</span></a></li>      -->
+              <li <?php echoActiveClass("index") ?> ><a href="index.php">Hem</a></li>
+              <li <?php echoActiveClass("recept") ?> ><a href="recept.php">Recept</a></li>
+              <li <?php echoActiveClass("forum") ?> ><a href="forum.php">Forum</a></li>
             </ul>
             <form class="navbar-form navbar-left" role="search">
               <div id="form-group" class="form-group">
-                <input type="text" id="form-control" class="form-control" placeholder="Sök i databasen.."onfocus="this.placeholder =" "" onblur="this.placeholder = "Sök i databasen">
+                <input type="text" id="form-control" class="form-control" placeholder="Sök i databasen.."onfocus="this.placeholder = "" onblur="this.placeholder ="Sök i databasern">
                 <span class="glyphicon glyphicon-search"></span>
-
               </div>
               <button type="submit" id="btn-default" class="btn btn-default">Sök</button>
-
             </form>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="kontakt.php">Kontakta oss</a></li>
@@ -66,8 +46,14 @@ return '<header>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-    </header>';
-              
-              }
+    </header>
+    
+    <?php
+    function echoActiveClass($navItemUri)
+    {
+        $current_file_name = basename($_SERVER['PHP_SELF'], ".php");
 
-              ?>
+        if ($current_file_name == $navItemUri)
+            echo "class='active' id='active'";
+    }
+    ?>
