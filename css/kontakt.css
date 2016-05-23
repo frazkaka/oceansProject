@@ -24,8 +24,17 @@
 #contact-email {
   padding: 5px;
 }
-#faq {
-  padding: 5px;
+#contactTextarea {
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  margin: 10px;
+}
+textarea {
+  height: 500px;
+  width: 300px;
+  padding: 0;
+  margin: 0;
 }
 
 ul li a {
