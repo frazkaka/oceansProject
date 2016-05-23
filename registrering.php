@@ -7,7 +7,7 @@ include "html-elements/html_nav.php";?>
   <form role="form">
       <div class="form-group">
       <label class="sr-only" for="namn">Namn:</label>
-      <input type="text" class="form-control" id="namn" placeholder="Fyll i namn">
+      <input type="text" class="form-control" id="username" placeholder="Välj användarnamn">
     </div>
       <div class="form-group">
   <label for="sel1">Välj ditt lärosäte:</label>
