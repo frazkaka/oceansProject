@@ -1,9 +1,9 @@
-<?php 
+<?php
 include "html-elements/html_head.php";
 include "html-elements/html_nav.php";?>
         <!-- ----------------------------------------------- -->
 
-<h2>Logga in</h2>       
+<h2>Logga in</h2>
 <form role="form">
     <div class="form-group">
       <label class="sr-only" for="email">Email:</label>
@@ -13,9 +13,9 @@ include "html-elements/html_nav.php";?>
       <label class="sr-only" for="pwd">Password:</label>
       <input type="password" class="form-control" id="pwd" placeholder="Fyll i lösenord">
     </div>
-    <button type="submit" class="btn btn-default">Registrera</button>
+    <button type="submit" class="btn btn-default">LOGGA IN</button>
   </form>
-    
- 
+
+
 
 <?php include"html-elements/html_footer.php";?>

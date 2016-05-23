@@ -49,7 +49,7 @@
     </header>
     </div>
     <div id="content">
-    
+
     <?php
     function echoActiveClass($navItemUri)
     {
