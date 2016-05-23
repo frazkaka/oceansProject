@@ -51,15 +51,15 @@ include "html-elements/html_nav.php";?>
           <div class="btn-group btn-group-sm col-lg-3" data-toggle="buttons" id="price">
             <h5>Tid (min)</h5>
             <label class="btn btn-default">
-              <input type="checkbox" checked> 0-10
+              <input type="checkbox" checked> 1-10
             </label>
             <label class="btn btn-default"> 11-20
               <input type="checkbox">
             </label>
-            <label class="btn btn-default"> 20-40
+            <label class="btn btn-default"> 21-30
               <input type="checkbox">
             </label>
-            <label class="btn btn-default"> 40 +
+            <label class="btn btn-default"> 31 +
               <input type="checkbox">
             </label>
           </div>
