@@ -12,7 +12,7 @@ include "html-elements/html_nav.php";?>
             </div>
         </div>
           <!-- navbar-collapse -->
-        <div class="col-lg-12" class="collapse navbar-collapse" id="categories">
+        <div class="col-lg-12 bordered" class="collapse navbar-collapse" id="categories">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Alla</a></li>
             <li><a href="#">Kött</a></li>
@@ -28,35 +28,53 @@ include "html-elements/html_nav.php";?>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
-        <div class="btn-group btn-group-sm col-md-4" data-toggle="buttons" id="price">
-          <h5>Filtrera pris</h5>
-          <label class="btn btn-default">
-            <input type="checkbox" checked> 1-5 kr
-          </label>
-          <label class="btn btn-default"> 6-10 kr
-            <input type="checkbox">
-          </label>
-          <label class="btn btn-default"> 11-15 kr
-            <input type="checkbox">
-          </label>
-          <label class="btn btn-default"> 16-20 kr
-            <input type="checkbox">
-          </label>
-          <label class="btn btn-default"> 21-30 kr
-            <input type="checkbox">
-          </label>
-        </div>
-          <div class="col-md-8" id="custom-search-input">
-                 <div class="input-group col-md-8">
-                     <input type="text" class="  search-query form-control" placeholder="Search" />
+        <!-- searchbox -->
+        <div class="row" id="searchfilter">
+          <div class="btn-group btn-group-sm col-lg-3" data-toggle="buttons" id="price">
+            <h5>Pris (kr)</h5>
+            <label class="btn btn-default">
+              <input type="checkbox" checked> 1-5
+            </label>
+            <label class="btn btn-default"> 6-10
+              <input type="checkbox">
+            </label>
+            <label class="btn btn-default"> 11-15
+              <input type="checkbox">
+            </label>
+            <label class="btn btn-default"> 16-20
+              <input type="checkbox">
+            </label>
+            <label class="btn btn-default"> 21-30
+              <input type="checkbox">
+            </label>
+          </div>
+          <div class="btn-group btn-group-sm col-lg-3" data-toggle="buttons" id="price">
+            <h5>Tid (min)</h5>
+            <label class="btn btn-default">
+              <input type="checkbox" checked> 1-10
+            </label>
+            <label class="btn btn-default"> 11-20
+              <input type="checkbox">
+            </label>
+            <label class="btn btn-default"> 21-30
+              <input type="checkbox">
+            </label>
+            <label class="btn btn-default"> 31 +
+              <input type="checkbox">
+            </label>
+          </div>
+          <div class="col-lg-6" id="custom-search-input">
+                 <div class="input-group col-lg-14">
+                     <input type="text" class="form-control input-lg" placeholder="Sök recept" />
                      <span class="input-group-btn">
-                         <button class="btn btn-warning" type="button">
+                         <button class="btn btn-warning btn-lg" type="button">
                              <span class=" glyphicon glyphicon-search"></span>
                          </button>
                      </span>
                  </div>
-            </div>
-        <!-- /.row -->
+          </div>
+        </div>
+        <!-- /.searchbox -->
         <!-- Projects Row -->
         <div class="row">
             <div class="col-md-4 portfolio-item">

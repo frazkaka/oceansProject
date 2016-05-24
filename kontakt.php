@@ -19,18 +19,8 @@ include "html-elements/html_nav.php";?>
         oceansProject@gpros.com
       </div>
     </div>
-    <div id='faq'>
-    <ul>FAQ - vanligaste frågorna
-      <li>- Fråga 1</li>
-      <li>- SVAR</li><br>
-      <li>- Fråga 2</li>
-      <li>- SVAR</li><br>
-      <li>- Fråga 3</li>
-      <li>- SVAR</li><br>
-      <li>- Fråga 4</li>
-      <li>- SVAR</li><br>
-      <li>- Fråga 5</li>
-      <li>- SVAR</li><br>
+    <div id='contactTextarea'>
+    <input type='textarea' placerholder='Skicka meddelande direkt till oss'></textarea>
 
     </div>
     <!-- ----------------------------------------------- -->

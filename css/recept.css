@@ -1,22 +1,25 @@
 #categories{
-    background-color: #d9d9d9;
-    margin-top: -20px;
-    margin-bottom: 10px;
+    background-color:  #FFB441;
+    border: 1px solid orange;
+    border-radius: 7px;
 }
 #categories a{
-  color: #1a1a1a;
+  color: black;
 }
 #custom-search-input{
-  margin-top: 2%;
-  margin-bottom: 1%;
+  margin-top: 20px;
 }
+
 .container{
-    margin-top: 10px;
+
 }
 #price{
 
 }
+#searchfilter{
+  margin-bottom: 2%;
+  margin-right: 2%;
+}
 button{
- border
-  border-color: red;
+
 }
