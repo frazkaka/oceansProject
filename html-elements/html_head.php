@@ -1,3 +1,7 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,7 +23,7 @@
           echo $filenameCSS;
         }
     }
-    
+
     function echoCurrentJS($filename)
     {
         $filenameJS= ("js/".$filename.".js");
