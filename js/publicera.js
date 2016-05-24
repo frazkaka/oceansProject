@@ -29,37 +29,6 @@ $(function()
 	});
 });
 
-//Val av ingrediens
-$(function()
-{
-    var counter =0;
-    $(document).on('click', '.btn-add2', function(e)
-    {
-
-      if(counter>15)
-      {
-        return false;
-      }
-        e.preventDefault();
-        var controlForm = $('.controls form:first'),
-            currentEntry = $(this).parents('.entry:first'),
-            newEntry = $(currentEntry.clone()).appendTo(controlForm);
-
-        newEntry.find('input').val('');
-        controlForm.find('.entry:not(:last) .btn-add2')
-            .removeClass('btn-add2').addClass('btn-remove2')
-            .removeClass('btn-success').addClass('btn-danger')
-            .html('<span class="glyphicon glyphicon-minus"></span>');
-            counter++;
-    }).on('click', '.btn-remove2', function(e)
-    {
-		$(this).parents('.entry:first').remove();
-    counter=counter - 1;
-		e.preventDefault();
-		return false;
-	});
-});
-
 //Ladda upp bild
 $(document).ready( function() {
     	$(document).on('change', '.btn-file :file', function() {
