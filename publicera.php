@@ -1,15 +1,14 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
-session_start();
+
+include 'html-elements/html_head.php';
+include 'html-elements/html_nav.php';
+
 if(!isset($_SESSION["username"])){
   echo '<script type="text/javascript">alert("Du måste vara inloggad för att se den här sidan."); </script>';
   header("refresh:0; url=login.php");
   exit();
-}
+}?>
 
-include 'html-elements/html_head.php';
-include 'html-elements/html_nav.php';?>
 <!-- Här ska det vara form men kategori-add funktionen fungerar inte då... -->
 <div class="container">
   <div class="row">

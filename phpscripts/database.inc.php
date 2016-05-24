@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', 'root','pluggtugg');
+$conn = mysqli_connect('localhost', 'root', '','pluggtugg');
 
 if (!$conn){
   die("the connection failed".mysqli_connect_errno());
