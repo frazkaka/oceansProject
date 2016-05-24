@@ -1,4 +1,7 @@
-  <body><div id='page'> <div id='header'><header>
+<?php session_start(); ?>
+<body>
+  <div id='page'>
+    <div id='header'><header>
       <nav class='navbar navbar-default'>
         <div class='container-fluid'>
           <!-- After collapse -->
@@ -10,9 +13,9 @@
               <span class='icon-bar'></span>
 
             </button>
-           <img id='logo' src='img/logan.png'>
+            <img id='logo' src='img/logan.png'>
 
-      <!--     <a class='navbar-brand' href='index.php'>PluggTugg</a> -->
+            <!--     <a class='navbar-brand' href='index.php'>PluggTugg</a> -->
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,21 +34,13 @@
               <button type='submit' id='btn-default' class='btn btn-default'>Sök</button>
             </form>
             <ul class='nav navbar-nav navbar-right'>
-              <?php
-              if (checkLoggedIn())
-              { echo "<li><a href='../phpscripts/logout.inc.php'>LOGGA UT</a></li>";}
-              else{
-                echo "<li><a href='kontakt.php'>EJ INLOGGAD</a></li>";
-              }
-                ?>
+              <?php if (LoggedIn()) { echo "<li><a href='../publicera.php'>Publicera recept</a></li>"; } ?>
+              <li><a href='kontakt.php'>Kontakt</a></li>
               <li class='dropdown'>
-                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Logga in<span class='caret'></span></a>
+                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><?php insertHTML(returnSessionVar(),'Logga in'); ?><span class='caret'></span></a>
                 <ul class='dropdown-menu'>
                   <li><a href='login.php'>Logga in här</a></li>
                   <li><a href='registrering.php'>Registrera ett konto</a></li>
-                  <li><a href='#'>Something else here</a></li>
-                  <li role='separator' class='divider'></li>
-                  <li><a href='#'>Separated link</a></li>
                 </ul>
               </li>
             </ul>
@@ -53,24 +48,41 @@
         </div><!-- /.container-fluid -->
       </nav>
     </header>
-    </div>
-    <div id='content'>
+  </div>
+  <div id='content'>
 
     <?php
     function echoActiveClass($navItemUri)
     {
-        $current_file_name = basename($_SERVER['PHP_SELF'], ".php");
+      $current_file_name = basename($_SERVER['PHP_SELF'], ".php");
 
-        if ($current_file_name == $navItemUri)
-            echo "class='active' id='active'";
+      if ($current_file_name == $navItemUri)
+      echo "class='active' id='active'";
     }
-    ?>
-    <?php
-    function checkLoggedIn(){
+
+    function LoggedIn(){
       if (isset($_SESSION["username"])){
-        return true ;
+        return true;
       }
       else {
         return false;
       }
     }
+
+    function insertHTML($loggedIn, $loggedOut){
+      if(LoggedIn()){
+        echo $loggedIn;
+      }
+      else{
+        echo $loggedOut;
+      }
+    }
+    function returnSessionVar(){
+      if(LoggedIn()){
+        return $_SESSION['username'];
+      }
+      else{
+        return "";
+      }
+    }
+    ?>
