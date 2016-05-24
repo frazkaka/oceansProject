@@ -1,6 +1,9 @@
-
-    <?php include "html-elements/html_head.php";
-include "html-elements/html_nav.php";?>
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+session_start();
+include 'html-elements/html_head.php';
+include 'html-elements/html_nav.php';?>
 
     <div class='contact-container'>
       <div ='contactDiv'>
@@ -9,13 +12,13 @@ include "html-elements/html_nav.php";?>
       <div id='telefonDiv'>
         <span class='glyphicon glyphicon-earphone'></span>
       </div>
-      <div id="contact-phone">
+      <div id='contact-phone'>
         0765822826
       </div>
       <div id='emailDiv'>
         <span class='glyphicon glyphicon-envelope'></span>
       </div>
-      <div id="contact-email">
+      <div id='contact-email'>
         oceansProject@gpros.com
       </div>
     </div>
@@ -24,4 +27,4 @@ include "html-elements/html_nav.php";?>
 
     </div>
     <!-- ----------------------------------------------- -->
-  <?php include"html-elements/html_footer.php";?>
+  <?php include'html-elements/html_footer.php';?>

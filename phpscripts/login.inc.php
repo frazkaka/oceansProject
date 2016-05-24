@@ -5,11 +5,11 @@ session_start();
 include 'database.inc.php';
 
 //Input data från formuläret
-$useruserEmail = mysqli_real_escape_string($conn, $_POST['userEmail']);
+$userEmail = mysqli_real_escape_string($conn, $_POST['userEmail']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
 
 //Hämtar tabelldata från databasen
-$sql="SELECT * FROM user WHERE userEmail='$userEmail'";
+$sql= "SELECT * FROM user WHERE userEmail='$userEmail'";
 $result = $conn->query($sql) or die($conn->error);
 
 //Om e-mail inte finns med. Gå tillbaka till inloggningssidan.
@@ -20,7 +20,8 @@ if($result->num_rows < 1) {
 }
 
 //Data för att jämföra hashat lösenord med databasen.
-$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+//$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+$row = $result->fetch_array(MYSQLI_ASSOC);
 $salt = $row['salt'];
 $inputHash = sha1($salt.$password);
 $checkPass = $row['password'];
@@ -30,14 +31,14 @@ if ($inputHash == $checkPass) {
  $username = $row['username'];
  $_SESSION['username']=$username;
  $_SESSION['userEmail']=$userEmail;
- $_SESSION['timestamp']=$row['timestamp'];
- alert("Välkommen $username!");
- header( "refresh:0;url=comments.php" );
+ // $_SESSION['timestamp']=$row['timestamp'];
+ header( "refresh:2;url=../index.php");
+ echo "RÄTT SOM FASIKEN";
 }
 else{
-	alert("Fel lösenord");
-	header( "refresh:0;url=login.php" );
-	return false;
+ header( "refresh:2;url=../login.php");
+ echo "FEL NÅTT";
+ return false;
 }
 
 mysqli_close($conn);
