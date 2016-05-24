@@ -39,8 +39,8 @@
               <li class='dropdown'>
                 <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><?php insertHTML(returnSessionVar(),'Logga in'); ?><span class='caret'></span></a>
                 <ul class='dropdown-menu'>
-                  <li><a href='login.php'>Logga in här</a></li>
-                  <li><a href='registrering.php'>Registrera ett konto</a></li>
+                  <li><a href=<?php insertHTML('profil.php','login.php'); ?>><?php insertHTML('Profil','Logga in'); ?></a></li>
+                  <li><a href=<?php insertHTML('phpscripts/logout.inc.php','registrering.php'); ?>><?php insertHTML('Logga ut','Registrera ett konto'); ?></a></li>
                 </ul>
               </li>
             </ul>

@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
+session_start();
 include 'database.inc.php';
 
 //Input data från formuläret
@@ -32,7 +33,7 @@ if ($inputHash == $checkPass) {
  $_SESSION['userEmail']=$userEmail;
  // $_SESSION['timestamp']=$row['timestamp'];
  header( "refresh:2;url=../index.php");
- echo "RÄTT SOM FASIKEN";
+ echo "RÄTT SOM FASIKEN, BRA " . $_SESSION['username'].".";
 }
 else{
  header( "refresh:2;url=../login.php");

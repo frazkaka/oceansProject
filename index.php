@@ -10,7 +10,7 @@ include 'html-elements/html_nav.php';
     </div>
     <?php
     if (isset($_SESSION['username'])){
-      echo "Welcome, '{$_SESSION['username']}'";
+      echo "Welcome, ". $_SESSION['username'];
     }else {
       echo "Du är inte inloggad";
     }
