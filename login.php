@@ -1,10 +1,10 @@
 <?php
 include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';?>
-        
+
 
 <h2>Logga in</h2>
-<form method='post' action='/phpscripts/login.inc.php' role='form'>
+<form method='post' action='phpscripts/login.inc.php' role='form'>
     <div class='form-group'>
       <label class='sr-only' for='email'>Email:</label>
       <input type='email' name='userEmail' class='form-control' id='email' placeholder='Fyll i email'>

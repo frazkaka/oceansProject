@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
 include 'database.inc.php';
 
 //Input data från formuläret
