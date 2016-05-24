@@ -1,13 +1,10 @@
-<<<<<<< HEAD
-   
-<?php include "html-elements/html_head.php";
-=======
+
+
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 session_start();
 include "html-elements/html_head.php";
->>>>>>> refs/remotes/origin/master
 include "html-elements/html_nav.php";
 include "phpscripts/database.inc.php";
 
