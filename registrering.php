@@ -81,7 +81,7 @@ include 'html-elements/html_nav.php';?>
 
       <label><input type='checkbox'> Jag accepterar <a href ='registrering.php' onclick='return conditions();'>användarvillkoren</href></a>.</label>
     </div>
-    <button type='submit' name='regSubmit' class='btn btn-default'>Registrera</button>
+    <input type='submit' name='regSubmit' value='Registrera' class='btn btn-default'>
   </form>
   <script>
   function conditions() {
