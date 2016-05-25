@@ -43,13 +43,13 @@ if(!isset($_SESSION['username'])){
               <label>Typ av rätt<label>
             </div>
             <label class='btn btn-default'>
-              <input type='radio' name='dishtype' value='förrätt'> Förrätt
+              <input type='radio' name='dishType' value='förrätt'> Förrätt
             </label>
             <label class='btn btn-default'> Varmrätt
-              <input type='radio' name='dishtype' value='varmrätt'>
+              <input type='radio' name='dishType' value='varmrätt'>
             </label>
             <label class='btn btn-default'> Efterrätt
-              <input type='radio' name='dishtype' value='efterrätt'>
+              <input type='radio' name='dishType' value='efterrätt'>
             </label>
         </fieldset>
         <fieldset class='form-group'>
@@ -114,7 +114,6 @@ if(!isset($_SESSION['username'])){
                           Bläddra… <input type='file' id='imgInp'>
                       </span>
                   </span>
-                  <input type='text' class='form-control' readonly>
               </div>
               <img id='img-upload'/>
           </div>
@@ -122,6 +121,13 @@ if(!isset($_SESSION['username'])){
         <input type='submit' class='btn btn-primary' name='save-recipe-button' value='Publicera recept'>
         <input type='button' class='btn btn-danger'  name='delete-recipe-button' value='Avbryt'>
       </form>
+      <div class="fileuploadholder">
+        <form action="upload.php" method="post" enctype="multipart/form-data" name="FileUploadForm" id="FileUploadForm">
+          <label for="UploadFileField"></label>
+          <input type="file" name="UploadFileField" id="UploadFileField" />
+          <input type="submit" name="UploadButton" id="UploadButton" value="Upload" />
+        </form>
+      </div>
     </div>
   </div>
 </div>
