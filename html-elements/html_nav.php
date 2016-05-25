@@ -34,7 +34,7 @@
               <button type='submit' id='btn-default' class='btn btn-default'>Sök</button>
             </form>
             <ul class='nav navbar-nav navbar-right'>
-              <?php if (LoggedIn()) { echo "<li><a href='../publicera.php'>Publicera recept</a></li>"; } ?>
+              <?php if (LoggedIn()) { echo "<li><a href='publicera.php'>Publicera recept</a></li>"; } ?>
               <li><a href='kontakt.php'>Kontakt</a></li>
               <li class='dropdown'>
                 <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><?php insertHTML(returnSessVar('username'),'Logga in'); ?><span class='caret'></span></a>
