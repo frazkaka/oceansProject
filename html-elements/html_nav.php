@@ -37,7 +37,7 @@
               <?php if (LoggedIn()) { echo "<li><a href='../publicera.php'>Publicera recept</a></li>"; } ?>
               <li><a href='kontakt.php'>Kontakt</a></li>
               <li class='dropdown'>
-                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><?php insertHTML(returnSessionVar(),'Logga in'); ?><span class='caret'></span></a>
+                <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><?php insertHTML(returnSessVar('username'),'Logga in'); ?><span class='caret'></span></a>
                 <ul class='dropdown-menu'>
                   <li><a href=<?php insertHTML('profil.php','login.php'); ?>><?php insertHTML('Profil','Logga in'); ?></a></li>
                   <li><a href=<?php insertHTML('phpscripts/logout.inc.php','registrering.php'); ?>><?php insertHTML('Logga ut','Registrera ett konto'); ?></a></li>
@@ -51,7 +51,9 @@
   </div>
   <div id='content'>
 
+
     <?php
+    //Gör en php-länk till aktiv om man är inne på den sidan.
     function echoActiveClass($navItemUri)
     {
       $current_file_name = basename($_SERVER['PHP_SELF'], ".php");
@@ -60,6 +62,7 @@
       echo "class='active' id='active'";
     }
 
+    //Kollar om man är inloggad
     function LoggedIn(){
       if (isset($_SESSION["username"])){
         return true;
@@ -69,6 +72,7 @@
       }
     }
 
+    //Skriver ut en av två givna strängar baserat på om man är inloggad eller ej.
     function insertHTML($loggedIn, $loggedOut){
       if(LoggedIn()){
         echo $loggedIn;
@@ -77,9 +81,11 @@
         echo $loggedOut;
       }
     }
-    function returnSessionVar(){
+
+    //Returnerar en given sträng som sessionsvariabel om man är inloggad, annars en tom sträng.
+    function returnSessVar($sessVar){
       if(LoggedIn()){
-        return $_SESSION['username'];
+        return $_SESSION[$sessVar];
       }
       else{
         return "";

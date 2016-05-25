@@ -9,26 +9,33 @@ ini_set('display_errors', 'on');
       <title>Ocean goes fruitbasket</title>
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
       <link rel="stylesheet" href="css/main.css">
-      <link rel="stylesheet" href="<?php echoCurrentCSS(ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME))); ?>">
+      <link rel="stylesheet" href="<?php echoCurrentCSS(); ?>">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="<?php echoCurrentJS(ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME))); ?>"></script>
+      <script type="text/javascript" src="<?php echoCurrentJS(); ?>"></script>
     </head>
 
     <?php
-    function echoCurrentCSS($filename)
+
+    function returnCurrentFile(){
+        return ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME));
+    }
+
+    function echoCurrentCSS()
     {
-        $filenameCSS= ("css/".$filename.".css");
+        $filenameCSS= ("css/".returnCurrentFile().".css");
         if (file_exists($filenameCSS)){
           echo $filenameCSS;
         }
     }
 
+
     function echoCurrentJS($filename)
     {
-        $filenameJS= ("js/".$filename.".js");
+        $filenameJS= ("js/".returnCurrentFile().".js");
         if (file_exists($filenameJS)){
           echo $filenameJS;
         }
     }
+
     ?>
