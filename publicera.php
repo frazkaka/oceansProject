@@ -14,114 +14,95 @@ if(!isset($_SESSION['username'])){
   <div class='row'>
     <h2>Skapa ett recept!</h2>
     <div class='col-xs-12 well'>
-      <form>
+      <form method='POST' role='form' action='phpscripts/publicera.inc.php'>
         <fieldset class='form-group'>
           <label for='recipetitle'>Titel</label>
-          <input class='form-control' value='text'id='recipetitle' rows='1' maxlength='30'>
+          <input class='form-control' id='recipetitle' rows='1' name='title' maxlength='30'>
           <small class='text-muted'>Ge ditt recept ett kort och beskrivande namn. Börja med stor bokstav. (Max 30 tecken)</small>
         </fieldset>
-      </form>
-        <fieldset>
-          <div class='container'>
-            <div class='row'>
-              <div class='control-group' id='fields'>
-                <label class='control-label' for='field1'>Kategori (Max 3 st)</label>
-                <div class='controls'>
-                  <form role='form' method='POST' action='phpscripts/publicera.inc.php' autocomplete='off'>
-                    <div class='entry input-group col-xs-3'>
-                      <select class='form-control' name='fields[]'>
-                          <option value='kött'>Kött</option>
-                          <option value='fågel'>Fågel</option>
-                          <option value='fisk/skaldjur'>Fisk/skaldjur</option>
-                          <option value='pasta'>Pasta</option>
-                          <option value='soppa/pajer'>Soppa/pajer</option>
-                          <option value='vegetariskt'>Vegetariskt</option>
-                          <option value='mackor/wraps'>Mackor/wraps</option>
-                          <option value='pannkakor/omelett'>Pannkakor/omelett</option>
-                          <option value='mellanmål'>Mellanmål</option>
-                          <option value='övrigt'>Övrigt</option>
-                      </select>
-                      <span class='input-group-btn'>
-                        <button class='btn btn-success btn-add' type='button'>
-                          <span class='glyphicon glyphicon-plus'></span>
-                        </button>
-                      </span>
-                    </div>
-                  </form>
-                  <small class='text-muted'>Tryck på <span class='glyphicon glyphicon-plus gs'></span> för att lägga till en ny ingrediens.</small>
-                </div>
-                <br>
-              </div>
-            </div>
+        <fieldset class='form-group'>
+          <div class='row col-sm-3'>
+          <label>Kategori</label>
+            <select class='form-control' name='category'>
+              <option value='kött'>Kött</option>
+              <option value='fågel'>Fågel</option>
+              <option value='fisk/skaldjur'>Fisk/skaldjur</option>
+              <option value='pasta'>Pasta</option>
+              <option value='soppa/pajer'>Soppa/pajer</option>
+              <option value='vegetariskt'>Vegetariskt</option>
+              <option value='mackor/wraps'>Mackor/wraps</option>
+              <option value='pannkakor/omelett'>Pannkakor/omelett</option>
+              <option value='mellanmål'>Mellanmål</option>
+              <option value='övrigt'>Övrigt</option>
+            </select
           </div>
         </fieldset>
-        <form>
         <fieldset class='form-group'>
           <div class='btn-group btn-group-l col-lg-12' data-toggle='buttons' id='radio'>
             <div>
-              <label for='price'>Typ av rätt<label>
+              <label>Typ av rätt<label>
             </div>
             <label class='btn btn-default'>
-              <input type='radio' value='förrätt'> Förrätt
+              <input type='radio' name='dishtype' value='förrätt'> Förrätt
             </label>
             <label class='btn btn-default'> Varmrätt
-              <input type='radio' value='varmrätt'>
+              <input type='radio' name='dishtype' value='varmrätt'>
             </label>
             <label class='btn btn-default'> Efterrätt
-              <input type='radio' value='efterrätt'>
+              <input type='radio' name='dishtype' value='efterrätt'>
             </label>
         </fieldset>
         <fieldset class='form-group'>
-          <div class='btn-group btn-group-m col-lg-12' data-toggle='buttons' id='radio'>
+          <div class='btn-group btn-group-m col-lg-12' data-toggle='buttons' name='cost' id='radio'>
             <div>
-              <label for='price'>Pris/portion (kr)<label>
+              <label for='cost'>Pris/portion (kr)<label>
             </div>
             <label class='btn btn-default'>
-              <input type='radio' value='1-5'> 1-5
+              <input type='radio' name='cost' value='1-5'> 1-5
             </label>
             <label class='btn btn-default'> 6-10
-              <input type='radio' value='6-10'>
+              <input type='radio' name='cost' value='6-10'>
             </label>
             <label class='btn btn-default'> 11-15
-              <input type='radio' value='11-15'>
+              <input type='radio' name='cost' value='11-15'>
             </label>
             <label class='btn btn-default' value='16-20'> 16-20
-              <input type='radio' value='16-20'>
+              <input type='radio' name='cost' value='16-20'>
             </label>
             <label class='btn btn-default'> 21-30
-              <input type='radio' value='21-30'>
+              <input type='radio' name='cost' value='21-30'>
             </label>
           </div>
         </fieldset>
         <fieldset class='form-group'>
           <div class='btn-group btn-group-m col-lg-12' data-toggle='buttons' id='radio'>
             <div>
-              <label for='price'>Tillagningstid (min)<label>
+              <label for='cookingTime'>Tillagningstid (min)<label>
             </div>
             <label class='btn btn-default'>
-              <input type='radio' value='1-10'> 1-10
+              <input type='radio' name='cookingTime' value='1-10'> 1-10
             </label>
             <label class='btn btn-default'> 11-20
-              <input type='radio' value='11-20'>
+              <input type='radio' name='cookingTime' value='11-20'>
             </label>
             <label class='btn btn-default'> 21-30
-              <input type='radio' value='21-30'>
+              <input type='radio' name='cookingTime' value='21-30'>
             </label>
             <label class='btn btn-default'> 31 +
-              <input type='radio' value='31 +'>
+              <input type='radio' name='cookingTime' value='31 +'>
             </label>
           </div>
         </fieldset
         <fieldset class='form-group'>
           <div id='ingredients'>
-          <label for='recipe-editor-comments'>Ingredienser</label>
-          <textarea class='form-control' id='recipe-editor-comments' rows='10' maxlength='500'></textarea>
+          <label for='ingredients-text'>Ingredienser</label>
+          <textarea class='form-control' name='ingredients' id='ingredients-text' rows='10' maxlength='500'></textarea>
           <small class='text-muted'>Ange mängd och ingrediens. Exempel: 5 dl Vispgrädde.</small>
         </div>
         </fieldset>
         <fieldset class='form-group'>
           <label for='recipe-editor-directions'>Beskrivning</label>
-          <textarea class='form-control' id='recipe-editor-directions' rows='7'></textarea>
+          <textarea class='form-control' name='description' id='recipe-editor-directions' rows='7'></textarea>
           <small class='text-muted'>Gå igenom stegvis hur man ska göra din rätt. Börja varje nytt steg med en ny rad.</small>
         </fieldset>
         <fieldset class='form-group'>
@@ -138,11 +119,11 @@ if(!isset($_SESSION['username'])){
               <img id='img-upload'/>
           </div>
         </fieldset>
-        <button type='submit' class='btn btn-primary' name='save-recipe-button' value='save-recipe-button'>Publicera recept</button>
-        <button type='submit' class='btn btn-danger'  name='delete-recipe-button' value='delete-recipe-button'>Avbryt</button>
+        <input type='submit' class='btn btn-primary' name='save-recipe-button' value='Publicera recept'>
+        <input type='button' class='btn btn-danger'  name='delete-recipe-button' value='Avbryt'>
       </form>
     </div>
   </div>
 </div>
 
-<?php include'html-elements/html_footer.php';?>
+<?php include'html-elements/html_footer.php'; ?>

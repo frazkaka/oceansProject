@@ -4,12 +4,12 @@ ini_set('display_errors', 'on');
 include "html-elements/html_head.php";
 include "html-elements/html_nav.php";
 include "phpscripts/database.inc.php";
-
 ?>
+
 <fieldset>
     <?php
-
-$sql = "SELECT * FROM recipes WHERE idrecipe = '1'";
+$active =$_POST['active'];
+$sql = "SELECT * FROM recipes WHERE idrecipe = $active";
 		$result = $conn->query($sql);
                    while ($row = $result->fetch_array()){
                    echo '<strong>'.$headline=$row['headline'].'</strong><br />';
@@ -60,21 +60,26 @@ $sql = "SELECT * FROM recipes WHERE idrecipe = '1'";
 </form>
 <br/>
 <strong>Kommentarer:</strong>
+<<<<<<< HEAD
 
 <?php
 $sql = "SELECT * FROM comment WHERE idrecipe = '1'";
 
 		if ($conn->query($sql) === TRUE) {
+=======
+    
+<?php 
+$sql = "SELECT * FROM comment WHERE idrecipe = $active";
+		
+>>>>>>> origin/master
             $result = $conn->query($sql);
 		while($rad = $result->fetch_array())
         {
 
             echo   '<fieldset>Användarnamn: '.$rad['idUser']."<br>" .$rad['comment'] ."</fieldset><br><br>";
 		}
-        }
-else {
-echo '<Br /> Detta recept har ännu inga kommentarer';
-}
+        
+
 ?>
 
 </div>

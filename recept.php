@@ -1,6 +1,7 @@
 <?php
 include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
+include 'phpscripts/getall_recipes.php';
 ?>
     <!-- Page Content -->
     <div class='container'>
@@ -78,99 +79,25 @@ include 'html-elements/html_nav.php';
         </div>
         <!-- /.searchbox -->
         <!-- Projects Row -->
-        <div class='row'>
-            <div class='col-md-4 portfolio-item'>
-                <a href='#'>
-                    <img class='img-responsive' src='http://placehold.it/700x400' alt=''>
-                </a>
-                <h3>
-                    <a href='#'>Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class='col-md-4 portfolio-item'>
-                <a href='#'>
-                    <img class='img-responsive' src='http://placehold.it/700x400' alt=''>
-                </a>
-                <h3>
-                    <a href='#'>Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class='col-md-4 portfolio-item'>
-                <a href='#'>
-                    <img class='img-responsive' src='http://placehold.it/700x400' alt=''>
-                </a>
-                <h3>
-                    <a href='#'>Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-        </div>
-        <!-- /.row -->
+        <?php
+        //echo '<div class="row">';
+    foreach ($egenskaper as $recept){
+        echo'<div class ="col-md-4 portfolio-item">';
+        echo '<form method="POST" action="activ_recipe.php">';
+        echo'<a href="#">';
+        echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
+        echo'</a>';
+        echo '<input type="hidden" name="active" value="'.$recept['idrecipe'].'">';
+        echo'<input type="submit" value ="'. $recept['headline'].'"></form>';
+        echo'<p>Kostnad: '. $recept['cost'].'</p>';
+        echo'<p>betyg: '. $recept['cost'].'</p>';
+        
+        echo '</div>';
+   
+    }
+//echo '</div>';
 
-        <!-- Projects Row -->
-        <div class='row'>
-            <div class='col-md-4 portfolio-item'>
-                <a href='#'>
-                    <img class='img-responsive' src='http://placehold.it/700x400' alt=''>
-                </a>
-                <h3>
-                    <a href='#'>Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class='col-md-4 portfolio-item'>
-                <a href='#'>
-                    <img class='img-responsive' src='http://placehold.it/700x400' alt=''>
-                </a>
-                <h3>
-                    <a href='#'>Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class='col-md-4 portfolio-item'>
-                <a href='#'>
-                    <img class='img-responsive' src='http://placehold.it/700x400' alt=''>
-                </a>
-                <h3>
-                    <a href='#'>Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-        </div>
-
-        <!-- Projects Row -->
-        <div class='row'>
-            <div class='col-md-4 portfolio-item'>
-                <a href='#'>
-                    <img class='img-responsive' src='http://placehold.it/700x400' alt=''>
-                </a>
-                <h3>
-                    <a href='#'>Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class='col-md-4 portfolio-item'>
-                <a href='#'>
-                    <img class='img-responsive' src='http://placehold.it/700x400' alt=''>
-                </a>
-                <h3>
-                    <a href='#'>Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class='col-md-4 portfolio-item'>
-                <a href='#'>
-                    <img class='img-responsive' src='http://placehold.it/700x400' alt=''>
-                </a>
-                <h3>
-                    <a href='#'>Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-        </div>
-        <!-- /.row -->
+?>
 
         <hr>
 
