@@ -1,25 +1,25 @@
-<<<<<<< HEAD
-   
-<?php include "html-elements/html_head.php";
-=======
+
+
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-session_start();
 include "html-elements/html_head.php";
->>>>>>> refs/remotes/origin/master
 include "html-elements/html_nav.php";
 include "phpscripts/database.inc.php";
 
+?>
+<fieldset>
+    <?php
+
 $sql = "SELECT * FROM recipes WHERE idrecipe = '1'";
 		$result = $conn->query($sql);
-
                    while ($row = $result->fetch_array()){
-                   echo $headline=$row['headline'];
+                   echo '<strong>'.$headline=$row['headline'].'</strong><br />';
                        echo $ingredients=$row['ingredients'];
                    }
-
 ?>
+</fieldset>
+
 <?php include_once "phpscripts/average.php";?>
 
 
@@ -44,6 +44,36 @@ $sql = "SELECT * FROM recipes WHERE idrecipe = '1'";
 <strong><?php echo $rating; ?></strong>
 <div id="status"></div>
 
+</div>
+<br />
+<br />
+<div id="comments">
+    <strong>Kommentera receptet</strong>
+<form method="POST" action = "phpscripts/kommentarer.inc.php" >
+<?php
+               echo 'Användarnamn: '.$_SESSION['username'];
+?>
+               
+<br>Kommentar:<input type="text" id="comment" name="comment"/><br/><br/>
+<input type="submit" value="skicka">
+
+          
+
+</form>
+<br/>
+<strong>Kommentarer:</strong>
+    
+<?php 
+$sql = "SELECT * FROM comment";
+		$result = $conn->query($sql);
+		
+		while($rad = $result->fetch_array())
+        {
+             
+            echo   '<fieldset>Användarnamn: '.$rad['idUser']."<br>" .$rad['comment'] ."</fieldset><br><br>";
+		}
+?>
+    
 </div>
 
 <script type ="text/javascript">
