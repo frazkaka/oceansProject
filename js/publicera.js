@@ -1,33 +1,3 @@
-//Val av kategori
-$(function()
-{
-    var counter =1;
-    $(document).on('click', '.btn-add', function(e)
-    {
-
-      if(counter>2)
-      {
-        return false;
-      }
-        e.preventDefault();
-        var controlForm = $('.controls form:first'),
-            currentEntry = $(this).parents('.entry:first'),
-            newEntry = $(currentEntry.clone()).appendTo(controlForm);
-
-        newEntry.find('input').val('');
-        controlForm.find('.entry:not(:last) .btn-add')
-            .removeClass('btn-add').addClass('btn-remove')
-            .removeClass('btn-success').addClass('btn-danger')
-            .html('<span class="glyphicon glyphicon-minus"></span>');
-            counter++;
-    }).on('click', '.btn-remove', function(e)
-    {
-		$(this).parents('.entry:first').remove();
-    counter=counter - 1;
-		e.preventDefault();
-		return false;
-	});
-});
 
 //Ladda upp bild
 $(document).ready( function() {
