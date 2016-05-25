@@ -87,8 +87,8 @@ include 'phpscripts/getall_recipes.php';
         echo'<a href="#">';
         echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
         echo'</a>';
-        echo '<input type="hidden" name="active" value="'.$recept['idrecipe'].'">';
-        echo'<input type="submit" value ="'. $recept['headline'].'"></form>';
+        echo '<input type="hidden" name="active" value="'.$recept['idRecipe'].'">';
+        echo'<button id="titel" onclick="form.submit();">'.$recept['headline'].'</button></form>';
         echo'<p>Kostnad: '. $recept['cost'].'</p>';
         echo'<p>betyg: '. $recept['cost'].'</p>';
         
