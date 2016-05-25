@@ -30,7 +30,7 @@ ini_set('display_errors', 'on');
     }
 
 
-    function echoCurrentJS($filename)
+    function echoCurrentJS()
     {
         $filenameJS= ("js/".returnCurrentFile().".js");
         if (file_exists($filenameJS)){
