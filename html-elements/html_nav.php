@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php
+session_start();
+?>
 <body>
   <div id='page'>
     <div id='header'><header>
