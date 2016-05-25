@@ -6,7 +6,7 @@ $choice = $_POST['choice'];
  
 include "database.inc.php";
 
-$sql = "SELECT rating FROM recipes WHERE idrecipe ='1'";
+$sql = "SELECT rating FROM recipe WHERE idRecipe ='1'";
 
    
 $result = $conn->query($sql);
@@ -28,7 +28,7 @@ while ($row = $result->fetch_array()){
     if($lastchar == ','){
     $string = $choice;
     }
-$update = mysqli_query($conn, "UPDATE recipes SET rating = '$string' WHERE idrecipe='1'");
+$update = mysqli_query($conn, "UPDATE recipe SET rating = '$string' WHERE idRecipe='1'");
  
     echo '<p style="color:#06F;">Du har röstat: '.$choice.'</p>';
     exit();
