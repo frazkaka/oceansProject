@@ -6,29 +6,23 @@ include 'phpscripts/database.inc.php';
 
     <div id='container'>
       <div id='leftContainer'><?php
+
+
       $counter = 1;
+
       $sqltop10 = "SELECT * FROM user, recipe WHERE user.idUser = recipe.idUser ORDER BY cost DESC LIMIT 10";
       $resulttop10 = $conn->query($sqltop10);
-      while ($row = $resulttop10->fetch_array()){
+  while ($row = $resulttop10->fetch_array()){
 
-        echo '<div class="top10div">';
-        echo $counter .' <strong>'.$headline=$row['headline'].'</strong><br>';
+        echo '<a href="#"><div class="top10div">';
+        $image=$row['image'];
+        echo "<img class='img-responsive' src='".$image."'>";
+        echo '<div class="div-round">' . $counter . ' </div><strong> '.$headline=$row['headline'].'</strong>';
         $counter++;
-        echo 'LÅTSASRANKING: ' . $cost=$row['cost'].'<br>';
-        echo '</div>';
+        echo ' RANKING: ' . $rating=$row['rating'].'<br>';
+        echo $username=$row['username'];
+        echo '</div></a>';
       }
-    //  $sqltop10 = "SELECT * FROM recipe ORDER BY cost DESC";
-      // $resulttop10 = $conn->query($sqltop10);
-      // while ($row = $resulttop10->fetch_array()){
-      //   echo '<div class="top10div">';
-      //   echo '<strong>'.$headline=$row['headline'].'</strong><br>';
-      //   echo 'Tillagningstid: ' . $cookingTime=$row['cookingTime']. ' minuter.' . '<br>';
-      //   echo 'Pris per portion: ' . $cost=$row['cost'].'<br>';
-      //   echo $ingredients=$row['ingredients'].'<br>';
-      //   echo $description=$row['description'].'<br>';
-      //   echo '</div>';
-      //   echo '<br>';
-      // }
 
       ?></div>
       <div id='rightContainer'>Flöde av bilder</div>
