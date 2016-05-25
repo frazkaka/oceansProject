@@ -6,8 +6,8 @@ session_start();
 include 'database.inc.php';
 //Input data från formuläret
 $headline = mysqli_real_escape_string($conn, $_POST['title']);
-$category = mysqli_real_escape_string($conn, $_POST['category[]']);
-$dishtype = mysqli_real_escape_string($conn, $_POST['dishtype']);
+$category = mysqli_real_escape_string($conn, $_POST['category']);
+$dishType = mysqli_real_escape_string($conn, $_POST['dishType']);
 $cost = mysqli_real_escape_string($conn, $_POST['cost']);
 $cookingTime = mysqli_real_escape_string($conn, $_POST['cookingTime']);
 $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
@@ -17,10 +17,12 @@ $description = mysqli_real_escape_string($conn, $_POST['description']);
 
 
 //Sätt in data i databasen
-$sql = "INSERT INTO recipe (headline, cost) VALUES ('$headline', '$cost')";
-echo "Recept skapas...";
+$sqlRecipe = "INSERT INTO recipe (headline, dishType, cost, cookingTime, ingredients, description) VALUES ('$headline', '$dishType', '$cost', '$cookingTime','$ingredients', '$description' )";
+header( "refresh:2;url=../recept.php" );
+echo "Receptet har publicerats.";
 
-if (!mysqli_query($conn, $sql)){
+
+if (!mysqli_query($conn, $sqlRecipe)){
     die('error ' . mysqli_error($conn));
 }
 
