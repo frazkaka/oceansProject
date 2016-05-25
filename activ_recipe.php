@@ -60,18 +60,14 @@ $sql = "SELECT * FROM recipe WHERE idRecipe = $active";
 </form>
 <br/>
 <strong>Kommentarer:</strong>
-<<<<<<< HEAD
+
 
 <?php
-$sql = "SELECT * FROM comment WHERE idrecipe = '1'";
 
 		if ($conn->query($sql) === TRUE) {
-=======
 
-<?php
 $sql = "SELECT * FROM comment WHERE idrecipe = $active";
 
->>>>>>> origin/master
             $result = $conn->query($sql);
 		while($rad = $result->fetch_array())
         {
@@ -79,7 +75,7 @@ $sql = "SELECT * FROM comment WHERE idrecipe = $active";
             echo   '<fieldset>Användarnamn: '.$rad['idUser']."<br>" .$rad['comment'] ."</fieldset><br><br>";
 		}
 
-
+        }
 ?>
 
 </div>
