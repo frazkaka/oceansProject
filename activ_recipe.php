@@ -1,5 +1,3 @@
-
-
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
@@ -24,7 +22,7 @@ $sql = "SELECT * FROM recipes WHERE idrecipe = '1'";
 
 
 <div id="ratings">
-    
+
     <strong>Betyggsätt detta recept</strong>
     <br />
    <input type="button" value="1" method="POST" onclick ="ratings('1');">
@@ -37,9 +35,9 @@ $sql = "SELECT * FROM recipes WHERE idrecipe = '1'";
     <input type="hidden" name="choice" id="4" value="4">
     <input type="button" value="5" onclick ="ratings('5');">
     <input type="hidden" name="choice" id="5" value="5">
-    
+
 <br />
-    
+
 <br />
 <strong><?php echo $rating; ?></strong>
 <div id="status"></div>
@@ -53,24 +51,24 @@ $sql = "SELECT * FROM recipes WHERE idrecipe = '1'";
 <?php
                echo 'Användarnamn: '.$_SESSION['username'];
 ?>
-               
+
 <br>Kommentar:<input type="text" id="comment" name="comment"/><br/><br/>
 <input type="submit" value="skicka">
 
-          
+
 
 </form>
 <br/>
 <strong>Kommentarer:</strong>
-    
-<?php 
+
+<?php
 $sql = "SELECT * FROM comment WHERE idrecipe = '1'";
-		
+
 		if ($conn->query($sql) === TRUE) {
             $result = $conn->query($sql);
 		while($rad = $result->fetch_array())
         {
-             
+
             echo   '<fieldset>Användarnamn: '.$rad['idUser']."<br>" .$rad['comment'] ."</fieldset><br><br>";
 		}
         }
@@ -78,7 +76,7 @@ else {
 echo '<Br /> Detta recept har ännu inga kommentarer';
 }
 ?>
-    
+
 </div>
 
 <script type ="text/javascript">
@@ -86,7 +84,7 @@ function ratings(elem){
 var x =  new XMLHttpRequest();
 var url = "phpscripts/db_rate.php";
 var a = document.getElementById(elem).value;
-var vars = "choice="+a; 
+var vars = "choice="+a;
 x.open("POST", url, true);
 x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 x.onreadystatechange = function(){
@@ -95,7 +93,7 @@ if(x.readyState==4 && x.status ==200){
 var return_data = x.responseText;
 document.getElementById("status").innerHTML = return_data;
 }
-}  
+}
 x.send(vars);
     document.getElementById("status").innerHTML="processing...";
 }
@@ -104,4 +102,3 @@ x.send(vars);
 </script>
 
  <?php include"html-elements/html_footer.php";?>
-

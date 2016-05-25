@@ -20,8 +20,12 @@ include 'html-elements/html_nav.php';?>
       </div>
     </div>
     <div id='contactTextarea'>
-    <input type='textarea' placerholder='Skicka meddelande direkt till oss'></textarea>
+    <textarea name='textarea' id='textarea' placeholder ='Skicka meddelande direkt till oss'></textarea><br>
+    <input type='submit' name='contactSubmit'>
+    </div>
 
+    <div id='contactLogo'>
+      <img id='contactImg' src='img/contactus1.png'>
     </div>
     <!-- ----------------------------------------------- -->
   <?php include'html-elements/html_footer.php';?>
