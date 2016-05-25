@@ -64,19 +64,16 @@ $sql = "SELECT * FROM recipes WHERE idrecipe = '1'";
 <strong>Kommentarer:</strong>
     
 <?php 
-$sql = "SELECT * FROM comment WHERE idrecipe = '1'";
+$sql = "SELECT * FROM comment WHERE idrecipe = 1";
 		
-		if ($conn->query($sql) === TRUE) {
             $result = $conn->query($sql);
 		while($rad = $result->fetch_array())
         {
              
             echo   '<fieldset>Användarnamn: '.$rad['idUser']."<br>" .$rad['comment'] ."</fieldset><br><br>";
 		}
-        }
-else {
-echo '<Br /> Detta recept har ännu inga kommentarer';
-}
+        
+
 ?>
     
 </div>
