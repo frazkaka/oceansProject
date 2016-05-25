@@ -2,14 +2,14 @@
 
 <?php
 
-  $sql = "SELECT * FROM recipes";
+  $sql = "SELECT * FROM recipe";
   $result = $conn->query($sql);
 
 
 $recepies = array();
 while ($row = $result->fetch_array())
 {
-  $egenskaper[] = array('idrecipe' => $row['idrecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'rating'=> $row['rating'] );
+  $egenskaper[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'rating'=> $row['rating'] );
 }
 
 ?>
