@@ -13,7 +13,7 @@
            {
                 $new_image = '';
                 $new_name = md5(rand()) . '.' . $ext;
-                $path = 'uploads/recipes/' . $new_name;
+                $path = 'uploads/users/' . $new_name;
                 list($width, $height) = getimagesize($_FILES["image_upload"]["tmp_name"]);
                 if($ext == 'png')
                 {
@@ -23,18 +23,18 @@
                 {
                      $new_image = imagecreatefromjpeg($_FILES["image_upload"]["tmp_name"]);
                 }
-                $new_width = 700;
-                // Aspect ratio efter bredd: $new_height = ($height/$width)*$new_width;
-								$new_height = 470;
+                $new_width = 250;
+                // $new_height = ($height/$width)*$new_width;
+                $new_height = 250;
                 $tmp_image = imagecreatetruecolor($new_width, $new_height);
                 imagecopyresampled($tmp_image, $new_image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
                 imagejpeg($tmp_image, $path, 100);
                 imagedestroy($new_image);
                 imagedestroy($tmp_image);
-                echo '<img src="'.$path.'" style="width: 420px;
-                  height: 280px"/>';
+                echo '<img src="'.$path.'" class="center-block img-circle img-thumbnail img-responsive" />';
+
 								session_start();
-								$_SESSION['image']=$path;
+								$_SESSION['profileImage']=$path;
            }
            else
            {

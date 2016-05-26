@@ -10,35 +10,22 @@ if(!isset($_SESSION['username'])){
 }
 ?>
 
-<script src="http://malsup.github.com/jquery.form.js"></script>
+
 
 <div class='container'>
   <div class='row'>
-    <h2>Skapa ett recept!</h2>
+    <h1 class='page-header'>Skapa ett recept!</h2>
     <div class='col-xs-12 well'>
       <fieldset class='form-group'>
-        <!-- <div class="col-md-6 row">
-            <div class="form-group">
-                <label>Ladda upp en bild</label>
-                <form action="upload.php" method="post" enctype="multipart/form-data" name="FileUploadForm" id="FileUploadForm">
-                  <div class="input-group">
-                      <span class="input-group-btn">
-                          <span class="btn btn-default btn-file">
-                              Bläddra… <input type="file" name="image_upload" id="image_upload" />
-                          </span>
-                      </span>
-                      <input type="text" class="form-control" readonly>
-                  </div>
-                <div id='preview'></div>
-              </form>
-            </div>
-        </div> -->
-        <div class="container row">
+        <div class="container row" id="uploadBox">
+          <label>Ladda upp en bild</label>
            <form method="post" id="upload_image" enctype="multipart/form-data" action="upload-image.php">
-                <div class="form-group">
-                     <label>Select File <br />
-                          <input type="file" name="image_upload" id="image_upload" />
-                     </label>
+                <div class="input-group col-sm-5 col-lg-4 col-xs-12">
+                  <span class="input-group-btn">
+                      <span class="btn btn-primary btn-file">
+                        Bläddra...<input type="file" name="image_upload" id="image_upload" />
+                  </span>
+                </span>
                 </div>
            </form>
           <div id="preview"></div>
@@ -83,7 +70,7 @@ if(!isset($_SESSION['username'])){
             </label>
         </fieldset>
         <fieldset class='form-group'>
-          <div class='btn-group btn-group-m col-lg-12' data-toggle='buttons' name='cost' id='radio'>
+          <div class='btn-group btn-group-s col-lg-12' data-toggle='buttons' name='cost' id='radio'>
             <div>
               <label for='cost'>Pris/portion (kr)<label>
             </div>
@@ -124,7 +111,7 @@ if(!isset($_SESSION['username'])){
           </div>
         </fieldset>
         <fieldset class='form-group'>
-          <div id='ingredients'>
+          <div class="row col-sm-4">
           <label for='ingredients-text'>Ingredienser</label>
           <textarea class='form-control' name='ingredients' id='ingredients-text' rows='10' maxlength='500'></textarea>
           <small class='text-muted'>Ange mängd och ingrediens. Exempel: 5 dl Vispgrädde.</small>
@@ -135,11 +122,16 @@ if(!isset($_SESSION['username'])){
           <textarea class='form-control' name='description' id='recipe-editor-directions' rows='7'></textarea>
           <small class='text-muted'>Gå igenom stegvis hur man ska göra din rätt. Börja varje nytt steg med en ny rad.</small>
         </fieldset>
-        <input type='submit' class='btn btn-primary' name='save-recipe-button' value='Publicera recept'>
-        <input type='button' class='btn btn-danger'  name='delete-recipe-button' value='Avbryt'>
+        <input type='submit' class='btn btn-success' name='save-recipe-button' value='Publicera recept'>
+        <input type='button' class='btn btn-danger'  name='delete-recipe-button' onclick='history.go(-1);returntrue;' value='Avbryt'>
         </form>
     </div>
   </div>
 </div>
+<script>
+function goBack() {
+    window.history.back()
+}
+</script>
 
 <?php include'html-elements/html_footer.php'; ?>

@@ -1,71 +1,93 @@
+<?php
+include 'html-elements/html_head.php';
+include 'html-elements/html_nav.php';
+?>
 
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Ocean goes fruitbasket</title>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/index.css">
-
-
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-           <img id='logo' src='/img/logan.png'>
-
-      <!--     <a class="navbar-brand" href="index.php">PluggTugg</a> -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-10-offset-2 col-xs-12" id='profileBody'>
+      <div class="well panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 text-center">
+              <img src="<?php echo $_SESSION['profileImage'];?>" alt="avatar" class="center-block img-circle img-thumbnail img-responsive">
+              <ul class="list-inline ratings text-center" title="Ratings">
+                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+              </ul>
+            </div>
+            <!--/col-->
+            <div class="col-xs-12 col-sm-8">
+              <h1><?php echo $_SESSION['username'];?></h1>
+              <p><strong>Om: </strong> Web Designer / UI Expert. </p>
+              <p><strong>Skola: </strong> <?php echo  $_SESSION['school'];?></p>
+            </div>
+            <!--/col-->
+            <div class="clearfix"></div>
+            <div class="col-xs-12 col-sm-4">
+              <h2><strong> 20,7K </strong></h2>
+              <p><small>Followers</small></p>
+              <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
+            </div>
+            <!--/col-->
+            <div class="col-xs-12 col-sm-4">
+              <h2><strong>245</strong></h2>
+              <p><small>Following</small></p>
+              <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
+            </div>
+            <!--/col-->
+            <div class="col-xs-12 col-sm-4">
+              <h2><strong>43</strong></h2>
+              <p><small>Snippets</small></p>
+              <a role="button" href='edit-profile.php' class="btn btn-primary btn-block">Redigera profil</a>
+            </div>
+            <!--/col-->
           </div>
+          <!--/row-->
+          <h3 id='recepten'>Recept från <?php echo $_SESSION['username'];?></h3>
+          <div class='row'>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li id='active'><a href="index.php">Hem<span class="sr-only">(current)</span></a></li>
-              <li><a href="recept.php">Recept</a></li>
-              <li><a href="forum.php">PluggTugg Forum</a></li>
-            </ul>
-            <form class='navbar-form navbar-left' role='search'>
-              <div id='form-group' class='form-group'>
-                <input type='text' id='form-control' class='form-control' placeholder='Sök i databasen..' onfocus="this.placeholder =''" onblur="this.placeholder = 'Sök i databasen'">
-                <span class='glyphicon glyphicon-search'></span>
+          <?php
+          include('phpscripts/database.inc.php');
 
-              </div>
-              <button type='submit' id='btn-default' class='btn btn-default'>Sök</button>
+          $idUser = $_SESSION['idUser'];
+          $sql ="SELECT * FROM recipe WHERE idUser='$idUser'";
+          $result = $conn->query($sql);
 
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="kontakt.php">Kontakta oss</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logga in<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="login.php">Logga in här</a></li>
-                  <li><a href="registrering.php">Registrera ett konto</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-    </header>
-        <!-- ----------------------------------------------- -->
-DETTA ÄR PROFILSIDAN
+          while ($row = $result->fetch_array())
+          {
+            $recepies[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'rating'=> $row['rating'] );
+          }
 
-  </body>
-</html>
+          foreach ($recepies as $recept){
+              echo'<div class ="col-md-4 portfolio-item">';
+              echo'<a href="#">';
+              echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
+              echo'</a>';
+              echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
+              echo'<p>Kostnad: '. $recept['cost'].'</p>';
+              echo'<p>betyg: '. $recept['cost'].'</p>';
+
+              echo '</div>';
+
+          }
+          //echo '</div>';
+
+          ?>
+        </div>
+        </div>
+        <!--/panel-body-->
+      </div>
+      <!--/panel-->
+    </div>
+    <!--/col-->
+  </div>
+  <!--/row-->
+</div>
+<!--/container-->
+
+    <!-- ----------------------------------------------- -->
+  <?php include'html-elements/html_footer.php';?>
