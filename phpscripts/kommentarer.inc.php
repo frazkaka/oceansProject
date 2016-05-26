@@ -12,10 +12,10 @@ $username = $_SESSION['username'];
 $comment= $_POST['comment'];
 $idRecipe = $_SESSION['active'];
 
-$sql= "INSERT INTO comment (comment, idUser, idrecipe) VALUES ('$comment', '$username', '$idRecipe')";
+$sql= "INSERT INTO comment (comtext, idUser, idRecipe) VALUES ('$comment', '$username', '$idRecipe')";
 
 if ($conn->query($sql) === TRUE) {
-    header("Location: ../activ_recipe.php");
+    header('Location: ../activ_recipe.php?id='. $_SESSION['active']);
 	exit();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
