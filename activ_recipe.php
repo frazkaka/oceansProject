@@ -7,19 +7,80 @@ include "phpscripts/database.inc.php";
 ?>
 
 <fieldset>
-
-    
 <?php
 $active = $_GET['id'];
 
 $_SESSION['active'] = $active;
 $sql = "SELECT * FROM recipe WHERE idRecipe = $active";
 		$result = $conn->query($sql);
-                   while ($row = $result->fetch_array()){
-                   echo '<strong>'.$headline=$row['headline'].'</strong><br />';
-                       echo $ingredients=$row['ingredients'];
+                   
+while ($row = $result->fetch_array()){
+      $idRecipe =$row['idRecipe'];
+    $idUser = $row['idUser'];
+    $ingredients = $row['ingredients'];
+        $image = $row['image']; 
+    $headline = $row['headline'];
+    $cost = $row['cost']; 
+    $average= $row['average'];
                    }
 ?>
+    </fieldset>
+<div class="container">
+
+        <div class="row">
+
+
+            <div class="col-md-9">
+
+                <div class="thumbnail">
+                    <img class="img-responsive" src="<?php echo $image;?>" alt="">
+                    <div class="caption-full">
+                        <h4 class="pull-right"><?php echo $cost;?></h4>
+                        <h4><a href="#"><?php echo $headline;?></a>
+                        </h4>
+                        <p><?php echo $ingredients ?></p>
+                        <p>Want to make these reviews work? Check out
+                            <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this building a review system tutorial</a>
+                            </strong>over at maxoffsky.com!</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">3 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            4.0 stars
+                        </p>
+                    </div>
+                </div>
+                <div class="well">
+
+                    <div class="text-right">
+                        <a class="btn btn-success">Leave a Review</a>
+                    </div>
+                    
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+<fieldset>
+
+    
+
 </fieldset>
 
 <?php include_once "phpscripts/average.php";?>
@@ -29,7 +90,7 @@ $sql = "SELECT * FROM recipe WHERE idRecipe = $active";
 
     <strong>Betyggsätt detta recept</strong>
     <br />
-   <input type="button" value="1" method="POST" onclick ="ratings('1');">
+   <input type="button" class="glyphicon glyphicon-star" value="1" method="POST" onclick ="ratings('1');">
     <input type="hidden" name="choice" id="1" value="1">
     <input type="button" value="2" onclick ="ratings('2');">
     <input type="hidden" name="choice" id="2" value="2">
@@ -68,18 +129,17 @@ $sql = "SELECT * FROM recipe WHERE idRecipe = $active";
 
 <?php
 
-		if ($conn->query($sql) === TRUE) {
+$sql = "SELECT * FROM comment WHERE idRecipe =$active";
 
-$sql = "SELECT * FROM comment WHERE idRecipe = $active";
 
             $result = $conn->query($sql);
 		while($rad = $result->fetch_array())
         {
 
-            echo   '<fieldset>Användarnamn: '.$rad['idUser']."<br>" .$rad['comment'] ."</fieldset><br><br>";
+            echo   '<fieldset>Användarnamn: '.$rad['idUser'].'<br>' .$rad['comtext'] .'</fieldset><br><br>';
 		}
 
-        }
+        
 ?>
 
 </div>
@@ -98,7 +158,10 @@ x.onreadystatechange = function(){
 if(x.readyState==4 && x.status ==200){
 
 var return_data = x.responseText;
+  
 document.getElementById("status").innerHTML = return_data;
+  location.reload();
+
 }
 }
 x.send(vars);
