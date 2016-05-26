@@ -36,9 +36,13 @@ if(!isset($_SESSION['username'])){
         <div class="container row">
            <form method="post" id="upload_image" enctype="multipart/form-data" action="upload-image.php">
                 <div class="form-group">
-                     <label>Select File <br />
-                          <input type="file" name="image_upload" id="image_upload" />
-                     </label>
+                  <label>Ladda upp en bild</label>
+                  <span class="input-group-btn">
+                      <span class="btn btn-default btn-file">
+                        Bläddra...<input type="file" name="image_upload" class="col-md-4" id="image_upload" />
+                  </span>
+                </span>
+                <input type="text" class="form-control" id="read" readonly>
                 </div>
            </form>
           <div id="preview"></div>

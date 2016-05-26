@@ -21,7 +21,7 @@ include 'html-elements/html_nav.php';
             </div>
             <!--/col-->
             <div class="col-xs-12 col-sm-8">
-              <h2>Jane Doe</h2>
+              <h2><?php echo $_SESSION['username'];?></h2>
               <p><strong>About: </strong> Web Designer / UI Expert. </p>
               <p><strong>Hobbies: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
               <p><strong>Skills: </strong>
@@ -55,23 +55,27 @@ include 'html-elements/html_nav.php';
           <!--/row-->
           <div class='row' id='recepten'>
           <?php
-          include('database.inc.php');
+          include('phpscripts/database.inc.php');
 
           $idUser = $_SESSION['idUser'];
-          $sqlUSer ="SELECT * FROM recipe WHERE idUser=$iduser";
+          $sql ="SELECT * FROM recipe WHERE idUser='$idUser'";
+          $result = $conn->query($sql);
 
-          foreach ($egenskaper as $recept){
-            echo'<div class ="col-md-4 portfolio-item">';
-            echo '<form method="POST" action="activ_recipe.php">';
-            echo'<a href="#">';
-            echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
-            echo'</a>';
-            echo '<input type="hidden" name="active" value="'.$recept['idRecipe'].'">';
-            echo'<button id="titel" onclick="form.submit();">'.$recept['headline'].'</button></form>';
-            echo'<p>Kostnad: '. $recept['cost'].'</p>';
-            echo'<p>betyg: '. $recept['cost'].'</p>';
+          while ($row = $result->fetch_array())
+          {
+            $recepies[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'rating'=> $row['rating'] );
+          }
 
-            echo '</div>';
+          foreach ($recepies as $recept){
+              echo'<div class ="col-md-4 portfolio-item">';
+              echo'<a href="#">';
+              echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
+              echo'</a>';
+              echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
+              echo'<p>Kostnad: '. $recept['cost'].'</p>';
+              echo'<p>betyg: '. $recept['cost'].'</p>';
+
+              echo '</div>';
 
           }
           //echo '</div>';

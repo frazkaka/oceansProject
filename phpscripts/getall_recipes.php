@@ -1,6 +1,5 @@
-<?php include('database.inc.php');?>
-
 <?php
+  include('database.inc.php');
 
   $sql = "SELECT * FROM recipe";
   $result = $conn->query($sql);
