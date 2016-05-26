@@ -10,7 +10,7 @@ include 'html-elements/html_nav.php';
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-12 col-sm-4 text-center">
-              <img src="http://api.randomuser.me/portraits/women/21.jpg" alt="" class="center-block img-circle img-thumbnail img-responsive">
+              <img src="<?php echo $_SESSION['profileImage'];?>" alt="avatar" class="center-block img-circle img-thumbnail img-responsive">
               <ul class="list-inline ratings text-center" title="Ratings">
                 <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
                 <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
@@ -21,15 +21,9 @@ include 'html-elements/html_nav.php';
             </div>
             <!--/col-->
             <div class="col-xs-12 col-sm-8">
-              <h2><?php echo $_SESSION['username'];?></h2>
-              <p><strong>About: </strong> Web Designer / UI Expert. </p>
-              <p><strong>Hobbies: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
-              <p><strong>Skills: </strong>
-                <span class="label label-info tags">html5</span>
-                <span class="label label-info tags">css3</span>
-                <span class="label label-info tags">jquery</span>
-                <span class="label label-info tags">bootstrap3</span>
-              </p>
+              <h1><?php echo $_SESSION['username'];?></h1>
+              <p><strong>Om: </strong> Web Designer / UI Expert. </p>
+              <p><strong>Skola: </strong> <?php echo  $_SESSION['school'];?></p>
             </div>
             <!--/col-->
             <div class="clearfix"></div>
@@ -48,12 +42,14 @@ include 'html-elements/html_nav.php';
             <div class="col-xs-12 col-sm-4">
               <h2><strong>43</strong></h2>
               <p><small>Snippets</small></p>
-              <button type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Options </button>
+              <a role="button" href='edit-profile.php' class="btn btn-primary btn-block">Redigera profil</a>
             </div>
             <!--/col-->
           </div>
           <!--/row-->
-          <div class='row' id='recepten'>
+          <h3 id='recepten'>Recept från <?php echo $_SESSION['username'];?></h3>
+          <div class='row'>
+
           <?php
           include('phpscripts/database.inc.php');
 

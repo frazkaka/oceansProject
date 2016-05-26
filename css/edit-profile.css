@@ -6,7 +6,7 @@
 
 }
 #uploadBox{
-width: 135%;
+
 }
 .glyphicon
 {
@@ -36,12 +36,9 @@ width: 135%;
 }
 
 
-#preview{
-
-    height: 280px;
-    background-image: url("../img/1080x720.gif");
-    background-size: contain;
-    background-repeat: no-repeat;
+#no-avatar{
+  width: 250px;
+  height: 250px;
 }
 #radio{
   margin-left: -15px;

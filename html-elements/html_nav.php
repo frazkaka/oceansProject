@@ -37,12 +37,12 @@ session_start();
             </form>
             <ul class='nav navbar-nav navbar-right'>
               <?php if (LoggedIn()) { echo "<li><a href='publicera.php'>Publicera recept</a></li>"; } ?>
-              <li><a href='kontakt.php'>Kontakt</a></li>
-              <li class='dropdown'>
+              <li <?php echoActiveClass('kontakt') ?> ><a href='kontakt.php'>Kontakt</a></li>
+              <li class='dropdown' <?php echoActiveClass('profil') ?>>
                 <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'><?php insertHTML(returnSessVar('username'),'Logga in'); ?><span class='caret'></span></a>
                 <ul class='dropdown-menu'>
                   <li><a href=<?php insertHTML('profil.php','login.php'); ?>><?php insertHTML('Profil','Logga in'); ?></a></li>
-                  <li><a href=<?php insertHTML('phpscripts/logout.inc.php','registrering.php'); ?>><?php insertHTML('Logga ut','Registrera ett konto'); ?></a></li>
+                  <li><a style="background-color: #FFB441;" href=<?php insertHTML('phpscripts/logout.inc.php','registrering.php'); ?>><?php insertHTML('Logga ut','Registrera ett konto'); ?></a></li>
                 </ul>
               </li>
             </ul>
