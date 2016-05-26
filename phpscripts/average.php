@@ -24,10 +24,10 @@ while ($row = $result->fetch_array()){
     $rating = "Detta recept har inte blivit betygsatt än";
     }
     else if($count==1){
-    $rating = "Average för receptet är för närvarande $roundit <br /> Detta recept har blivit betygsatt $count gånger.";
+    $rating = "Receptets betyg: $roundit<img src='img/star.jpg' height='16px' width='16px'><br /> Antal röster: $count st.";
     }
     else if($count>1){
-    $rating = "Average för receptet är för närvarande $roundit <br /> Detta recept har blivit betygsatt $count gånger.";
+    $rating = "Receptets betyg: $roundit <img src='img/star.jpg' height='16px' width='16px'><br /> Antal röster: $count st.";
     }
     else{
        echo "ERROR";

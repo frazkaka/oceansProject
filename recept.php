@@ -1,7 +1,7 @@
 <?php
 include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
-include 'phpscripts/getall_recipes.php';
+include 'phpscripts/database.inc.php';
 ?>
     <!-- Page Content -->
     <div class='container'>
@@ -17,17 +17,17 @@ include 'phpscripts/getall_recipes.php';
           <!-- navbar-collapse -->
         <div class='col-lg-12 bordered' class='collapse navbar-collapse' id='categories'>
           <ul class='nav navbar-nav'>
-            <li class='active'><a href='#'>Alla</a></li>
-            <li><a href='#'>Kött</a></li>
-            <li><a href='#'>Fågel</a></li>
-            <li><a href='#'>Fisk/Skaldjur</a></li>
-            <li><a href='#'>Pasta</a></li>
-            <li><a href='#'>Soppa/pajer</a></li>
-            <li><a href='#'>Vegetariskt</a></li>
-            <li><a href='#'>Mackor/wraps</a></li>
-            <li><a href='#'>Pannkakor/omelett</a></li>
-            <li><a href='#'>Mellanmål</a></li>
-            <li><a href='#'>Övrigt</a></li>
+            <li class='active'><a href='recept.php'>Alla</a></li>
+            <li><a href='recept.php?filter=kött'>Kött</a></li>
+            <li><a href='recept.php?filter=fågel'>Fågel</a></li>
+            <li><a href='recept.php?filter=fisk'>Fisk/Skaldjur</a></li>
+            <li><a href='recept.php?filter=pasta'>Pasta</a></li>
+            <li><a href='recept.php?filter=soppa/pajer'>Soppa/pajer</a></li>
+            <li><a href='recept.php?filter=vegetariskt'>Vegetariskt</a></li>
+            <li><a href='recept.php?filter=mackor'>Mackor/wraps</a></li>
+            <li><a href='recept.php?filter=pannkakor'>Pannkakor/omelett</a></li>
+            <li><a href='recept.php?filter=mellanmål'>Mellanmål</a></li>
+            <li><a href='recept.php?filter=övrigt'>Övrigt</a></li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -80,7 +80,43 @@ include 'phpscripts/getall_recipes.php';
         <!-- /.searchbox -->
         <!-- Projects Row -->
         <?php
-        //echo '<div class="row">';
+
+if(isset($_GET['filter'])){
+$filter=$_GET['filter'];
+$sql = "SELECT * FROM recipe WHERE dishType = '$filter'";
+    
+//if($conn->query($sql) === TRUE){
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array())
+{
+  $egenskaper[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'average'=> $row['average'] );
+}
+        foreach ($egenskaper as $recept){
+        echo'<div class ="col-md-4 portfolio-item">';
+        echo'<a href="#">';
+        echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
+        echo'</a>';
+        echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
+        echo'<p>Kostnad: '. $recept['cost'].'</p>';
+        echo'<p>betyg: '. $recept['average'].'</p>';
+        
+        echo '</div>';
+   
+        }
+    //}
+   // else{ echo 'Inga recept i denna kategori';}
+}
+
+else{
+$sql1 = "SELECT * FROM recipe";
+$result = $conn->query($sql1);
+
+
+while ($row = $result->fetch_array())
+{
+  $egenskaper[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'average'=> $row['average'] );
+}
     foreach ($egenskaper as $recept){
         echo'<div class ="col-md-4 portfolio-item">';
         echo'<a href="#">';
@@ -88,12 +124,14 @@ include 'phpscripts/getall_recipes.php';
         echo'</a>';
         echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
         echo'<p>Kostnad: '. $recept['cost'].'</p>';
-        echo'<p>betyg: '. $recept['cost'].'</p>';
+        echo'<p>betyg: '. $recept['average'].'</p>';
         
         echo '</div>';
    
     }
-//echo '</div>';
+
+   
+}
 
 ?>
 
