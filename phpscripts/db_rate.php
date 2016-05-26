@@ -1,12 +1,14 @@
+
 <?php
-
-
+session_start();
+$active = $_SESSION['active'];
 if(null!==($_POST["choice"])){
 $choice = $_POST['choice'];
- 
+
+    
 include "database.inc.php";
 
-$sql = "SELECT rating FROM recipe WHERE idRecipe ='1'";
+$sql = "SELECT rating FROM recipe WHERE idRecipe =$active";
 
    
 $result = $conn->query($sql);
@@ -28,7 +30,7 @@ while ($row = $result->fetch_array()){
     if($lastchar == ','){
     $string = $choice;
     }
-$update = mysqli_query($conn, "UPDATE recipe SET rating = '$string' WHERE idRecipe='1'");
+$update = mysqli_query($conn, "UPDATE recipe SET rating = '$string' WHERE idRecipe=$active");
  
     echo '<p style="color:#06F;">Du har röstat: '.$choice.'</p>';
     exit();

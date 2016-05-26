@@ -1,6 +1,9 @@
 <?php
+
 include_once "phpscripts/database.inc.php";
-$sql = "SELECT rating FROM recipe WHERE idRecipe ='1'";
+
+$active = $_SESSION['active'];
+$sql = "SELECT rating FROM recipe WHERE idRecipe =$active";
 
 
 $result = $conn->query($sql);

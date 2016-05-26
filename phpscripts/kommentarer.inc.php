@@ -10,9 +10,9 @@ include "database.inc.php";
 
 $username = $_SESSION['username'];
 $comment= $_POST['comment'];
-$idrecipe = 1;
+$idRecipe = $_SESSION['active'];
 
-$sql= "INSERT INTO comment (comment, idUser, idrecipe) VALUES ('$comment', '$username', '$idrecipe')";
+$sql= "INSERT INTO comment (comment, idUser, idrecipe) VALUES ('$comment', '$username', '$idRecipe')";
 
 if ($conn->query($sql) === TRUE) {
     header("Location: ../activ_recipe.php");

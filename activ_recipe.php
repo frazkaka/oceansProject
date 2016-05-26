@@ -7,8 +7,12 @@ include "phpscripts/database.inc.php";
 ?>
 
 <fieldset>
-    <?php
-$active =$_POST['active'];
+
+    
+<?php
+$active = $_GET['id'];
+
+$_SESSION['active'] = $active;
 $sql = "SELECT * FROM recipe WHERE idRecipe = $active";
 		$result = $conn->query($sql);
                    while ($row = $result->fetch_array()){
@@ -66,7 +70,7 @@ $sql = "SELECT * FROM recipe WHERE idRecipe = $active";
 
 		if ($conn->query($sql) === TRUE) {
 
-$sql = "SELECT * FROM comment WHERE idrecipe = $active";
+$sql = "SELECT * FROM comment WHERE idRecipe = $active";
 
             $result = $conn->query($sql);
 		while($rad = $result->fetch_array())
@@ -85,7 +89,9 @@ function ratings(elem){
 var x =  new XMLHttpRequest();
 var url = "phpscripts/db_rate.php";
 var a = document.getElementById(elem).value;
+
 var vars = "choice="+a;
+
 x.open("POST", url, true);
 x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 x.onreadystatechange = function(){
@@ -96,6 +102,7 @@ document.getElementById("status").innerHTML = return_data;
 }
 }
 x.send(vars);
+
     document.getElementById("status").innerHTML="processing...";
 }
 

@@ -83,12 +83,10 @@ include 'phpscripts/getall_recipes.php';
         //echo '<div class="row">';
     foreach ($egenskaper as $recept){
         echo'<div class ="col-md-4 portfolio-item">';
-        echo '<form method="POST" action="activ_recipe.php">';
         echo'<a href="#">';
         echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
         echo'</a>';
-        echo '<input type="hidden" name="active" value="'.$recept['idRecipe'].'">';
-        echo'<button id="titel" onclick="form.submit();">'.$recept['headline'].'</button></form>';
+        echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
         echo'<p>Kostnad: '. $recept['cost'].'</p>';
         echo'<p>betyg: '. $recept['cost'].'</p>';
         
