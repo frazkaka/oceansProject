@@ -32,10 +32,12 @@
     cursor: inherit;
     display: block;
 }
+
+#img-upload{
+    width: 490px;
+    height: 280px;
+
+}
 #radio{
   margin-left: -15px;
-}
-#img-upload{
-  width: 560px;
-  height: 320px;
 }
