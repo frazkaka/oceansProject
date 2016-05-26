@@ -7,13 +7,43 @@ if(!isset($_SESSION['username'])){
   echo "<script type='text/javascript'>alert('Du måste vara inloggad för att se den här sidan.'); </script>";
   header('refresh:0; url=login.php');
   exit();
-}?>
+}
+?>
 
-<!-- Här ska det vara form men kategori-add funktionen fungerar inte då... -->
+<script src="http://malsup.github.com/jquery.form.js"></script>
+
 <div class='container'>
   <div class='row'>
     <h2>Skapa ett recept!</h2>
     <div class='col-xs-12 well'>
+      <fieldset class='form-group'>
+        <!-- <div class="col-md-6 row">
+            <div class="form-group">
+                <label>Ladda upp en bild</label>
+                <form action="upload.php" method="post" enctype="multipart/form-data" name="FileUploadForm" id="FileUploadForm">
+                  <div class="input-group">
+                      <span class="input-group-btn">
+                          <span class="btn btn-default btn-file">
+                              Bläddra… <input type="file" name="image_upload" id="image_upload" />
+                          </span>
+                      </span>
+                      <input type="text" class="form-control" readonly>
+                  </div>
+                <div id='preview'></div>
+              </form>
+            </div>
+        </div> -->
+        <div class="container row">
+           <form method="post" id="upload_image" enctype="multipart/form-data" action="upload-image.php">
+                <div class="form-group">
+                     <label>Select File <br />
+                          <input type="file" name="image_upload" id="image_upload" />
+                     </label>
+                </div>
+           </form>
+          <div id="preview"></div>
+      </div>
+      </fieldset>
       <form method='POST' role='form' action='phpscripts/publicera.inc.php'>
         <fieldset class='form-group'>
           <label for='recipetitle'>Titel</label>
@@ -43,13 +73,13 @@ if(!isset($_SESSION['username'])){
               <label>Typ av rätt<label>
             </div>
             <label class='btn btn-default'>
-              <input type='radio' name='dishtype' value='förrätt'> Förrätt
+              <input type='radio' name='dishType' value='förrätt'> Förrätt
             </label>
             <label class='btn btn-default'> Varmrätt
-              <input type='radio' name='dishtype' value='varmrätt'>
+              <input type='radio' name='dishType' value='varmrätt'>
             </label>
             <label class='btn btn-default'> Efterrätt
-              <input type='radio' name='dishtype' value='efterrätt'>
+              <input type='radio' name='dishType' value='efterrätt'>
             </label>
         </fieldset>
         <fieldset class='form-group'>
@@ -92,7 +122,7 @@ if(!isset($_SESSION['username'])){
               <input type='radio' name='cookingTime' value='31 +'>
             </label>
           </div>
-        </fieldset
+        </fieldset>
         <fieldset class='form-group'>
           <div id='ingredients'>
           <label for='ingredients-text'>Ingredienser</label>
@@ -105,23 +135,9 @@ if(!isset($_SESSION['username'])){
           <textarea class='form-control' name='description' id='recipe-editor-directions' rows='7'></textarea>
           <small class='text-muted'>Gå igenom stegvis hur man ska göra din rätt. Börja varje nytt steg med en ny rad.</small>
         </fieldset>
-        <fieldset class='form-group'>
-          <div class='form-group'>
-              <label>Ladda upp bild (bild anpassas efter 700 x 400 format)</label>
-              <div class='input-group'>
-                  <span class='input-group-btn'>
-                      <span class='btn btn-default btn-file'>
-                          Bläddra… <input type='file' id='imgInp'>
-                      </span>
-                  </span>
-                  <input type='text' class='form-control' readonly>
-              </div>
-              <img id='img-upload'/>
-          </div>
-        </fieldset>
         <input type='submit' class='btn btn-primary' name='save-recipe-button' value='Publicera recept'>
         <input type='button' class='btn btn-danger'  name='delete-recipe-button' value='Avbryt'>
-      </form>
+        </form>
     </div>
   </div>
 </div>
