@@ -33,10 +33,11 @@
     display: block;
 }
 
-#img-upload{
+#preview{
     width: 490px;
     height: 280px;
-
+    background-image: url("../img/no-image-700x400.jpg");
+    background-size: contain;
 }
 #radio{
   margin-left: -15px;

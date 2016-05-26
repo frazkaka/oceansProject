@@ -28,9 +28,10 @@ $checkPass = $row['password'];
 
 //Om lösenordet matchar, skapa en session för användaren.
 if ($inputHash == $checkPass) {
- $username = $row['username'];
- $_SESSION['username']=$username;
- $_SESSION['userEmail']=$userEmail;
+ $_SESSION['username']=$row['username'];
+ $_SESSION['userEmail']=$row['userEmail'];
+ $_SESSION['school']=$row['school'];
+ $_SESSION['idUser']=$row['idUser'];
  // $_SESSION['timestamp']=$row['timestamp'];
  header( "refresh:2;url=../index.php");
  echo "RÄTT SOM FASIKEN, BRA " . $_SESSION['username'].".";

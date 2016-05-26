@@ -30,7 +30,8 @@
                 imagejpeg($tmp_image, $path, 100);
                 imagedestroy($new_image);
                 imagedestroy($tmp_image);
-                echo '<img src="'.$path.'" />';
+                echo '<img src="'.$path.'" style="width: 490px;
+                  height: 280px"/>';
 								session_start();
 								$_SESSION['image']=$path;
            }

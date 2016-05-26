@@ -22,7 +22,7 @@ $image = $_SESSION['image'];
 
 //Sätt in data i databasen
 $sqlRecipe = "INSERT INTO recipe (headline, dishType, cost, cookingTime, ingredients, description, image) VALUES ('$headline', '$dishType', '$cost', '$cookingTime','$ingredients', '$description' ,'$image')";
-header( "refresh:6;url=../recept.php" );
+header( "refresh:2;url=../recept.php" );
 echo "Receptet har publicerats.";
 
 
