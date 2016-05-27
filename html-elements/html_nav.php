@@ -36,6 +36,7 @@ session_start();
               <button type='submit' id='btn-default' class='btn btn-default'>Sök</button>
             </form>
             <ul class='nav navbar-nav navbar-right'>
+                <?php if (accessAdmin()&&LoggedIn()) { echo "<li><a href='skyddad_admin.php'>Redigera webbplats</a></li>"; } ?>
               <?php if (LoggedIn()) { echo "<li><a href='publicera.php'>Publicera recept</a></li>"; } ?>
               <li <?php echoActiveClass('kontakt') ?> ><a href='kontakt.php'>Kontakt</a></li>
               <li class='dropdown' <?php echoActiveClass('profil') ?>>
@@ -67,6 +68,16 @@ session_start();
     //Kollar om man är inloggad
     function LoggedIn(){
       if (isset($_SESSION["username"])){
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
+//Kollar om man är inloggad som admin 
+function accessAdmin(){
+      if ($_SESSION['access']='admin'){
         return true;
       }
       else {
