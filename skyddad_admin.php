@@ -4,9 +4,14 @@ include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
 include 'phpscripts/database.inc.php';
 
-if((!isset($_SESSION['username'])) && ($_SESSION['access'] =='member')){
+if(isset($_SESSION['username'])){
   echo "<script type='text/javascript'>alert('Du måste vara inloggad för att se den här sidan.'); </script>";
   header('refresh:0; url=login.php');
+  exit();
+}
+if($_SESSION['username']=='member'){
+  echo "<script type='text/javascript'>alert('Du måste vara inloggad för att se den här sidan.'); </script>";
+  header('refresh:0; url=index.php');
   exit();
 }
 
