@@ -32,29 +32,22 @@ if ($inputHash != $checkPass) {
 
 if(isset($_SESSION['profileImage'])){
     $profileImage = $_SESSION['profileImage'];
-    $sql1 = "UPDATE user SET profileImage = '$profileImage'  WHERE idUser='$idUser'";
+    $sql1 = "UPDATE user SET userImage = '$profileImage'  WHERE idUser='$idUser'";
     $conn->query($sql1);
 }
 
-
 if(trim($_POST['username'])!==""){
-  echo "username set";
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $sql2 = "UPDATE user SET username = '$username'  WHERE idUser='$idUser'";
   $conn->query($sql2);
 }
-else{
-  echo "Username not set";
-}
-if(trim($_POST['school'])!=="" || $_POST['school'] !== '---'){
-  echo "school set";
+
+if(trim($_POST['school'])!==""){
   $school = mysqli_real_escape_string($conn, $_POST['school']);
   $sql2 = "UPDATE user SET school = '$school'  WHERE idUser='$idUser'";
   $conn->query($sql2);
 }
-else{
-  echo"school not set";
-}
+
 if(trim($_POST['newEmail'])!==""){
   $newEmail = mysqli_real_escape_string($conn, $_POST['newEmail']);
   $sql3 = "UPDATE user SET userEmail = '$newEmail'  WHERE idUser='$idUser'";
@@ -67,7 +60,7 @@ if(trim($_POST['about'])!==""){
 }
 
 
-header( "refresh:6;url=../profil.php" );
+header( "refresh:2;url=../profil.php" );
 echo "Din profil har uppdaterats";
 
 mysqli_close($conn);

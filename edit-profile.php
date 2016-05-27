@@ -39,9 +39,9 @@ include 'html-elements/html_nav.php';
           <label class="col-lg-3 control-label">Skola:</label>
           <div class="col-lg-8">
               <select class='form-control' id='sel1' name='school'>
-                <option>  ---	</option>
+                <option></option>
                 <option>	Jag är inte student	</option>
-                <option><li role='separator' class='divider'></li></option>
+                <li role="separator" class="divider"></li>
                 <option>	Beckmans designhögskola	</option>
                 <option>	Blekinge tekniska högskola	</option>
                 <option>	Chalmers tekniska högskola	</option>

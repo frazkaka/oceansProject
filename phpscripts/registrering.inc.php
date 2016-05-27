@@ -22,7 +22,6 @@ if (mysqli_num_rows($emailcheck) > 0) {
 	return false;
 }
 
-$_SESSION['profileImage']='img/no-avatar.jpg';
 //Sätt in userdata i databasen
 $sql = "INSERT INTO user (username, school, userEmail, password, salt,userType) VALUES ('$username', '$school', '$userEmail', '$hashedPass', '$salt', 'member')";
 header( "refresh:2;url=../login.php" );

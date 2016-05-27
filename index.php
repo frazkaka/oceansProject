@@ -41,7 +41,6 @@ if (isset($_SESSION['username'])){
         $image=$row['image'];
         echo "<img class='img-responsive2' src='".$image."'<br></div>";
         }
-
     ?>
   </div>
 
