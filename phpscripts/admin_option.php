@@ -8,7 +8,10 @@ $conn->query($sql);
 
 }
 if(isset($_GET['user'])){
-
+$val1 = $_GET['user'];
+$sql = "DELETE FROM user WHERE idUser = $val1";
+$conn->query($sql);
 
 }
+header("Location: ../skyddad_admin.php");
 ?>
