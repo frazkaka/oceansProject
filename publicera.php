@@ -40,7 +40,7 @@ if(!isset($_SESSION['username'])){
         <fieldset class='form-group'>
           <div class='row col-sm-3'>
           <label>Kategori</label>
-            <select class='form-control' name='category'>
+            <select class='form-control' name='dishType'>
               <option value='kött'>Kött</option>
               <option value='fågel'>Fågel</option>
               <option value='fisk/skaldjur'>Fisk/skaldjur</option>
@@ -53,21 +53,6 @@ if(!isset($_SESSION['username'])){
               <option value='övrigt'>Övrigt</option>
             </select
           </div>
-        </fieldset>
-        <fieldset class='form-group'>
-          <div class='btn-group btn-group-l col-lg-12' data-toggle='buttons' id='radio'>
-            <div>
-              <label>Typ av rätt<label>
-            </div>
-            <label class='btn btn-default'>
-              <input type='radio' name='dishType' value='förrätt'> Förrätt
-            </label>
-            <label class='btn btn-default'> Varmrätt
-              <input type='radio' name='dishType' value='varmrätt'>
-            </label>
-            <label class='btn btn-default'> Efterrätt
-              <input type='radio' name='dishType' value='efterrätt'>
-            </label>
         </fieldset>
         <fieldset class='form-group'>
           <div class='btn-group btn-group-s col-lg-12' data-toggle='buttons' name='cost' id='radio'>
