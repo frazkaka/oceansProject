@@ -99,7 +99,9 @@ while ($row = $result->fetch_array())
         echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
         echo'<p>Kostnad: '. $recept['cost'].'</p>';
         echo'<p>betyg: '. $recept['average'].'</p>';
-        
+        for ($x = 0; $x < $recept['average']; $x++) {
+            echo '<img class="img-responsive" src="img/star.jpg" alt ="" height="25px" width="25px">';
+            } 
         echo '</div>';
    
         }
@@ -117,7 +119,7 @@ $result = $conn->query($sql1);
 
 while ($row = $result->fetch_array())
 {
-  $egenskaper[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'average'=> $row['average'] );
+  $egenskaper[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'average'=> $row['average'], 'cookingTime'=> $row['cookingTime'] );
 }
     foreach ($egenskaper as $recept){
         echo'<div class ="col-md-4 portfolio-item">';
@@ -125,10 +127,16 @@ while ($row = $result->fetch_array())
         echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
         echo'</a>';
         echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
-        echo'<p>Kostnad: '. $recept['cost'].'</p>';
-        echo'<p>betyg: '. $recept['average'].'</p>';
+        echo'<span><h4><span class="label label-warning">Kostnad: '. $recept['cost'].'</span></h4>';
+        echo'<h4><span class="label label-warning">Tid: '. $recept['cookingTime'].'</span></h4></span>';
+       
+        for ($x = 0; $x < $recept['average']; $x++) {
+             echo '<img style="display:inline-block" "class="img-responsive" src="img/star.jpg" alt ="" height="25px" width="25px">';
+            } 
         
         echo '</div>';
+
+        
    
     }
 
