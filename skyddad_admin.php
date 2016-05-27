@@ -9,17 +9,17 @@ if(!isset($_SESSION['username'])){
   header('refresh:0; url=login.php');
   exit();
 }
-
-if($_SESSION['access']!='admin'){
+if($_SESSION['username']=='member'){
   echo "<script type='text/javascript'>alert('Du måste vara admin för att se den här sidan.'); </script>";
-  header('refresh:0; url=login.php');
+  header('refresh:0; url=index.php');
   exit();
 }
+
 ?>
 
 
 <?php
-
+echo $_SESSION['access'];
 //Hämtar alla användare ur databasen och skapar en array av resultatet
 $sql = "SELECT * FROM user";
 $result = $conn->query($sql);
