@@ -19,7 +19,6 @@ if($_SESSION['username']=='member'){
 
 
 <?php
-echo $_SESSION['access'];
 //Hämtar alla användare ur databasen och skapar en array av resultatet
 $sql = "SELECT * FROM user";
 $result = $conn->query($sql);
