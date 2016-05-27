@@ -19,6 +19,7 @@ if($result->num_rows < 1) {
 	  return false;
 }
 
+
 //Data för att jämföra hashat lösenord med databasen.
 //$row = mysqli_fetch_array($result, MYSQL_ASSOC);
 $row = $result->fetch_array(MYSQLI_ASSOC);
@@ -32,6 +33,7 @@ if ($inputHash == $checkPass) {
  $_SESSION['userEmail']=$row['userEmail'];
  $_SESSION['school']=$row['school'];
  $_SESSION['idUser']=$row['idUser'];
+$_SESSION['access'] = $row['usertype'];
  // $_SESSION['timestamp']=$row['timestamp'];
  header( "refresh:2;url=../index.php");
  echo "RÄTT SOM FASIKEN, BRA " . $_SESSION['username'].".";
