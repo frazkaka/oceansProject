@@ -84,9 +84,8 @@ include 'phpscripts/database.inc.php';
 if(isset($_GET['filter'])){
 $filter=$_GET['filter'];
 $sql = "SELECT * FROM recipe WHERE dishType = '$filter'";
-    
-//if($conn->query($sql) === TRUE){
-$result = $conn->query($sql);
+$result = $conn->query($sql);    
+if (mysqli_num_rows($result)!=0){
 
 while ($row = $result->fetch_array())
 {
@@ -104,8 +103,11 @@ while ($row = $result->fetch_array())
         echo '</div>';
    
         }
-    //}
-   // else{ echo 'Inga recept i denna kategori';}
+    }
+   else{ 
+       echo 'Inga recept i denna kategori';
+   }
+    $conn->close();
 }
 
 else{
