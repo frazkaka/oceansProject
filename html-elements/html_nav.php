@@ -77,12 +77,17 @@ session_start();
 
 //Kollar om man är inloggad som admin 
 function accessAdmin(){
-      if ($_SESSION['access']='admin'){
+    if(isset($_SESSION['access'])){
+      if ($_SESSION['access']=='admin'){
         return true;
       }
       else {
         return false;
       }
+    }
+       else{
+       return false;
+       }
     }
 
     //Skriver ut en av två givna strängar baserat på om man är inloggad eller ej.

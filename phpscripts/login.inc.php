@@ -33,7 +33,8 @@ if ($inputHash == $checkPass) {
  $_SESSION['userEmail']=$row['userEmail'];
  $_SESSION['school']=$row['school'];
  $_SESSION['idUser']=$row['idUser'];
-$_SESSION['access'] = $row['usertype'];
+   $_SESSION['access'] =$row['usertype'];
+
  // $_SESSION['timestamp']=$row['timestamp'];
  header( "refresh:2;url=../index.php");
  echo "RÄTT SOM FASIKEN, BRA " . $_SESSION['username'].".";
