@@ -4,16 +4,16 @@ include 'html-elements/html_nav.php';
 ?>
 <!--/row-->
 <div class="container" style="padding-top: 60px;">
-  <h1 class="page-header">Edit Profile</h1>
+  <h1 class="page-header">Redigera profil</h1>
   <div class="row">
     <!-- left column -->
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="text-center">
         <div id="preview"> <img src="img/no-avatar.jpg" class="center-block img-circle img-thumbnail img-responsive" alt="avatar" id='no-avatar'> </div>
-        <label>Ladda upp en bild</label>
+        <label class="small">Ändra profilbild</label>
          <form method="post" id="upload_image" enctype="multipart/form-data" action="upload-image-profile.php">
-              <div class="input-group col-sm-5 col-lg-4 col-xs-12">
-                    <input type="file" class="text-center center-block well well-sm" name="image_upload" id="image_upload" />
+              <div class="input-group">
+                    <input type="file" class="text-center center-bloc well well-sm" name="image_upload" id="image_upload" />
               </div>
          </form>
       </div>
@@ -27,67 +27,99 @@ include 'html-elements/html_nav.php';
         <i class="fa fa-coffee"></i>
         This is an <strong>.alert</strong>. Use this to show important messages to the user.
       </div>
-      <h3>Personal info</h3>
-      <form class="form-horizontal" action='phpscripts/save-profile.inc.php' role="form">
+      <h3>Ändra personuppgifter</h3>
+      <form method="post" class="form-horizontal" action='phpscripts/edit-profile.inc.php' role="form">
         <div class="form-group">
-          <label class="col-lg-3 control-label">First name:</label>
-          <div class="col-lg-8">
-            <input class="form-control" value="Jane" type="text">
+          <label class="col-md-3 control-label">Användarnamn:</label>
+          <div class="col-md-8">
+            <input class="form-control" name="username" type="text">
           </div>
         </div>
         <div class="form-group">
-          <label class="col-lg-3 control-label">Last name:</label>
+          <label class="col-lg-3 control-label">Skola:</label>
           <div class="col-lg-8">
-            <input class="form-control" value="Bishop" type="text">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Company:</label>
-          <div class="col-lg-8">
-            <input class="form-control" value="" type="text">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Email:</label>
-          <div class="col-lg-8">
-            <input class="form-control" value="janesemail@gmail.com" type="text">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Time Zone:</label>
-          <div class="col-lg-8">
-            <div class="ui-select">
-              <select id="user_time_zone" class="form-control">
-                <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                <option value="Alaska">(GMT-09:00) Alaska</option>
-                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                <option value="Arizona">(GMT-07:00) Arizona</option>
-                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+              <select class='form-control' id='sel1' name='school'>
+                <option>  ---	</option>
+                <option>	Jag är inte student	</option>
+                <option><li role='separator' class='divider'></li></option>
+                <option>	Beckmans designhögskola	</option>
+                <option>	Blekinge tekniska högskola	</option>
+                <option>	Chalmers tekniska högskola	</option>
+                <option>	Danshögskolan	</option>
+                <option>	Dramatiska institutet	</option>
+                <option>	Ericastiftelsen	</option>
+                <option>	Ersta Sköndal högskola	</option>
+                <option>	Försvarshögskolan	</option>
+                <option>	Gammelkroppa skogsskola	</option>
+                <option>	Gymnastik- och idrottshögskolan	</option>
+                <option>	Göteborgs universitet	</option>
+                <option>	Handelshögskolan i Stockholm	</option>
+                <option>	Högskolan Dalarna	</option>
+                <option>	Högskolan i Borås	</option>
+                <option>	Högskolan i Gävle	</option>
+                <option>	Högskolan i Halmstad	</option>
+                <option>	Högskolan i Jönköping	</option>
+                <option>	Högskolan i Kalmar	</option>
+                <option>	Högskolan i Skövde	</option>
+                <option>	Högskolan Kristianstad	</option>
+                <option>	Högskolan på Gotland	</option>
+                <option>	Högskolan Väst	</option>
+                <option>	Johannelunds teologiska högskola	</option>
+                <option>	Karlstads universitet	</option>
+                <option>	Karolinska institutet	</option>
+                <option>	Konstfack	</option>
+                <option>	Kungliga Konsthögskolan	</option>
+                <option>	Kungliga Musikhögskolan i Stockholm	</option>
+                <option>	Kungliga Tekniska högskolan	</option>
+                <option>	Linköpings universitet	</option>
+                <option>	Luleå tekniska universitet	</option>
+                <option>	Lunds universitet	</option>
+                <option>	Malmö högskola	</option>
+                <option>	Mittuniversitetet	</option>
+                <option>	Mälardalens högskola	</option>
+                <option>	Operahögskolan i Stockholm	</option>
+                <option>	Röda Korsets högskola	</option>
+                <option>	Sophiahemmet Högskola	</option>
+                <option>	Stockholms musikpedagogiska institut	</option>
+                <option>	Stockholms universitet	</option>
+                <option>	Sveriges lantbruksuniversitet	</option>
+                <option>	Södertörns högskola	</option>
+                <option>	Teaterhögskolan i Stockholm	</option>
+                <option>	Teologiska Högskolan, Stockholm	</option>
+                <option>	Umeå universitet	</option>
+                <option>	Uppsala universitet	</option>
+                <option>	Växjö universitet	</option>
+                <option>	Örebro teologiska högskola	</option>
+                <option>	Örebro universitet	</option>
+                <option>	Övr. enskilda anordn. psykoterapeututb.	</option>
+
               </select>
-            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Ny email:</label>
+          <div class="col-lg-8">
+            <input class="form-control" name="newEmail" type="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Om mig:</label>
+          <div class="col-lg-8">
+            <textarea  class="form-control" name="about" maxlength="500"rows="2" type="text"></textarea>
           </div>
         </div>
         <div class="well well-lg">
           <h3>Konfirmera användaruppgifter</h3>
           <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
+            <label class="col-md-3 control-label">Email (gamla):</label>
             <div class="col-md-8">
-              <input class="form-control" value="janeuser" type="text">
+              <input class="form-control" name="email" type="email" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
+            <label class="col-md-3 control-label">Lösenord:</label>
             <div class="col-md-8">
-              <input class="form-control" value="11111122333" type="password">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
-              <input class="form-control" value="11111122333" type="password">
+              <input class="form-control" name="pass" type="password" required>
             </div>
           </div>
           <div class="form-group">
