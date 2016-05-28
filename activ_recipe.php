@@ -56,17 +56,24 @@ while ($row = $result->fetch_array()){
 
     <strong>Betyggsätt detta recept</strong>
     <br />
-    <input type="image" src="img/star.jpg" height="25px" width="25px" value="1" method="POST" onclick ="ratings('1');">
-    <input type="hidden" name="choice" id="1" value="1">
-    <input type="image" src="img/star.jpg" height="25px" width="25px" value="2" onclick ="ratings('2');">
-    <input type="hidden" name="choice" id="2" value="2">
-    <input type="image" src="img/star.jpg" height="25px" width="25px" value="3" onclick ="ratings('3');">
-    <input type="hidden" name="choice" id="3" value="3">
-    <input type="image" src="img/star.jpg" height="25px" width="25px" value="4" onclick ="ratings('4');">
-    <input type="hidden" name="choice" id="4" value="4">
-    <input type="image" src="img/star.jpg" height="25px" width="25px" value="5" onclick ="ratings('5');">
-    <input type="hidden" name="choice" id="5" value="5">
+    <?php 
 
+if(isset($_SESSION['username'])){
+
+echo '<input type="image" src="img/star.jpg" height="25px" width="25px" value="1" method="POST" onclick ="ratings("1");">
+    <input type="hidden" name="choice" id="1" value="1">
+    <input type="image" src="img/star.jpg" height="25px" width="25px" value="2" onclick ="ratings("2");">
+    <input type="hidden" name="choice" id="2" value="2">
+    <input type="image" src="img/star.jpg" height="25px" width="25px" value="3" onclick ="ratings("3");">
+    <input type="hidden" name="choice" id="3" value="3">
+    <input type="image" src="img/star.jpg" height="25px" width="25px" value="4" onclick ="ratings("4");">
+    <input type="hidden" name="choice" id="4" value="4">
+    <input type="image" src="img/star.jpg" height="25px" width="25px" value="5" onclick ="ratings("5");">
+    <input type="hidden" name="choice" id="5" value="5">';
+}
+                   else{
+                   echo 'Vänligen logga in för att betygsätta detta recept.';
+                   }?>
 <br />
 
 <br />
@@ -84,10 +91,15 @@ while ($row = $result->fetch_array()){
             <div class="text-center">    
 <form class="form-inline" method="POST" action = "phpscripts/kommentarer.inc.php" >
 <?php
-               echo 'Användarnamn: '.$_SESSION['username'];
-?>
+if(!isset($_SESSION['username'])){
+echo 'Vänligen logga in för att kommentera receptet.<hr><br/>';
 
-<br>Kommentar:<input type="text" id="comment" name="comment">
+}
+else{
+               echo 'Användarnamn: '.$_SESSION['username'];
+
+
+echo'<br>Kommentar:<input type="text" id="comment" name="comment">
                           
                     
                         <input type="submit" value= "Skicka" class="btn btn-success">
@@ -97,15 +109,18 @@ while ($row = $result->fetch_array()){
                     <hr>
 
                     <div class="row">
-                        <div class="col-md-12">
-            
+                        <div class="col-md-12">';
+}
+   ?>
+
 
 <br/>
 
 
 <?php
 
-$sql = "SELECT * FROM comment WHERE idRecipe =$active";
+
+    $sql = "SELECT * FROM comment WHERE idRecipe =$active";
 
 
             $result = $conn->query($sql);
@@ -114,7 +129,6 @@ $sql = "SELECT * FROM comment WHERE idRecipe =$active";
 
             echo   '<strong>Användarnamn: '.$rad['idUser'].'</strong><br>' .$rad['comtext'] .'<hr><br><br>';
 		}
-
         
 ?>
 
