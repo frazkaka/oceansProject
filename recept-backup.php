@@ -133,10 +133,9 @@ $(document).ready(function(){
           </div>
         </div>
         <?php
-function echoRecipes($tables, $inpFilters){
+
 if(isset($_GET['filter'])){
 $filter=$_GET['filter'];
-
 $sql = "SELECT * FROM recipe WHERE dishType = '$filter'";
 $result = $conn->query($sql);
 if (mysqli_num_rows($result)!=0){
@@ -164,7 +163,7 @@ while ($row = $result->fetch_array())
    }
     $conn->close();
 }
-}
+
 else{
 $sql1 = "SELECT * FROM recipe";
 $result = $conn->query($sql1);
