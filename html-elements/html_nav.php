@@ -4,7 +4,7 @@ session_start();
 <body>
   <div id='page'>
     <div id='header'><header>
-      <nav class='navbar navbar-default'>
+      <nav class='navbar navbar-default' id='navbar'>
         <div class='container-fluid'>
           <!-- After collapse -->
           <div class='navbar-header'>
@@ -75,7 +75,7 @@ session_start();
       }
     }
 
-//Kollar om man är inloggad som admin 
+//Kollar om man är inloggad som admin
 function accessAdmin(){
     if(isset($_SESSION['access'])){
       if ($_SESSION['access']=='admin'){
