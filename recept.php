@@ -20,12 +20,12 @@ include 'phpscripts/database.inc.php';
             <li class='active'><a href='recept.php'>Alla</a></li>
             <li><a href='recept.php?filter=kött'>Kött</a></li>
             <li><a href='recept.php?filter=fågel'>Fågel</a></li>
-            <li><a href='recept.php?filter=fisk'>Fisk/Skaldjur</a></li>
+            <li><a href='recept.php?filter=fisk/skaldjur'>Fisk/Skaldjur</a></li>
             <li><a href='recept.php?filter=pasta'>Pasta</a></li>
             <li><a href='recept.php?filter=soppa/pajer'>Soppa/pajer</a></li>
             <li><a href='recept.php?filter=vegetariskt'>Vegetariskt</a></li>
-            <li><a href='recept.php?filter=mackor'>Mackor/wraps</a></li>
-            <li><a href='recept.php?filter=pannkakor'>Pannkakor/omelett</a></li>
+            <li><a href='recept.php?filter=mackor/wraps'>Mackor/wraps</a></li>
+            <li><a href='recept.php?filter=pannkakor/omelett'>Pannkakor/omelett</a></li>
             <li><a href='recept.php?filter=mellanmål'>Mellanmål</a></li>
             <li><a href='recept.php?filter=övrigt'>Övrigt</a></li>
           </ul>
@@ -84,7 +84,7 @@ include 'phpscripts/database.inc.php';
 if(isset($_GET['filter'])){
 $filter=$_GET['filter'];
 $sql = "SELECT * FROM recipe WHERE dishType = '$filter'";
-$result = $conn->query($sql);    
+$result = $conn->query($sql);
 if (mysqli_num_rows($result)!=0){
 
 while ($row = $result->fetch_array())
@@ -101,12 +101,12 @@ while ($row = $result->fetch_array())
         echo'<p>betyg: '. $recept['average'].'</p>';
         for ($x = 0; $x < $recept['average']; $x++) {
             echo '<img class="img-responsive" src="img/star.jpg" alt ="" height="25px" width="25px">';
-            } 
+            }
         echo '</div>';
-   
+
         }
     }
-   else{ 
+   else{
        echo 'Inga recept i denna kategori';
    }
     $conn->close();
@@ -119,7 +119,7 @@ $result = $conn->query($sql1);
 
 while ($row = $result->fetch_array())
 {
-  $egenskaper[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'average'=> $row['average'], 'cookingTime'=> $row['cookingTime'] );
+  $egenskaper[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'dishType'=>$row['dishType'], 'cost' => $row['cost'], 'average'=> $row['average'], 'cookingTime'=> $row['cookingTime'] );
 }
     foreach ($egenskaper as $recept){
         echo'<div class ="col-md-4 portfolio-item">';
@@ -127,20 +127,16 @@ while ($row = $result->fetch_array())
         echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
         echo'</a>';
         echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
-        echo'<span><h4><span class="label label-warning">Kostnad: '. $recept['cost'].'</span></h4>';
-        echo'<h4><span class="label label-warning">Tid: '. $recept['cookingTime'].'</span></h4></span>';
-       
+        echo'<div id="labels"><h4><span class="label label-warning">'. $recept['cost'].' kr</span> &nbsp';
+        echo'<span class="label label-primary">'. $recept['cookingTime'].' min</span> &nbsp';
+        echo'<span class="label label-danger">'. $recept['dishType'].'</span></h4></div>';
+
         for ($x = 0; $x < $recept['average']; $x++) {
              echo '<img style="display:inline-block" "class="img-responsive" src="img/star.jpg" alt ="" height="25px" width="25px">';
-            } 
-        
+            }
+
         echo '</div>';
-
-        
-   
     }
-
-   
 }
 
 ?>

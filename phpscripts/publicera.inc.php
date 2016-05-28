@@ -22,7 +22,7 @@ header( "refresh:2;url=../recept.php" );
 echo "Receptet har publicerats.";
 
 
-if (!mysqli_query($conn, $sqlRecipe)){
+if (!mysqli_query($conn, $sqlRecipe)){  
     die('error ' . mysqli_error($conn));
 }
 
