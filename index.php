@@ -23,8 +23,10 @@ if (isset($_SESSION['username'])){
       $resulttop10 = $conn->query($sqltop10);
       while ($row = $resulttop10->fetch_array()){
         echo '<a href="#"><div class="top10div">';
+        echo '<div class="grow pic">';
         $image=$row['image'];
         echo "<img class='img-responsive' src='".$image."'>";
+        echo '</div>';
         echo '<div class="div-round">' . $counter . ' </div><strong> '.$headline=$row['headline'].'</strong>';
         $counter++;
         echo ' <div class="ratingBox"><span class="box">' . $average=$row['average'] . '</span></div>';
@@ -63,5 +65,6 @@ if (isset($_SESSION['username'])){
 <?php
  // $sqlRecipeSearch = "SELECT * FROM recipe WHERE Concat(headline, '', idRecipe, '', description) like "%ham%")";
  ?>
+
 
 <?php include'html-elements/html_footer.php';?>
