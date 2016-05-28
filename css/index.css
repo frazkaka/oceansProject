@@ -134,6 +134,7 @@ a:hover {
   border-bottom: 1px solid #FFB441;
   border-right: 1px solid #FFB441;
   vertical-align:top;
+  cursor: pointer;
 
 }
 #bidrag {
@@ -158,4 +159,14 @@ a:hover {
 }
 .glyphicon-usd {
   color: #FFB441;
+}
+.frontpage .readMore{
+  visibility: hidden;
+}
+.frontpage:hover .readMore{
+  visibility: visible;
+
+}
+.glyphicon-share-alt {
+  color: green;
 }
