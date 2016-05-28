@@ -28,4 +28,7 @@ include 'html-elements/html_nav.php';?>
       <img id='contactImg' src='img/contactus1.png'>
     </div>
     <!-- ----------------------------------------------- -->
+
+
+
   <?php include'html-elements/html_footer.php';?>

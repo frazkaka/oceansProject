@@ -1,3 +1,30 @@
+
+.img-responsive2 {
+  width: 100%;
+  height: auto;
+  border-radius: 10%;
+  border: 1px solid #FF5500;
+  --box-shadow-color: white;
+    box-shadow: 3px 3px 3px var(--box-shadow-color);
+
+  -webkit-filter: grayscale(30%)
+          brightness(90%)
+          contrast(120%);
+  filter: grayscale(30%)
+          brightness(90%)
+          contrast(120%);
+
+  transition: filter 0.44s, box-shadow 0.44s;
+  -webkit-transition: filter 0.44s, -webkit-filter 0.44s, box-shadow 0.44s;
+}
+.img-responsive2:hover,
+.img-responsive2:focus {
+  -webkit-filter: none;
+  filter: none;
+  border-radius: 10%;
+  --box-shadow-color: #FFB441;
+    box-shadow: 1px 2px 2px 2px var(--box-shadow-color);
+}
 #container {
   padding-left: 60px;
   padding-right: 60px;
@@ -17,9 +44,8 @@ box-shadow: 1px 2px 4px 3px #FFB441;
 }
 #rightContainer {
   text-align: center;
-  padding-right: 60px;
   float: left;
-  width: 800px;
+  width: 600px;
   -webkit-border-radius: 4px;
 -webkit-border-bottom-right-radius: 8px;
 -moz-border-radius: 4px;
@@ -81,7 +107,13 @@ a:hover {
 .frontpage {
   padding: 5px;
   margin: 5px;
+  width: 46%;
+  height: 132px;
   display: inline-block;
+  border-bottom: 1px solid #FFB441;
+  border-right: 1px solid #FFB441;
+  vertical-align:top;
+
 }
 #bidrag {
   font-size: 20px;
@@ -93,4 +125,16 @@ a:hover {
 }
 #page {
   height: 1000px;
+}
+#top10header {
+  font-family: monospace, verdana, fantasy;
+  font-size: 20px;
+}
+.glyphicon-time {
+  color: #FFB441;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.glyphicon-usd {
+  color: #FFB441;
 }
