@@ -53,7 +53,8 @@ if (isset($_SESSION['username'])){
         echo ' min<br>';
         echo '<span class="glyphicon glyphicon-usd"></span> ';
         echo '<b>' . $cost = $row['cost'] . '</b>';
-        echo ' kr/port<br>';
+        echo ' kr/port<br><br>';
+        echo '<span class="glyphicon glyphicon-share-alt pull-right readMore"></span>';
         echo "</div>";
         }
 
