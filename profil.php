@@ -67,7 +67,7 @@ while ($rowRec = $resultRec->fetch_array())
               <div class='row'>
                 <?php
 
-                if(counter!=0){
+                if($counter!=0){
                   foreach ($recepies as $recept){
                     echo'<div class ="col-md-4 portfolio-item">';
                     echo'<a href="#">';
