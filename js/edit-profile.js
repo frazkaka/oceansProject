@@ -3,7 +3,7 @@ $(document).ready(function(){
           $('#preview').html('<label>Image Uploading...</label>');
           $('#upload_image').ajaxForm({
                target: '#preview'
-               
+
           }).submit();
      });
 });

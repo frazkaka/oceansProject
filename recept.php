@@ -84,7 +84,7 @@ include 'phpscripts/database.inc.php';
 if(isset($_GET['filter'])){
 $filter=$_GET['filter'];
 $sql = "SELECT * FROM recipe WHERE dishType = '$filter'";
-    
+
 //if($conn->query($sql) === TRUE){
 $result = $conn->query($sql);
 
@@ -100,9 +100,9 @@ while ($row = $result->fetch_array())
         echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
         echo'<p>Kostnad: '. $recept['cost'].'</p>';
         echo'<p>betyg: '. $recept['average'].'</p>';
-        
+
         echo '</div>';
-   
+
         }
     //}
    // else{ echo 'Inga recept i denna kategori';}
@@ -125,12 +125,12 @@ while ($row = $result->fetch_array())
         echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
         echo'<p>Kostnad: '. $recept['cost'].'</p>';
         echo'<p>betyg: '. $recept['average'].'</p>';
-        
+
         echo '</div>';
-   
+
     }
 
-   
+
 }
 
 ?>

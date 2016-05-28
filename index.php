@@ -3,6 +3,7 @@ include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
 include 'phpscripts/database.inc.php';
 ?>
+
 <?php
 if (isset($_SESSION['username'])){
   echo "Welcome, ". $_SESSION['username'];
@@ -12,6 +13,7 @@ if (isset($_SESSION['username'])){
 ?>
 <div id='container'>
     <div id='leftContainer'>
+      
       <?php
       $counter = 1;
 
@@ -28,6 +30,8 @@ if (isset($_SESSION['username'])){
         echo '</div></a>';
       }
       ?>
+
+
     </div>
 
       <div id='rightContainer'>
@@ -48,7 +52,7 @@ if (isset($_SESSION['username'])){
 
 </div>
 <?php
- $sqlRecipeSearch = "SELECT * FROM recipe WHERE Concat(headline, '', idRecipe, '', description) like "%ham%")";
+ //$sqlRecipeSearch = "SELECT * FROM recipe WHERE Concat(headline, '', idRecipe, '', description) like "%ham%")";
  ?>
 
 <?php include'html-elements/html_footer.php';?>
