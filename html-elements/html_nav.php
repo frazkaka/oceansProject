@@ -28,9 +28,9 @@ session_start();
               <li <?php echoActiveClass('recept') ?> ><a href='recept.php'>Recept</a></li>
               <li <?php echoActiveClass('forum') ?> ><a href='forum.php'>Forum</a></li>
             </ul>
-            <form class='navbar-form navbar-left' role='search'>
+            <form class='navbar-form navbar-left' method='post' action='search.php' role='search'>
               <div id='form-group' class='form-group'>
-                <input type='text' id='form-control' class='form-control' placeholder='Sök i databasen..'onfocus='this.placeholder = '' onblur='this.placeholder ='Sök i databasen'>
+                <input type='text' id='form-control' class='form-control' placeholder='Sök i databasen..'onfocus='this.placeholder = '' onblur='this.placeholder ='Sök i databasen' name='input' required>
                 <span class='glyphicon glyphicon-search'></span>
               </div>
               <button type='submit' id='btn-default' class='btn btn-default'>Sök</button>
