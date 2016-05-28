@@ -133,7 +133,7 @@ $(document).ready(function(){
           </div>
         </div>
         <?php
-function echoRecipes($tables, $inpFilters){
+
 if(isset($_GET['filter'])){
 $filter=$_GET['filter'];
 
@@ -164,7 +164,7 @@ while ($row = $result->fetch_array())
    }
     $conn->close();
 }
-}
+
 else{
 $sql1 = "SELECT * FROM recipe";
 $result = $conn->query($sql1);
