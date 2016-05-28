@@ -3,7 +3,6 @@ include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
 include 'phpscripts/database.inc.php';
 
-//User info
 $idUser = $_SESSION['idUser'];
 $sql ="SELECT * FROM user WHERE idUser='$idUser'";
 $result = $conn->query($sql) or die($conn->error);
@@ -42,60 +41,61 @@ while ($rowRec = $resultRec->fetch_array())
               <p><strong>Om: </strong> <?php echo $row['about'];?> </p>
               <p><strong>Skola: </strong> <?php echo  $row['school'];?></p>
               <div class="row col-xs-5 col-md-3">
-              <a role="button" href='edit-profile.php' class="btn btn-primary btn-block">Redigera profil</a>
+                <a role="button" href='edit-profile.php' class="btn btn-primary btn-block">Redigera profil</a>
+              </div>
+              <!--/col-->
+              <div class="clearfix"></div>
+              <div class="col-xs-12 col-sm-4">
+                <h2><strong> 20,7K </strong></h2>
+                <p>Följare</p>
+              </div>
+              <!--/col-->
+              <div class="col-xs-12 col-sm-4">
+                <h2><strong>245</strong></h2>
+                <p>Följer</p>
+              </div>
+              <!--/col-->
+              <div class="col-xs-12 col-sm-4">
+                <h2><strong><?php echo $counter; ?></strong></h2>
+                <p> Recpet</p>
+              </div>
+              <!--/col-->
             </div>
-            <!--/col-->
-            <div class="clearfix"></div>
-            <div class="col-xs-12 col-sm-4">
-              <h2><strong> 20,7K </strong></h2>
-              <p>Följare</p>
+            <!--/row-->
+            <div>
+              <h3 class='page-header row col-md-12' id='recepten'>Recept från <?php echo $row['username'];?></h3>
+              <div class='row'>
+                <?php
+
+                if(!empty($recepies)){
+                  foreach ($recepies as $recept){
+                    echo'<div class ="col-md-4 portfolio-item">';
+                    echo'<a href="#">';
+                    echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
+                    echo'</a>';
+                    echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
+                    echo'<p>Kostnad: '. $recept['cost'].'</p>';
+                    echo'<p>betyg: '. $recept['cost'].'</p>';
+
+                    echo '</div>';
+                  }
+                }
+                else{
+                  echo '<div class="col-md-12"><p>Du har inte publicerat några recept.</p></div>';
+                }
+                ?>
+              </div>
             </div>
-            <!--/col-->
-            <div class="col-xs-12 col-sm-4">
-              <h2><strong>245</strong></h2>
-              <p>Följer</p>
-            </div>
-            <!--/col-->
-            <div class="col-xs-12 col-sm-4">
-              <h2><strong><?php echo $counter; ?></strong></h2>
-              <p> Recpet</p>
-            </div>
-            <!--/col-->
           </div>
-          <!--/row-->
-
-          <h3 class='page-header row col-md-12' id='recepten'>Recept från <?php echo $row['username'];?></h3>
-          <div class='row'>
-          <?php
-
-
-
-          foreach ($recepies as $recept){
-              echo'<div class ="col-md-4 portfolio-item">';
-              echo'<a href="#">';
-              echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
-              echo'</a>';
-              echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
-              echo'<p>Kostnad: '. $recept['cost'].'</p>';
-              echo'<p>betyg: '. $recept['cost'].'</p>';
-
-              echo '</div>';
-
-          }
-          //echo '</div>';
-
-          ?>
+          <!--/panel-body-->
         </div>
-        </div>
-        <!--/panel-body-->
+        <!--/panel-->
       </div>
-      <!--/panel-->
+      <!--/col-->
     </div>
-    <!--/col-->
+    <!--/row-->
   </div>
-  <!--/row-->
-</div>
-<!--/container-->
+  <!--/container-->
 
-    <!-- ----------------------------------------------- -->
+  <!-- ----------------------------------------------- -->
   <?php include'html-elements/html_footer.php';?>

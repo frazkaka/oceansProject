@@ -3,9 +3,43 @@ include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
 include 'phpscripts/database.inc.php';
 ?>
+<script>src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"
+$(document).ready(function () {
+            $('.results > li').hide();
+
+            $('div.tags').find('input:checkbox').live('click', function () {
+                $('.results > li').hide();
+                $('div.tags').find('input:checked').each(function () {
+                    $('.results > li.' + $(this).attr('rel')).show();
+                });
+            });
+        });    </script>
+<div class="tags">
+       <label>
+           <input type="checkbox" rel="arts" />
+           Arts
+       </label>
+       <label>
+           <input type="checkbox" rel="computers" />
+           Computers
+       </label>
+       <label>
+           <input type="checkbox" rel="health" />
+           Health
+       </label>
+       <label>
+           <input type="checkbox" rel="video-games" />
+           Video Games
+       </label>
+   </div>
+   <ul class="results">
+       <li class="arts computers">Result 1</li>
+       <li class="video-games">Result 2</li>
+       <li class="computers health video-games">Result 3</li>
+       <li class="arts video-games">Result 4</li>
+   </ul>
     <!-- Page Content -->
     <div class='container'>
-
         <!-- Page Header -->
         <div class='row'>
             <div class='col-lg-12'>
@@ -33,25 +67,32 @@ include 'phpscripts/database.inc.php';
         <!-- /.navbar-collapse -->
         <!-- searchbox -->
         <div class='row' id='searchfilter'>
-          <div class='btn-group btn-group-sm col-lg-3' data-toggle='buttons' id='price'>
-            <h5>Pris (kr)</h5>
-            <label class='btn btn-default'>
-              <input type='checkbox' checked> 1-5
-            </label>
-            <label class='btn btn-default'> 6-10
-              <input type='checkbox'>
-            </label>
-            <label class='btn btn-default'> 11-15
-              <input type='checkbox'>
-            </label>
-            <label class='btn btn-default'> 16-20
-              <input type='checkbox'>
-            </label>
-            <label class='btn btn-default'> 21-30
-              <input type='checkbox'>
-            </label>
-          </div>
-          <div class='btn-group btn-group-sm col-lg-3' data-toggle='buttons' id='price'>
+
+            <div class='btn-group btn-group-sm col-lg-3' data-toggle='buttons' name='price' id='price'>
+              <h5>Pris (kr)</h5>
+              <label class='btn btn-default'>1-5
+                <form method='POST' role='form' action='recept.php?price='>
+                <input type='checkbox' name='price' value='1-5'>
+              </form>
+              </label>
+              <label class='btn btn-default'> 6-10
+                <form method='POST' role='form' action='recept.php?price='>
+                <input type='checkbox' name='price' value='6-10'>
+              </form>
+              </label>
+              <label class='btn btn-default'> 11-15
+                <input type='checkbox' name='price' value='11-15'>
+              </label>
+              <label class='btn btn-default'> 16-20
+                <input type='checkbox' name='price' value='16-20'>
+              </label>
+              <label class='btn btn-default'> 21-30
+                <input type='checkbox' name='price' value='21-30'>
+              </label>
+            </div>
+
+
+          <div class='btn-group btn-group-sm col-lg-3' data-toggle='buttons' id='time'>
             <h5>Tid (min)</h5>
             <label class='btn btn-default'>
               <input type='checkbox' checked> 1-10
@@ -122,20 +163,22 @@ while ($row = $result->fetch_array())
   $egenskaper[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'dishType'=>$row['dishType'], 'cost' => $row['cost'], 'average'=> $row['average'], 'cookingTime'=> $row['cookingTime'] );
 }
     foreach ($egenskaper as $recept){
+
         echo'<div class ="col-md-4 portfolio-item">';
         echo'<a href="#">';
         echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
         echo'</a>';
         echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
         echo'<div id="labels"><h4><span class="label label-warning">'. $recept['cost'].' kr</span> &nbsp';
-        echo'<span class="label label-primary">'. $recept['cookingTime'].' min</span> &nbsp';
-        echo'<span class="label label-danger">'. $recept['dishType'].'</span></h4></div>';
+        echo'<span class="label label-primary"> '. $recept['cookingTime'].' min</span> &nbsp';
+        echo'<span class="label label-danger">'. $recept['dishType'].'</span></h4>';
+
 
         for ($x = 0; $x < $recept['average']; $x++) {
              echo '<img style="display:inline-block" "class="img-responsive" src="img/star.jpg" alt ="" height="25px" width="25px">';
             }
 
-        echo '</div>';
+        echo '</div></div>';
     }
 }
 
@@ -188,9 +231,5 @@ while ($row = $result->fetch_array())
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src='js/jquery.js'></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src='js/bootstrap.min.js'></script>
 <?php include'html-elements/html_footer.php';?>
