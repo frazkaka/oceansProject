@@ -1,6 +1,5 @@
 #logo {
-  width: 100px;
-  height: 50px;
+  margin-right: 30px;
 }
 /*Större navbar:*/
 /*.navbar-fixed-top {
@@ -21,54 +20,87 @@
 }*/
 
 .navbar-header {
-  background-color: #FFB441;
-  padding-left: 45px;
+  /*background-color: #FFB441;*/
+  /*padding-left: 45px;
+  background-color: hsl(31, 100%, 46%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fed7ad", endColorstr="#ea7900");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#fed7ad), to(#ea7900));
+  background-image: -moz-linear-gradient(top, #fed7ad, #ea7900);
+  background-image: -ms-linear-gradient(top, #fed7ad, #ea7900);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fed7ad), color-stop(100%, #ea7900));
+  background-image: -webkit-linear-gradient(top, #fed7ad, #ea7900);
+  background-image: -o-linear-gradient(top, #fed7ad, #ea7900);
+  background-image: linear-gradient(#fed7ad, #ea7900);
+  border-color: #ea7900 #ea7900 hsl(31, 100%, 36.5%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
+  -webkit-font-smoothing: antialiased;*/
 }
 .navbar-default {
-  background-color: #FFB441;
+  /*background-color: #FFB441;*/
+  background-color: hsl(31, 100%, 46%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fed7ad", endColorstr="#ea7900");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#fed7ad), to(#ea7900));
+  background-image: -moz-linear-gradient(top, #fed7ad, #ea7900);
+  background-image: -ms-linear-gradient(top, #fed7ad, #ea7900);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fed7ad), color-stop(100%, #ea7900));
+  background-image: -webkit-linear-gradient(top, #fed7ad, #ea7900);
+  background-image: -o-linear-gradient(top, #fed7ad, #ea7900);
+  background-image: linear-gradient(#fed7ad, #ea7900);
+  border-color: #ea7900 #ea7900 hsl(31, 100%, 36.5%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
+  -webkit-font-smoothing: antialiased;
+
 }
 ul li a {
-  font-family: Verdana;
+  font-family: ;
 }
 .sr-only {
-  background-color: white;
-  color: blue;
+  /*background-color: white;
+  color: blue;*/
 
 }
 /* to change color of collapsed icon-bar */
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #FF5500;
+  /*background-color: #FF5500;*/
 }
 /* The button behind the three stripes */
 .navbar-toggle {
-  border: 1px solid white;
-  border-radius: 6px;
+  /*border: 1px solid white;
+  border-radius: 6px;*/
 }
 /* changes the collapsed button during hover */
 .navbar-default .navbar-toggle:hover {
-  background-color: white;
+  /*background-color: white;*/
 }
 
 #bs-example-navbar-collapse-1 a {
-  text-decoration: none;
-  font-family: fantasy;
   color: white;
 }
 #bs-example-navbar-collapse-1 a:hover {
-  text-decoration: none;
-  font-family: fantasy;
   color: #FF5500;
-  font-weight: bold;
 }
 #bs-example-navbar-collapse-1 #active a:hover {
-  text-decoration: none;
-  font-family: fantasy;
-  color: white;
-  font-weight: bold;
   color: white;
 }
 #active a {
-  background-color: #FF5500;
+  background-color: hsl(11, 100%, 26%) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e02900", endColorstr="#841800");
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#e02900), to(#841800));
+    background-image: -moz-linear-gradient(top, #e02900, #841800);
+    background-image: -ms-linear-gradient(top, #e02900, #841800);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e02900), color-stop(100%, #841800));
+    background-image: -webkit-linear-gradient(top, #e02900, #841800);
+    background-image: -o-linear-gradient(top, #e02900, #841800);
+    background-image: linear-gradient(#e02900, #841800);
+    border-color: #841800 #841800 hsl(11, 100%, 21.5%);
+    color: #fff !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.29);
+    -webkit-font-smoothing: antialiased;
 }
 #form-control {
   padding: 0 10px 0 29px;
