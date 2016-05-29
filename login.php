@@ -2,7 +2,7 @@
 include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';?>
 
-
+<div class='col-md-8 col-md-offset-2 well'>
 <h2>Logga in</h2>
 <form method='post' action='phpscripts/login.inc.php' role='form'>
     <div class='form-group'>
@@ -16,6 +16,6 @@ include 'html-elements/html_nav.php';?>
     <button type='submit' class='btn btn-default'>LOGGA IN</button>
   </form>
 
-
+</div>
 
 <?php include'html-elements/html_footer.php';?>
