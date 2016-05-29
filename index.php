@@ -22,7 +22,8 @@ if (isset($_SESSION['username'])){
       $sqltop10 = "SELECT * FROM user, recipe WHERE user.idUser = recipe.idUser ORDER BY average DESC LIMIT 10";
       $resulttop10 = $conn->query($sqltop10);
       while ($row = $resulttop10->fetch_array()){
-        echo '<a href="#"><div class="top10div">';
+        $idRecipe=$row['idRecipe'];
+        echo '<a href="activ_recipe.php?id='.$idRecipe.'"><div class="top10div">';
         echo '<div class="grow pic">';
         $image=$row['image'];
         echo "<img class='img-responsive' src='".$image."'>";
@@ -44,7 +45,8 @@ if (isset($_SESSION['username'])){
         $sqlfrontpage = "SELECT * FROM recipe ORDER BY idRecipe DESC";
         $resultfrontpage = $conn->query($sqlfrontpage);
         while ($row = $resultfrontpage->fetch_array()){
-        echo '<div class="frontpage">';
+            $idRecipe=$row['idRecipe'];
+        echo '<a href="activ_recipe.php?id='.$idRecipe.'"><div class="frontpage">';
         $image=$row['image'];
         echo "<img class='img-responsive2' src='".$image."'<br>";
         echo '<b>' . $headline = $row['headline'] . '</b><br>';
@@ -55,7 +57,7 @@ if (isset($_SESSION['username'])){
         echo '<b>' . $cost = $row['cost'] . '</b>';
         echo ' kr/port<br><br>';
         echo '<span class="glyphicon glyphicon-share-alt pull-right readMore"></span>';
-        echo "</div>";
+        echo "</div></a>";
         }
 
     ?>
