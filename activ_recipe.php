@@ -23,29 +23,38 @@ include "phpscripts/database.inc.php";
 		$headline = $row['headline'];
 		$cost = $row['cost'];
 		$average= $row['average'];
+        $cookingTime= $row['cookingTime'];
+        $dishType= $row['dishType'];
 	}
 	?>
 </fieldset>
 <div class="container">
 
-	<div class="row">
 
 
 		<div class="col-md-8 col-md-offset-2 well">
 
 
 			<div class="thumbnail">
-					<img class="img-responsive" src="<?php echo $image;?>" alt="">
+					<img class="img-responsive" style="float:left; padding-right:10px;" src="<?php echo $image;?>" alt="">
 				<div>
 				<div class="caption-full">
-					<h4 class="pull-right"><?php echo $cost;?></h4>
-					<h4><a href="#"><?php echo $headline;?></a>
-					</h4>
+                    
+                    <h4><strong><?php echo $headline;?></strong></h4>
+                    <li><i class="glyphicon glyphicon-time"></i><span><?php echo $cookingTime ?></span></li>
+                    <li><i class="glyphicon glyphicon-usd"></i><span><?php echo $cost ?></span></li>
+                    <li><i class="glyphicon glyphicon-cutlery"></i><span><?php echo $dishType?></span></li>
+                    <br/>
 					<p>Ingredienser:<br/><?php echo $ingredients ?></p>
 					<br/>
-
-					<p>Beskrivning:</br><?php echo $description?></p>
-					<hr>
+                    </div>
+                    <div class="row" style="text-algin:left;">
+					<p >Beskrivning:</br><?php echo $description?></p>
+				<br/>
+                <br/>
+                <br/>
+                <br/>
+                <hr>
 				</div>
 				<?php include_once "phpscripts/average.php";?>
 				<div class="ratings">
@@ -135,10 +144,10 @@ include "phpscripts/database.inc.php";
 						?>
 
 
-					</div>
+				
 				</div>
 			</div>
-
+</div>
 		</div>
 
 
