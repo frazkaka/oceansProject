@@ -3,7 +3,16 @@ include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
 include 'phpscripts/database.inc.php';
 ?>
-
+<script src="typeahead.min.js"></script>
+<script>
+  $(document).ready(function(){
+  $('input.typeahead').typeahead({
+      name: 'typeahead',
+      remote:'recept.php?key=%QUERY',
+      limit : 10
+  });
+});
+</script>
 
     <!-- Page Content -->
     <div class='container'>
@@ -17,8 +26,8 @@ include 'phpscripts/database.inc.php';
         </div>
           <!-- navbar-collapse -->
         <div class='collapse navbar-collapse'>
-          <ul class='nav navbar-nav col-lg-12 bordered' id='categories'>
-            <li class='active'><a href='recept.php'>Alla</a></li>
+          <ul class='nav navbar-nav col-lg-12 text-center' id='categories'>
+            <li id="alla"><a href='recept.php'>Alla</a></li>
             <li><a href='recept.php?filter=kött'>Kött</a></li>
             <li><a href='recept.php?filter=fågel'>Fågel</a></li>
             <li><a href='recept.php?filter=fisk/skaldjur'>Fisk/Skaldjur</a></li>
@@ -36,7 +45,7 @@ include 'phpscripts/database.inc.php';
         <form id="form" method="post" action=''>
         <div class='row' id='filters'>
             <div class='btn-group btn-group-sm col-lg-3' data-toggle='buttons' name='price' id='price'>
-              <h5>Pris (kr)</h5>
+              <h5>Pris/portion (kr)</h5>
               <label class='btn btn-custom2<?php if(isset($_POST['1-5'])){echo " active";}?>'>1-5
                 <input type='checkbox' name='1-5' class='checkbox' <?=(isset($_POST['1-5'])?' checked':'')?>>
               </label>
@@ -56,35 +65,39 @@ include 'phpscripts/database.inc.php';
 
 
           <div class='btn-group btn-group-sm col-lg-3' data-toggle='buttons' id='time'>
-            <h5>Tid (min)</h5>
-            <label class='btn btn-custom'>1-10
-              <input type='checkbox' name='1-10' id="checkbox_id">
+            <h5>Tillagningstid (min)</h5>
+            <label class='btn btn-custom<?php if(isset($_POST['1-10'])){echo " active";}?>'>1-10
+              <input type='checkbox' name='1-10' class='checkbox' <?=(isset($_POST['1-10'])?' checked':'')?>>
             </label>
-            <label class='btn btn-custom'> 11-20
-              <input type='checkbox' name='11-20'>
+            <label class='btn btn-custom<?php if(isset($_POST['11-20'])){echo " active";}?>'> 11-20
+              <input type='checkbox' name='11-20' class='checkbox' <?=(isset($_POST['11-20'])?' checked':'')?>>
             </label>
-            <label class='btn btn-custom'> 21-30
-              <input type='checkbox' name='21-30'>
+            <label class='btn btn-custom<?php if(isset($_POST['21--30'])){echo " active";}?>'> 21-30
+              <input type='checkbox' name='21--30' class='checkbox' <?=(isset($_POST['21--30'])?' checked':'')?>>
             </label>
-            <label class='btn btn-custom'> 31 +
-              <input type='checkbox' name='31 +'>
+            <label class='btn btn-custom<?php if(isset($_POST['31 +'])){echo " active";}?>'> 31 +
+              <input type='checkbox' name='31 +' class='checkbox' <?=(isset($_POST['31 +'])?' checked':'')?>>
             </label>
           </div>
         </form>
           <div class='col-lg-6' id='custom-search-input'>
-                 <div class='input-group col-lg-14'>
-                     <input type='text' class='form-control input-lg' placeholder='Sök recept' />
+                 <div class='input-group col-lg-14'
+                  <form>
+                     <input type='text' class='form-control input-lg' name='typeahead' placeholder='Sök recept'>
                      <span class='input-group-btn'>
-                         <button class='btn btn-warning btn-lg' type='button'>
+                         <button class='btn btn-warning btn-lg' type='submit'>
                              <span class=' glyphicon glyphicon-search'></span>
                          </button>
                      </span>
+                   </form>
                  </div>
           </div>
         </div>
         <!-- /.searchbox -->
         <!-- Projects Row -->
         <?php
+        //Pris
+
         if (isset($_POST["1-5"])) {
           $cost[] = "cost = '1-5'";
           $_SESSION['1-5'] ='active';
@@ -98,19 +111,51 @@ include 'phpscripts/database.inc.php';
           $_SESSION['11-15'] ='active';
         }
         if (isset($_POST["16-20"])) {
-          $cost[] = "cost = '16-20'";
+          $cost[] = "cost = '16-30'";
           $_SESSION['16-20'] ='active';
         }
         if (isset($_POST["21-30"])) {
-          $cost[] = "cost = '21-30'";
+          $cost[] = "cost = '21-40'";
           $_SESSION['21-30'] ='active';
         }
+        //Tillagningstid
+        if (isset($_POST["1-10"])) {
+          $time[] = "cookingTime = '1-10'";
+          $_SESSION['1-10'] ='active';
+        }
+        if (isset($_POST["11-20"])) {
+          $time[] = "cookingTime = '11-20'";
+          $_SESSION['11-20'] ='active';
+        }
+        if (isset($_POST["21--30"])) {
+          $time[] = "cookingTime = '21-30'";
+          $_SESSION['21--30'] ='active';
+        }
+        if (isset($_POST["31 +"])) {
+          $time[] = "cookingTime = '31 +'";
+          $_SESSION['31 +'] ='active';
+        }
+
+        //Grund query
         $qry = "SELECT * FROM recipe";
+
+        //Lägger till mer i grundqueryn om pris- eller tidsfiltret har valts
         if(!empty($cost)) {
           $str = implode(' OR ',$cost);
           $qry .= " WHERE $str";
         }
+        if(!empty($time)) {
+          $str = implode(' OR ',$time);
+          if(empty($cost)) {
+              $qry .= " WHERE $str";
+          }
+          else{
+            $qry .= " AND $str";
+          }
+        }
+
         $sql =$qry;
+        //Lägger till kategorifilter i queryn
         if(isset($_GET['filter'])){
           $filter=$_GET['filter'];
           if($qry=="SELECT * FROM recipe"){
@@ -120,14 +165,24 @@ include 'phpscripts/database.inc.php';
             $sql.= " AND dishtype='$filter'";
           }
         }
-        echo $sql;//
-// $sql = "SELECT * FROM recipe WHERE dishType = '$filter'";
+
+        if(isset($_GET['key'])){
+          $key=$_GET['key'];
+          $array = array();
+          echo $key;
+          $query=mysql_query("select * from table_name where <coloumn_name> LIKE '%{$key}%'");
+
+          while($row2=mysql_fetch_assoc($query))
+          {
+            $array[] = $row2['title'];
+          }
+          echo json_encode($array);
+          echo $sql;
+        }
+
+
+        // "SELECT * FROM recipe WHERE headline LIKE ('%$input%') OR ingredients LIKE ('%$input%') OR description LIKE ('%$input%')";
     include 'phpscripts/_getall-recipes.php';
-// }
-// else{
-// $sql = "SELECT * FROM recipe";
-//     include 'phpscripts/_getall-recipes.php';
-// }
 ?>
 
         <hr>

@@ -19,6 +19,10 @@
 #categories a{
   color: white;
 }
+#alla{
+  padding-left: 5%;
+}
+
 #custom-search-input{
   margin-top: 20px;
 }
