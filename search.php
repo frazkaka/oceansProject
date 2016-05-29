@@ -34,12 +34,12 @@ $checkrec++;
 
     <hgroup class="mb20">
 		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger"><?php echo $check; ?></strong> användare hittades för din sökning: <strong class="text-danger"><?php echo $_POST['input'];?> </strong></h2>								
+		<h2 class="lead"><strong class="text-danger"><?php echo $check; ?></strong> användare hittades för din sökning: <strong class="text-danger"><?php echo $_POST['input'];?> </strong></h2>
 	</hgroup>
 
     <section class="col-xs-12 col-sm-6 col-md-12">
-	
-<?php 
+
+<?php
 if($check == null|| $check == 0){
 echo 'Inga resultat.';
 }
@@ -77,55 +77,62 @@ $follow++;
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
 				<h3><a href="user.php?id='.$user['idUser'].'"" title="">'.$user['username'].'</a></h3>
-				<p>'.$user['about'].'</p>						
+				<p>'.$user['about'].'</p>
 			<span class="clearfix borda"></span>
 		</article>';
 }
 
-}        
+}
         ?>
-        
+
 	</section>
 </div>
 
 <div class="container">
 
     <hgroup class="mb20">
-		<h2 class="lead"><strong class="text-danger"><?php echo $checkrec; ?></strong> Recept hittades för din sökning: <strong class="text-danger">"<?php echo $_POST['input'];?>"</strong></h2>								
+		<h2 class="lead"><strong class="text-danger"><?php echo $checkrec; ?></strong> Recept hittades för din sökning: <strong class="text-danger">"<?php echo $_POST['input'];?>"</strong></h2>
 	</hgroup>
 
     <section class="col-xs-12 col-sm-6 col-md-12">
-	
-<?php 
+
+<?php
 if($checkrec == null|| $checkrec == 0){
 echo 'Inga resultat.';
 }
 else{
 foreach($egenskaper as $recept){
-    
+
         echo '<article class="search-result row">
 			<div class="col-xs-12 col-sm-12 col-md-3">
 				<a href="#" title="'.$recept['headline'].'" class="thumbnail"><img src="'.$recept['image'].'" alt="Profil bild" height="100px" width="100px" /></a>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-2">
 				<ul class="meta-search"><li><i></i><span>Betyg:';
-    
-            for ($x = 0; $x < $recept['average']; $x++) {
-             echo '<img style="display:inline-block" "class="img-responsive" src="img/star.jpg" alt ="" height="25px" width="25px">';}
-    
+
+        for ($x = 0; $x < 5;  $x++)
+        {
+            if($x<$recept['average']){
+            echo '<img class="img-responsive" src="img/star.png" alt ="" height="15px" width="15px" style="display:inline-block;">';
+            }
+            else{
+              echo '<img class="img-responsive" src="img/no-star.png" alt ="" height="15px" width="15px" style="display:inline-block;">';
+            }
+        }
+
                 echo '</span></li>
                     <li><i class="glyphicon glyphicon-time"></i><span>'.$recept['cookingTime'].'</span></li>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
 				<h3><a href="activ_recipe.php?id='.$recept['idRecipe'].'" title="">'.$recept['headline'].'</a></h3>
-				<p>'.$recept['description'].'</p>						
+				<p>'.$recept['description'].'</p>
 			<span class="clearfix borda"></span>
 		</article>';
 }
 
-}        
+}
         ?>
-        
+
 	</section>
 </div>
