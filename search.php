@@ -46,26 +46,29 @@ echo 'Inga resultat.';
 else{
 foreach($id as $user){
 $userId=$user['idUser'];
-$sql1 = "SELECT * FROM follow WHERE followed_idUser = $userId";
+    
+    
+$sql1 = "SELECT follow_idUser FROM follow WHERE followed_idUser = $userId";
 $resultfollow = $conn->query($sql1);
     $followers = 0;
-    if($resultfollow===true){
+    if($resultfollow==true){
 
 while ($row = $resultfollow->fetch_array())
 {
 $followers++;
 }
     }
-$sql2 = "SELECT * FROM follow WHERE folloer_idUser = $userId";
+$sql2 = "SELECT followed_idUser FROM follow WHERE follow_idUser = $userId";
 $resultfol = $conn->query($sql2);
     $follow = 0;
-if($resultfol===true){
+if($resultfol==true){
 
 while ($row = $resultfollow->fetch_array())
 {
 $follow++;
 }
 }
+
         echo '<article class="search-result row">
 			<div class="col-xs-12 col-sm-12 col-md-3">
 				<a href="#" title="'.$user['idUser'].'" class="thumbnail"><img src="'.$user['userImage'].'" alt="Profil bild" height="100px" width="100px" /></a>
@@ -76,7 +79,7 @@ $follow++;
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-				<h3><a href="user.php?id='.$user['idUser'].'"" title="">'.$user['username'].'</a></h3>
+				<h3><a href="user.php?user='.$user['idUser'].'"" title="">'.$user['username'].'</a></h3>
 				<p>'.$user['about'].'</p>						
 			<span class="clearfix borda"></span>
 		</article>';

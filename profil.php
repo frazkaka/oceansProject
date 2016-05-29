@@ -17,6 +17,30 @@ while ($rowRec = $resultRec->fetch_array())
   $recepies[] = array('idRecipe' => $rowRec['idRecipe'], 'image' => $rowRec['image'], 'headline' => $rowRec['headline'], 'cost' => $rowRec['cost'], 'rating'=> $rowRec['rating'] );
   $counter++;
 }
+
+//SQL för att visa hur många följare
+$sqlfollowers = "SELECT follow_idUser FROM follow WHERE followed_idUser = $idUser";
+$resultfollowers = $conn->query($sqlfollowers);
+    $followers = 0;
+    if($resultfollowers==true){
+
+while ($row = $resultfollowers->fetch_array())
+{
+$followers++;
+}
+    }
+
+//SQL för att visa hur många personen följer
+$sqlfollow = "SELECT followed_idUser FROM follow WHERE follow_idUser = $idUser";
+$resultfollow = $conn->query($sqlfollow);
+    $follow = 0;
+if($resultfollow==true){
+
+while ($row = $resultfollow->fetch_array())
+{
+$follow++;
+}
+}
 ?>
 
 <div class="container">
@@ -46,12 +70,12 @@ while ($rowRec = $resultRec->fetch_array())
               <!--/col-->
               <div class="clearfix"></div>
               <div class="col-xs-12 col-sm-4">
-                <h2><strong> 20,7K </strong></h2>
+                <h2><strong> <?php echo $followers;?></strong></h2>
                 <p>Följare</p>
               </div>
               <!--/col-->
               <div class="col-xs-12 col-sm-4">
-                <h2><strong>245</strong></h2>
+                <h2><strong><?php echo $follow;?></strong></h2>
                 <p>Följer</p>
               </div>
               <!--/col-->
@@ -67,7 +91,7 @@ while ($rowRec = $resultRec->fetch_array())
               <div class='row'>
                 <?php
 
-                if(counter!=0){
+                if($counter!=0){
                   foreach ($recepies as $recept){
                     echo'<div class ="col-md-4 portfolio-item">';
                     echo'<a href="#">';
@@ -96,6 +120,6 @@ while ($rowRec = $resultRec->fetch_array())
     <!--/row-->
   </div>
   <!--/container-->
-
+</div>
   <!-- ----------------------------------------------- -->
   <?php include'html-elements/html_footer.php';?>

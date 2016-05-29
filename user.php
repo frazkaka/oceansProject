@@ -3,14 +3,17 @@ include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
 include 'phpscripts/database.inc.php';
 
+
 //User info
-$idUser = 1;
-$sql ="SELECT * FROM user WHERE idUser='$idUser'";
+
+$otherUser=$_GET['user'];
+$activeId = $_SESSION['idUser'];
+$sql ="SELECT * FROM user WHERE idUser='$otherUser'";
 $result = $conn->query($sql) or die($conn->error);
 $row = $result->fetch_array(MYSQLI_ASSOC);
 
 //User recept
-$sql2 ="SELECT * FROM recipe WHERE idUser='$idUser'";
+$sql2 ="SELECT * FROM recipe WHERE idUser='$otherUser'";
 $resultRec = $conn->query($sql2);
 $counter=0;
 while ($rowRec = $resultRec->fetch_array())
@@ -42,7 +45,7 @@ while ($rowRec = $resultRec->fetch_array())
               <p><strong>Om: </strong> <?php echo $row['about'];?> </p>
               <p><strong>Skola: </strong> <?php echo  $row['school'];?></p>
               <div class="row col-xs-5 col-md-3">
-                <a role="button" href='#följ' class="btn btn-success btn-block">Följ</a>
+                <a role="button" href='phpscripts/follow.php?id=<?php echo $activeId?>&oid=<?php echo $otherUser?>' class="btn btn-success btn-block">Följ</a>
               </div>
               <div class="row col-xs-7 col-md-sm-4 col-md-3" style="margin-left: 5%;">
                 <a href="mailto:<?php echo $row['userEmail'];?>" class="btn btn-primary btn-block">Skicka meddelande</a>
@@ -50,12 +53,34 @@ while ($rowRec = $resultRec->fetch_array())
               <!--/col-->
               <div class="clearfix"></div>
               <div class="col-xs-12 col-sm-4">
-                <h2><strong> 20,7K </strong></h2>
+                  <?php 
+
+$sqlfollower = "SELECT follow_idUser FROM follow WHERE followed_idUser = $otherUser";
+$resultfollow = $conn->query($sqlfollower) or die($conn_error);
+    $followers = 0;
+    if($resultfollow==true){
+
+while ($rowfol = $resultfollow->fetch_array()){
+$followers++;
+}
+    }
+
+$sqlfollow = "SELECT followed_idUser FROM follow WHERE follow_idUser = $otherUser";
+$resultfol = $conn->query($sqlfollow);
+    $follow = 0;
+if($resultfol==true){
+
+while ($rowfollow = $resultfollow->fetch_array())
+{
+$follow++;
+}
+}?>
+                <h2><strong> <?php echo $followers;?></strong></h2>
                 <p>Följare</p>
               </div>
               <!--/col-->
               <div class="col-xs-12 col-sm-4">
-                <h2><strong>245</strong></h2>
+                <h2><strong><?php echo $follow;?></strong></h2>
                 <p>Följer</p>
               </div>
               <!--/col-->
