@@ -31,7 +31,7 @@ include "phpscripts/database.inc.php";
 	<div class="row">
 
 
-		<div class="col-md-12">
+		<div class="col-md-8 col-md-offset-2 well">
 
 
 			<div class="thumbnail">
