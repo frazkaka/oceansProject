@@ -16,8 +16,8 @@ include 'phpscripts/database.inc.php';
             </div>
         </div>
           <!-- navbar-collapse -->
-        <div class='col-lg-12 bordered' class='collapse navbar-collapse' id='categories'>
-          <ul class='nav navbar-nav'>
+        <div class='collapse navbar-collapse'>
+          <ul class='nav navbar-nav col-lg-12 bordered' id='categories'>
             <li class='active'><a href='recept.php'>Alla</a></li>
             <li><a href='recept.php?filter=kött'>Kött</a></li>
             <li><a href='recept.php?filter=fågel'>Fågel</a></li>
@@ -37,36 +37,36 @@ include 'phpscripts/database.inc.php';
         <div class='row' id='filters'>
             <div class='btn-group btn-group-sm col-lg-3' data-toggle='buttons' name='price' id='price'>
               <h5>Pris (kr)</h5>
-              <label class='btn btn-default<?php if(isset($_POST['1-5'])){echo " active";}?>'>1-5
-                <input type='checkbox' name='1-5' class='checkbox'>
+              <label class='btn btn-custom2<?php if(isset($_POST['1-5'])){echo " active";}?>'>1-5
+                <input type='checkbox' name='1-5' class='checkbox' <?=(isset($_POST['1-5'])?' checked':'')?>>
               </label>
-              <label class='btn btn-default<?php if(isset($_POST['6-10'])){echo " active";}?>'> 6-10
-                <input type='checkbox' name='6-10' class='checkbox'/>
+              <label class='btn btn-custom2<?php if(isset($_POST['6-10'])){echo " active";}?>'> 6-10
+                <input type='checkbox' name='6-10' class='checkbox' <?=(isset($_POST['6-10'])?' checked':'')?>>
               </label>
-              <label class='btn btn-default<?php if(isset($_POST['11-15'])){echo " active";}?>'> 11-15
-                <input type='checkbox' name='11-15' class='checkbox'/>
+              <label class='btn btn-custom2<?php if(isset($_POST['11-15'])){echo " active";}?>'> 11-15
+                <input type='checkbox' name='11-15' class='checkbox' <?=(isset($_POST['11-15'])?' checked':'')?>>
               </label>
-              <label class='btn btn-default<?php if(isset($_POST['16-20'])){echo " active";}?>'> 16-20
-                <input type='checkbox' name='16-20' class='checkbox' <?=(isset($_POST['16-20'])?' checked':'')?>/>
+              <label class='btn btn-custom2<?php if(isset($_POST['16-20'])){echo " active";}?>'> 16-20
+                <input type='checkbox' name='16-20' class='checkbox' <?=(isset($_POST['16-20'])?' checked':'')?>>
               </label>
-              <label class='btn btn-default<?php if(isset($_POST['21-30'])){echo " active";}?>'> 21-30
-                <input type='checkbox' name='21-30' class='checkbox' <?=(isset($_POST['21-30'])?' checked':'')?>/>
+              <label class='btn btn-custom2<?php if(isset($_POST['21-30'])){echo " active";}?>'> 21-30
+                <input type='checkbox' name='21-30' class='checkbox' <?=(isset($_POST['21-30'])?' checked':'')?>>
               </label>
             </div>
 
 
           <div class='btn-group btn-group-sm col-lg-3' data-toggle='buttons' id='time'>
             <h5>Tid (min)</h5>
-            <label class='btn btn-default active'>1-10
+            <label class='btn btn-custom'>1-10
               <input type='checkbox' name='1-10' id="checkbox_id">
             </label>
-            <label class='btn btn-default'> 11-20
+            <label class='btn btn-custom'> 11-20
               <input type='checkbox' name='11-20'>
             </label>
-            <label class='btn btn-default'> 21-30
+            <label class='btn btn-custom'> 21-30
               <input type='checkbox' name='21-30'>
             </label>
-            <label class='btn btn-default'> 31 +
+            <label class='btn btn-custom'> 31 +
               <input type='checkbox' name='31 +'>
             </label>
           </div>
@@ -119,7 +119,8 @@ include 'phpscripts/database.inc.php';
           else {
             $sql.= " AND dishtype='$filter'";
           }
-        }//
+        }
+        echo $sql;//
 // $sql = "SELECT * FROM recipe WHERE dishType = '$filter'";
     include 'phpscripts/_getall-recipes.php';
 // }
