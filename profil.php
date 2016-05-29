@@ -24,7 +24,7 @@ $resultfollowers = $conn->query($sqlfollowers);
     $followers = 0;
     if($resultfollowers==true){
 
-while ($row = $resultfollowers->fetch_array())
+while ($rowfollower = $resultfollowers->fetch_array())
 {
 $followers++;
 }
@@ -36,7 +36,7 @@ $resultfollow = $conn->query($sqlfollow);
     $follow = 0;
 if($resultfollow==true){
 
-while ($row = $resultfollow->fetch_array())
+while ($rowfollow = $resultfollow->fetch_array())
 {
 $follow++;
 }
