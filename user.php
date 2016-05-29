@@ -9,7 +9,7 @@ include 'phpscripts/database.inc.php';
 $otherUser=$_GET['user'];
 $activeId = $_SESSION['idUser'];
 $sql ="SELECT * FROM user WHERE idUser='$otherUser'";
-$result = $conn->query($sql) or die($conn->error);
+$result = $conn->query($sql);
 $row = $result->fetch_array(MYSQLI_ASSOC);
 
 //User recept
