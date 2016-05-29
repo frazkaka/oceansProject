@@ -57,7 +57,7 @@ while ($rowRec = $resultRec->fetch_array())
               <!--/col-->
               <div class="col-xs-12 col-sm-4">
                 <h2><strong><?php echo $counter; ?></strong></h2>
-                <p> Recpet</p>
+                <p>Recept</p>
               </div>
               <!--/col-->
             </div>

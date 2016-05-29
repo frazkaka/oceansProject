@@ -1,6 +1,11 @@
 <?php
 include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
+include 'phpscripts/database.inc.php';
+$idUser = $_SESSION['idUser'];
+$sql ="SELECT * FROM user WHERE idUser='$idUser'";
+$result = $conn->query($sql) or die($conn->error);
+$row = $result->fetch_array(MYSQLI_ASSOC);
 ?>
 <!--/row-->
 <div class="container" style="padding-top: 60px;">
@@ -9,7 +14,7 @@ include 'html-elements/html_nav.php';
     <!-- left column -->
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="text-center">
-        <div id="preview"> <img src="img/no-avatar.jpg" class="center-block img-circle img-thumbnail img-responsive" alt="avatar" id='no-avatar'> </div>
+        <div id="preview"> <img src="<?php echo $row['userImage'];?>" class="center-block img-circle img-thumbnail img-responsive" alt="avatar" id='no-avatar'> </div>
         <label class="small">Ändra profilbild</label>
          <form method="post" id="upload_image" enctype="multipart/form-data" action="upload-image-profile.php">
               <div class="input-group">
