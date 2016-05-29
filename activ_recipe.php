@@ -36,36 +36,38 @@ include "phpscripts/database.inc.php";
 
 
 			<div class="thumbnail">
+                
+                <div class="caption-full row container">
 					<img class="img-responsive" style="float:left; padding-right:10px;" src="<?php echo $image;?>" alt="">
-				<div>
-				<div class="caption-full">
+				
+				
                     
                     <h4><strong><?php echo $headline;?></strong></h4>
                     <li><i class="glyphicon glyphicon-time"></i><span><?php echo $cookingTime ?></span></li>
                     <li><i class="glyphicon glyphicon-usd"></i><span><?php echo $cost ?></span></li>
                     <li><i class="glyphicon glyphicon-cutlery"></i><span><?php echo $dishType?></span></li>
                     <br/>
-					<p>Ingredienser:<br/><?php echo $ingredients ?></p>
+                    <p><strong>Ingredienser:</strong><br/><?php echo $ingredients ?></p>
 					<br/>
                     </div>
+                <div class="container">
                     <div class="row" style="text-algin:left;">
-					<p >Beskrivning:</br><?php echo $description?></p>
+                        <p><strong>Beskrivning:</strong></br><?php echo $description?></p>
 				<br/>
                 <br/>
                 <br/>
                 <br/>
-                <hr>
+                <hr class="container">
 				</div>
-				<?php include_once "phpscripts/average.php";?>
-				<div class="ratings">
-					<p class="pull-right"><?php echo $rating; ?></p>
-					<p>
-
-
-						<div id="ratings">
-
+				
+				<div class="ratings container">
+                    <?php include_once "phpscripts/average.php";?>
+					
+					
+						<div id="ratings container" style="float:left;">
+                            
 							<strong>Betyggsätt detta recept</strong>
-							<br />
+							<br/>
 							<?php
 							echo '<div onmouseleave="leave();">';
 							if(isset($_SESSION['username'])){
@@ -79,20 +81,21 @@ include "phpscripts/database.inc.php";
 								<input type="image" id="star4" src="img/no-star.png" height="25px" width="25px" value="4" onmouseover="hover(4);" onclick ="ratings("4");">
 								<input type="hidden" name="choice" id="4" value="4">
 								<input type="image" id="star5"src="img/no-star.png" height="25px" width="25px" value="5"  onmouseover="hover(5);" onclick ="ratings("5");">
-								<input type="hidden" name="choice" id="5" value="5"></div>';
+								<input type="hidden" name="choice" id="5" value="5"></div><div id="status"></div>';
 							}
 							else{
 								echo 'Vänligen logga in för att betygsätta detta recept.';
 							}?>
 						</div>
+                    <div class="pull-right  container" style="float:left;"><?php echo $rating; ?></div>
 							<br />
 
 							<br />
 
-							<div id="status"></div>
+							
 
 						</div>
-					</p>
+				
 				</div>
 			</div>
 			<div class="well">
