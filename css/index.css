@@ -4,8 +4,25 @@
       -ms-box-sizing: border-box;
           box-sizing: border-box;
 }
+#banner{
+  margin-top: -40px;
+  height: 400px;
+  background-image: url("../img/orange-bg3.png");
+  background-size: cover;
+}
 
+.bannerText{
 
+  color: white;
+  font-size: medium;
+    text-shadow: 2px 1px 3px rgba(128, 32, 0, 0.5);
+
+}
+#welcomeTxt{
+  padding-top: 100px;
+  font-size: 400%;
+  font-family: Kitten;
+}
 .grow img {
   height: 80px;
   width: 80px;
@@ -169,4 +186,21 @@ a:hover {
 }
 .glyphicon-share-alt {
   color: green;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+.btn-warning.btn-outline {
+    margin-top: 15px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    border: 2px solid rgba(230, 138, 0, 0.9);
+}
+
+.btn-warning.btn-outline:hover{
+    color: #fff;
 }

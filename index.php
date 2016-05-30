@@ -4,15 +4,13 @@ include 'html-elements/html_nav.php';
 include 'phpscripts/database.inc.php';
 ?>
 <link async href="http://fonts.googleapis.com/css?family=Audiowide" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
-<!-- <?php
-if (isset($_SESSION['username'])){
-  echo "Welcome, ". $_SESSION['username'];
-}else {
-  echo "Du är inte inloggad";
-}
-?> -->
 
-<div id='container'>
+<div id='banner' class='text-center'>
+  <h1 id='welcomeTxt' class='bannerText'> Välkommen till PluggTugg!</h1>
+  <h4 class='bannerText'> Här hittar du recept på billig och god studentmat som är enkel att laga.</h4>
+  <a href='recept.php' class='btn btn-warning btn-outline' id='mid'>Gå till recepten</a>
+</div>
+<div class='container' id='container'>
 
    <div id='leftContainer'>
       <p id='top10header'>TOP 10</p>
