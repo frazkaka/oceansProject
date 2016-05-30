@@ -15,7 +15,9 @@ session_start();
               <span class='icon-bar'></span>
 
             </button>
-              <img id='logo' src='img/pluggtugg-logo.png'   style= "width: 220px">
+              <a href='index.php'>
+              <img id='logo' src='img/pluggtugg-logo.png'  style= "width: 220px">
+              </a>
             <!--     <a class='navbar-brand' href='index.php'>PluggTugg</a> -->
           </div>
 

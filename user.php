@@ -22,7 +22,6 @@ while ($rowRec = $resultRec->fetch_array())
   $counter++;
 }
 ?>
-
 <div class="container">
   <div class="row">
     <div class="col-md-10-offset-2 col-xs-12" id='profileBody'>
@@ -31,13 +30,6 @@ while ($rowRec = $resultRec->fetch_array())
           <div class="row">
             <div class="col-xs-12 col-sm-4 text-center">
               <img src="<?php echo $row['userImage'];?>" alt="avatar" class="center-block img-circle img-thumbnail img-responsive">
-              <ul class="list-inline ratings text-center" title="Ratings">
-                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
-                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
-                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
-                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
-                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
-              </ul>
             </div>
             <!--/col-->
             <div class="col-xs-12 col-sm-8">
@@ -53,10 +45,10 @@ while ($rowRec = $resultRec->fetch_array())
               <!--/col-->
               <div class="clearfix"></div>
               <div class="col-xs-12 col-sm-4">
-                  <?php 
+                  <?php
 
 $sqlfollower = "SELECT follow_idUser FROM follow WHERE followed_idUser = $otherUser";
-$resultfollow = $conn->query($sqlfollower) or die($conn_error);
+$resultfollow = $conn->query($sqlfollower);
     $followers = 0;
     if($resultfollow==true){
 

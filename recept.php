@@ -3,16 +3,6 @@ include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
 include 'phpscripts/database.inc.php';
 ?>
-<script src="typeahead.min.js"></script>
-<script>
-  $(document).ready(function(){
-  $('input.typeahead').typeahead({
-      name: 'typeahead',
-      remote:'recept.php?key=%QUERY',
-      limit : 10
-  });
-});
-</script>
 
     <!-- Page Content -->
     <div class='container'>
@@ -20,7 +10,8 @@ include 'phpscripts/database.inc.php';
         <div class='row'>
             <div class='col-lg-12'>
                 <h1 class='page-header'>Recept
-                    <small>Alla</small>
+                    <small> <?php if(isset($_GET['filter'])){
+                      echo ucfirst($_GET['filter']);} else{echo 'Alla';}?> </small>
                 </h1>
             </div>
         </div>
@@ -83,7 +74,7 @@ include 'phpscripts/database.inc.php';
           <div class='col-lg-6' id='custom-search-input'>
                  <div class='input-group col-lg-14'
                   <form>
-                     <input type='text' class='form-control input-lg' name='typeahead' placeholder='Sök recept'>
+                     <input type='text' class='form-control input-lg' name='search' placeholder='Sök recept'>
                      <span class='input-group-btn'>
                          <button class='btn btn-warning btn-lg' type='submit'>
                              <span class=' glyphicon glyphicon-search'></span>
@@ -96,8 +87,8 @@ include 'phpscripts/database.inc.php';
         <!-- /.searchbox -->
         <!-- Projects Row -->
         <?php
-        //Pris
 
+        //Pris
         if (isset($_POST["1-5"])) {
           $cost[] = "cost = '1-5'";
           $_SESSION['1-5'] ='active';
@@ -166,23 +157,12 @@ include 'phpscripts/database.inc.php';
           }
         }
 
-        if(isset($_GET['key'])){
-          $key=$_GET['key'];
-          $array = array();
-          echo $key;
-          $query=mysql_query("select * from table_name where <coloumn_name> LIKE '%{$key}%'");
-
-          while($row2=mysql_fetch_assoc($query))
-          {
-            $array[] = $row2['title'];
-          }
-          echo json_encode($array);
-          echo $sql;
-        }
-
 
         // "SELECT * FROM recipe WHERE headline LIKE ('%$input%') OR ingredients LIKE ('%$input%') OR description LIKE ('%$input%')";
     include 'phpscripts/_getall-recipes.php';
+
+    //Markerar den kategori som är aktiv
+
 ?>
 
         <hr>
