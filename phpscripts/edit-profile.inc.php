@@ -15,6 +15,7 @@ $rowConfirm = $resultConfirm->fetch_array(MYSQLI_ASSOC);
 
 if ($userEmail!=$rowConfirm['userEmail']) {
   echo "<script> alert('Fel email'); </script>";
+  header( "refresh:0;url=../edit-profile.php" );
   return false;
 }
 

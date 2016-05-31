@@ -34,7 +34,7 @@ if(!isset($_SESSION['username'])){
       <form method='POST' role='form' action='phpscripts/publicera.inc.php'>
         <fieldset class='form-group'>
           <label for='recipetitle'>Titel</label>
-          <input class='form-control' id='recipetitle' rows='1' name='title' maxlength='30'>
+          <input class='form-control' id='recipetitle' rows='1' name='title' maxlength='100'>
           <small class='text-muted'>Ge ditt recept ett kort och beskrivande namn. Börja med stor bokstav. (Max 30 tecken)</small>
         </fieldset>
         <fieldset class='form-group'>

@@ -3,7 +3,6 @@ include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';
 include 'phpscripts/database.inc.php';
 ?>
-<link async href="http://fonts.googleapis.com/css?family=Audiowide" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
 
 <div id='banner' class='text-center'>
   <h1 id='welcomeTxt' class='bannerText'> Välkommen till PluggTugg!</h1>
