@@ -55,7 +55,7 @@ $follow++;
             <!--/col-->
             <div class="col-xs-12 col-sm-8">
               <h1><?php echo $row['username'];?></h1>
-              <p><strong>Om: </strong> <?php echo $row['about'];?> </p>
+              <p><strong>Om: </strong> <?php echo nl2br($row['about']);?> </p>
               <p><strong>Skola: </strong> <?php echo  $row['school'];?></p>
               <div class="row col-xs-5 col-md-3">
                 <a role="button" href='edit-profile.php' class="btn btn-primary btn-block">Redigera profil</a>

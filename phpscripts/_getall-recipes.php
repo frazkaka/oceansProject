@@ -4,18 +4,21 @@ if (mysqli_num_rows($result)!=0)
 {
   while ($row = $result->fetch_array())
   {
-    $egenskaper[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'average'=> $row['average'] );
+    $egenskaper[] = array('idRecipe' => $row['idRecipe'], 'image' => $row['image'],'cookingTime'=>$row['cookingTime'], 'headline' => $row['headline'], 'cost' => $row['cost'], 'average'=> $row['average'] );
   }
           foreach ($egenskaper as $recept)
           {
-          echo'<div class ="col-md-4 portfolio-item">';
+          echo'<div id="item" class ="col-md-4 portfolio-item">';
           echo'<div class="img-wrapper">';
           echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'">';
           echo'<img class="img-responsive" id="zoom" src="'. $recept['image'].'" alt ="">';
           echo'</a> </div>';
           echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
+          echo '<b> <span class="glyphicon glyphicon-usd"></span> ';
+          echo''. $recept['cost'].'</b> kr/port &nbsp; ';
+          echo '<span class="glyphicon glyphicon-time"></span> ';
+          echo '<b> ' . $recept['cookingTime'] . ' min</b><br>';
 
-          echo'<p>Kostnad: '. $recept['cost'].'</p>';
           for ($x = 0; $x < 5;  $x++)
           {
               if($x<$recept['average']){

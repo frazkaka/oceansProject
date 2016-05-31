@@ -34,7 +34,7 @@ while ($rowRec = $resultRec->fetch_array())
             <!--/col-->
             <div class="col-xs-12 col-sm-8">
               <h1><?php echo $row['username'];?></h1>
-              <p><strong>Om: </strong> <?php echo $row['about'];?> </p>
+              <p><strong>Om: </strong> <?php echo nl2br($row['about']);?> </p>
               <p><strong>Skola: </strong> <?php echo  $row['school'];?></p>
               <div class="row col-xs-5 col-md-3">
                 <a role="button" href='phpscripts/follow.php?id=<?php echo $activeId?>&oid=<?php echo $otherUser?>' class="btn btn-success btn-block">Följ</a>
@@ -62,7 +62,7 @@ $resultfol = $conn->query($sqlfollow);
     $follow = 0;
 if($resultfol==true){
 
-while ($rowfollow = $resultfollow->fetch_array())
+while ($row = $resultfol->fetch_array())
 {
 $follow++;
 }

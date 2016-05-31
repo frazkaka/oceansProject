@@ -19,7 +19,10 @@
 #categories a{
   color: white;
 }
-
+#item{
+  margin-bottom: 2%;
+  height: 350px;
+}
 #alla{
   padding-left: 5%;
 }

@@ -32,9 +32,10 @@ session_start();
             <form class='navbar-form navbar-left' method='post' action='search.php' role='search'>
               <div id='form-group' class='form-group'>
                 <input type='text' id='form-control' class='form-control' placeholder='Sök i databasen..'onfocus='this.placeholder = '' onblur='this.placeholder ='Sök i databasen' name='input' required>
-                <span class='glyphicon glyphicon-search'></span>
+                <span class='glyphicon glyphicon-search'> </span>
+                <button type='submit' id='btn-default' class='btn btn-default'>Sök</button>
               </div>
-              <button type='submit' id='btn-default' class='btn btn-default'>Sök</button>
+
             </form>
             <ul class='nav navbar-nav navbar-right'>
                 <?php if (accessAdmin()&&LoggedIn()) { echo "<li><a href='skyddad_admin.php'>Redigera webbplats</a></li>"; } ?>
