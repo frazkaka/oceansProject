@@ -35,6 +35,5 @@ $update = mysqli_query($conn, "UPDATE recipe SET rating = '$string' WHERE idReci
     echo '<p style="color:#06F;">Du har röstat: '.$choice.'</p>';
     exit();
 }
-
 }
 ?>

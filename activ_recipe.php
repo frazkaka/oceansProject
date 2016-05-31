@@ -72,16 +72,16 @@ include "phpscripts/database.inc.php";
 							echo '<div onmouseleave="leave();">';
 							if(isset($_SESSION['username'])){
 
-								echo '<input type="image" id="star1" src="img/no-star.png" height="25px" width="25px" value="1"  onmouseover="hover(1);" method="POST" onclick ="ratings("1");">
-								<input type="hidden" name="choice" id="1" value="1">
-								<input type="image" id="star2" src="img/no-star.png" height="25px" width="25px" value="2" onmouseover="hover(2);" onclick ="ratings("2");">
-								<input type="hidden" name="choice" id="2" value="2">
-								<input type="image" id="star3" src="img/no-star.png" height="25px" width="25px" value="3"  onmouseover="hover(3);" onclick ="ratings("3");">
-								<input type="hidden" name="choice" id="3" value="3">
-								<input type="image" id="star4" src="img/no-star.png" height="25px" width="25px" value="4" onmouseover="hover(4);" onclick ="ratings("4");">
-								<input type="hidden" name="choice" id="4" value="4">
-								<input type="image" id="star5"src="img/no-star.png" height="25px" width="25px" value="5"  onmouseover="hover(5);" onclick ="ratings("5");">
-								<input type="hidden" name="choice" id="5" value="5"></div><div id="status"></div>';
+								echo '<input type="image" id="star1" src="img/no-star.png" height="25px" width="25px" value="1"  onmouseover="hover(1);" method="POST" onclick ="ratings(1);">
+								<input type="hidden" name="choice" id="star1" value="1">
+								<input type="image" id="star2" src="img/no-star.png" height="25px" width="25px" value="2" onmouseover="hover(2);" onclick ="ratings(2);">
+								<input type="hidden" name="choice" id="star2" value="2">
+								<input type="image" id="star3" src="img/no-star.png" height="25px" width="25px" value="3"  onmouseover="hover(3);" onclick ="ratings(3);">
+								<input type="hidden" name="choice" id="star3" value="3">
+								<input type="image" id="star4" src="img/no-star.png" height="25px" width="25px" value="4" onmouseover="hover(4);" onclick ="ratings(4);">
+								<input type="hidden" name="choice" id="star4" value="4">
+								<input type="image" id="star5"src="img/no-star.png" height="25px" width="25px" value="5"  onmouseover="hover(5);" onclick ="ratings(5);">
+								<input type="hidden" name="choice" id="star5" value="5"></div><div id="status"></div>';
 							}
 							else{
 								echo 'Vänligen logga in för att betygsätta detta recept.';
@@ -169,8 +169,7 @@ include "phpscripts/database.inc.php";
 		function ratings(elem){
 			var x =  new XMLHttpRequest();
 			var url = "phpscripts/db_rate.php";
-			var a = document.getElementById(elem).value;
-
+			var a = document.getElementById("star"+elem).value;
 			var vars = "choice="+a;
 
 			x.open("POST", url, true);
@@ -191,5 +190,4 @@ include "phpscripts/database.inc.php";
 
 
 		</script>
-
 		<?php include"html-elements/html_footer.php";?>

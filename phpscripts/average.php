@@ -1,6 +1,7 @@
 <?php
 
-include_once "phpscripts/database.inc.php";
+include_once "database.inc.php";
+
 
 $active = $_SESSION['active'];
 $sql = "SELECT rating FROM recipe WHERE idRecipe =$active";
@@ -33,4 +34,6 @@ while ($row = $result->fetch_array()){
        echo "ERROR";
             }
     }
+
+
 ?>
