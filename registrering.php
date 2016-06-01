@@ -1,9 +1,9 @@
 <?php
 include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';?>
-
-<div class='well col-md-8 col-md-offset-2'>
-  <h2>Registrera dig</h2>
+<div class='container col-md-8 col-md-offset-2'>
+  <h2 class='page-header'>Registrera dig</h2>
+<div class='well '>
   <p>Fyll i formuläret nedan för registrering hos PluggTugg:</p>
   <form method='POST' action='phpscripts/registrering.inc.php' role='form'>
     <div class='form-group'>
@@ -91,5 +91,6 @@ include 'html-elements/html_nav.php';?>
     myWindow.focus();
   }
   </script>
+</div>
 </div>
 <?php include'html-elements/html_footer.php';?>

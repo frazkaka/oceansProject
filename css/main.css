@@ -1,30 +1,16 @@
 #logo {
   margin-right: 30px;
 }
-/*Större navbar:*/
-/*.navbar-fixed-top {
-    min-height: 80px;
-}
-
-.navbar-nav > li > a {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    line-height: 80px;
-}
-
-@media (max-width: 767px) {
-    .navbar-nav > li > a {
-    line-height: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;}
-}*/
 @font-face {
 font-family: Kitten;
 src: url('../fonts/KittenSlantTrial.ttf');
 }
+@font-face {
+  font-family: cookies;
+  src: url('../fonts/cookies&milk-regular.ttf');
+}
 
 .navbar-default {
-  /*background-color: #FFB441;*/
   background-color: hsl(31, 100%, 46%) !important;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fed7ad", endColorstr="#ea7900");
@@ -59,11 +45,16 @@ src: url('../fonts/KittenSlantTrial.ttf');
 	background: linear-gradient(to bottom,  #66b2cc 50%,#33a6cc 50%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66b2cc', endColorstr='#33a6cc',GradientType=0 ); /* IE6-9 */
 }
-
-ul li a {
-  font-family: ;
+#item{
+  margin-bottom: 2%;
+  height: 350px;
 }
 
+ul li a {
+}
+.glyphicon, .fa{
+color: #FFB441;
+}
 #bs-example-navbar-collapse-1 a {
   color: white;
 }

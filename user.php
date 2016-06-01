@@ -7,18 +7,20 @@ include 'phpscripts/database.inc.php';
 //User info
 
 $otherUser=$_GET['user'];
-$activeId = $_SESSION['idUser'];
+if(isset($_SESSION['idUser'])){
+  $activeId = $_SESSION['idUser'];
+}
 $sql ="SELECT * FROM user WHERE idUser='$otherUser'";
 $result = $conn->query($sql);
 $row = $result->fetch_array(MYSQLI_ASSOC);
-
+$userName = $row['username'];
 //User recept
 $sql2 ="SELECT * FROM recipe WHERE idUser='$otherUser'";
 $resultRec = $conn->query($sql2);
 $counter=0;
 while ($rowRec = $resultRec->fetch_array())
 {
-  $recepies[] = array('idRecipe' => $rowRec['idRecipe'], 'image' => $rowRec['image'], 'headline' => $rowRec['headline'], 'cost' => $rowRec['cost'], 'rating'=> $rowRec['rating'] );
+  $recepies[] = array('idRecipe' => $rowRec['idRecipe'], 'image' => $rowRec['image'],'cookingTime'=>$rowRec['cookingTime'], 'headline' => $rowRec['headline'], 'cost' => $rowRec['cost'], 'average'=> $rowRec['average'] );
   $counter++;
 }
 ?>
@@ -84,25 +86,37 @@ $follow++;
             </div>
             <!--/row-->
             <div>
-              <h3 class='page-header row col-md-12' id='recepten'>Recept från <?php echo $row['username'];?></h3>
+              <h3 class='page-header row col-md-12' id='recepten'>Recept från <?php echo $userName; ?></h3>
               <div class='row'>
                 <?php
 
                 if(!empty($recepies)){
                   foreach ($recepies as $recept){
-                    echo'<div class ="col-md-4 portfolio-item">';
-                    echo'<a href="#">';
-                    echo'<img class="img-responsive" src="'. $recept['image'].'" alt ="">';
-                    echo'</a>';
+                    echo'<div id="item" class ="col-md-4 portfolio-item">';
+                    echo'<div class="img-wrapper">';
+                    echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'">';
+                    echo'<img class="img-responsive" id="zoom" src="'. $recept['image'].'" alt ="">';
+                    echo'</a> </div>';
                     echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
-                    echo'<p>Kostnad: '. $recept['cost'].'</p>';
-                    echo'<p>betyg: '. $recept['cost'].'</p>';
+                    echo '<b> <span class="glyphicon glyphicon-usd"></span> ';
+                    echo''. $recept['cost'].'</b> kr/port &nbsp; ';
+                    echo '<span class="glyphicon glyphicon-time"></span> ';
+                    echo '<b> ' . $recept['cookingTime'] . ' min</b><br>';
 
+                    for ($x = 0; $x < 5;  $x++)
+                    {
+                        if($x<$recept['average']){
+                        echo '<img class="img-responsive" src="img/star.png" alt ="" height="25px" width="25px" style="display:inline-block;">';
+                        }
+                        else{
+                          echo '<img class="img-responsive" src="img/no-star.png" alt ="" height="25px" width="25px" style="display:inline-block;">';
+                        }
+                    }
                     echo '</div>';
                   }
                 }
                 else{
-                  echo '<div class="col-md-12"><p>'.$row['username'].' har inte publicerat några recept.</p></div>';
+                  echo '<div class="col-md-12"><p>'.$userName.' har inte publicerat några recept.</p></div>';
                 }
                 ?>
               </div>
