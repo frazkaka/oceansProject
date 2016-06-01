@@ -23,142 +23,135 @@ include "phpscripts/database.inc.php";
 		$headline = $row['headline'];
 		$cost = $row['cost'];
 		$average= $row['average'];
-        $cookingTime= $row['cookingTime'];
-        $dishType= $row['dishType'];
+		$cookingTime= $row['cookingTime'];
+		$dishType= $row['dishType'];
 	}
 	?>
 </fieldset>
-<div class="container">
-
-
-
-		<div class="col-md-8 col-md-offset-2 well">
-
-
-			<div class="thumbnail">
-                
-                <div class="caption-full row container">
-					<img class="img-responsive" style="float:left; padding-right:10px;" src="<?php echo $image;?>" alt="">
-				
-				
-                    
-                    <h4><strong><?php echo $headline;?></strong></h4>
-                    <li><i class="glyphicon glyphicon-time"></i><span><?php echo $cookingTime ?></span></li>
-                    <li><i class="glyphicon glyphicon-usd"></i><span><?php echo $cost ?></span></li>
-                    <li><i class="glyphicon glyphicon-cutlery"></i><span><?php echo $dishType?></span></li>
-                    <br/>
-                    <p><strong>Ingredienser:</strong><br/><?php echo $ingredients ?></p>
-					<br/>
-                    </div>
-                <div class="container">
-                    <div class="row" style="text-algin:left;">
-                        <p><strong>Beskrivning:</strong></br><?php echo $description?></p>
+<div class='container'>
+	<div class="col-md-6">
+			<div class="row container">
+				<div class='col-md-8'>
+				<img class="img-responsive" style="float:left;" src="<?php echo $image;?>" alt="">
+			</div>
+			<div class='container col-md-4' style="margin-left: -3%;">
+				<h3><strong><?php echo $headline;?></strong></h3>
+				<li><i class="glyphicon glyphicon-time">&nbsp;</i><span><?php echo $cookingTime ?></span></li>
+				<li><i class="glyphicon glyphicon-usd">&nbsp;</i><span><?php echo $cost ?></span></li>
+				<li><i class="glyphicon glyphicon-cutlery">&nbsp;</i><span><?php echo ucfirst($dishType);?></span></li>
 				<br/>
-                <br/>
-                <br/>
-                <br/>
-                <hr class="container">
-				</div>
-				
-				<div class="ratings container">
-                    <?php include_once "phpscripts/average.php";?>
-					
-					
-						<div id="ratings container" style="float:left;">
-                            
-							<strong>Betyggsätt detta recept</strong>
-							<br/>
-							<?php
-							echo '<div onmouseleave="leave();">';
-							if(isset($_SESSION['username'])){
-
-								echo '<input type="image" id="star1" src="img/no-star.png" height="25px" width="25px" value="1"  onmouseover="hover(1);" method="POST" onclick ="ratings(1);">
-								<input type="hidden" name="choice" id="star1" value="1">
-								<input type="image" id="star2" src="img/no-star.png" height="25px" width="25px" value="2" onmouseover="hover(2);" onclick ="ratings(2);">
-								<input type="hidden" name="choice" id="star2" value="2">
-								<input type="image" id="star3" src="img/no-star.png" height="25px" width="25px" value="3"  onmouseover="hover(3);" onclick ="ratings(3);">
-								<input type="hidden" name="choice" id="star3" value="3">
-								<input type="image" id="star4" src="img/no-star.png" height="25px" width="25px" value="4" onmouseover="hover(4);" onclick ="ratings(4);">
-								<input type="hidden" name="choice" id="star4" value="4">
-								<input type="image" id="star5"src="img/no-star.png" height="25px" width="25px" value="5"  onmouseover="hover(5);" onclick ="ratings(5);">
-								<input type="hidden" name="choice" id="star5" value="5"></div><div id="status"></div>';
-							}
-							else{
-								echo 'Vänligen logga in för att betygsätta detta recept.';
-							}?>
-						</div>
-                    <div class="pull-right  container" style="float:left;"><?php echo $rating; ?></div>
-							<br />
-
-							<br />
-
-							
-
-						</div>
-				
+				<p><strong>Ingredienser:</strong><br/><?php echo nl2br($ingredients); ?></p>
+				<br/>
+			</div>
+			<div class="container col-md-12">
+				<div class="row col-md-6" style="text-algin:left;">
+					<br>
+					<p><strong>Beskrivning:</strong><br><?php echo nl2br($description);?></p>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<hr class="container">
 				</div>
 			</div>
-			<div class="well">
+				<div class="ratings container">
+					<?php include_once "phpscripts/average.php";?>
 
 
+					<div id="ratings container" style="float:left;">
 
-				<div class="text-center">
-					<form class="form-inline" method="POST" action = "phpscripts/kommentarer.inc.php" >
+						<strong>Betyggsätt detta recept</strong>
+						<br/>
 						<?php
-						if(!isset($_SESSION['username'])){
-							echo 'Vänligen logga in för att kommentera receptet.<hr><br/>';
+						echo '<div onmouseleave="leave();">';
+						if(isset($_SESSION['username'])){
 
+							echo '<input type="image" id="star1" src="img/no-star.png" height="25px" width="25px" value="1"  onmouseover="hover(1);" method="POST" onclick ="ratings(1);">
+							<input type="hidden" name="choice" id="star1" value="1">
+							<input type="image" id="star2" src="img/no-star.png" height="25px" width="25px" value="2" onmouseover="hover(2);" onclick ="ratings(2);">
+							<input type="hidden" name="choice" id="star2" value="2">
+							<input type="image" id="star3" src="img/no-star.png" height="25px" width="25px" value="3"  onmouseover="hover(3);" onclick ="ratings(3);">
+							<input type="hidden" name="choice" id="star3" value="3">
+							<input type="image" id="star4" src="img/no-star.png" height="25px" width="25px" value="4" onmouseover="hover(4);" onclick ="ratings(4);">
+							<input type="hidden" name="choice" id="star4" value="4">
+							<input type="image" id="star5"src="img/no-star.png" height="25px" width="25px" value="5"  onmouseover="hover(5);" onclick ="ratings(5);">
+							<input type="hidden" name="choice" id="star5" value="5"></div><div id="status"></div>';
 						}
 						else{
-							echo 'Användarnamn: '.$_SESSION['username'];
+							echo 'Vänligen logga in för att betygsätta detta recept.';
+						}?>
+					</div>
+					<div class="pull-right  container" style="float:left;"><?php echo $rating; ?></div>
+					<br />
+
+					<br />
 
 
-							echo'<br>Kommentar:<input type="text" id="comment" name="comment">
+
+				</div>
+
+			</div>
+		</div>
+		<div class="well">
 
 
-							<input type="submit" value= "Skicka" class="btn btn-success">
+			<div class="row">
+			<div class="col-md-12">'
+			<div class="text-center">
+				<form class="form-inline" method="POST" action = "phpscripts/kommentarer.inc.php" >
+					<?php
+					if(!isset($_SESSION['username'])){
+						echo 'Vänligen logga in för att kommentera receptet.<hr><br/>';
 
-							</form>
-							</div>
-							<hr>
-
-							<div class="row">
-							<div class="col-md-12">';
-						}
-						?>
-
-
-						<br/>
+					}
+					else{
+						echo 'Användarnamn: '.$_SESSION['username'];
 
 
-						<?php
+						echo'<br>Kommentar:<input type="text" id="comment" name="comment">
 
 
-						$sql = "SELECT * FROM comment WHERE idRecipe =$active";
+						<input type="submit" value= "Skicka" class="btn btn-success">
+
+						</form>
+						</div>
+						<hr>';
+
+					}
+					?>
 
 
-						$result = $conn->query($sql);
-						while($rad = $result->fetch_array())
-						{
-
-							echo   '<strong>Användarnamn: '.$rad['idUser'].'</strong><br>' .$rad['comtext'] .'<hr><br><br>';
-						}
-
-						?>
+					<br/>
 
 
-				
+					<?php
+
+
+					$sql = "SELECT * FROM comment WHERE idRecipe =$active";
+
+
+					$result = $conn->query($sql);
+					while($rad = $result->fetch_array())
+					{
+
+						echo   '<strong>Användarnamn: '.$rad['idUser'].'</strong><br>' .$rad['comtext'] .'<hr><br><br>';
+					}
+
+					?>
+
+
+
 				</div>
 			</div>
-</div>
 		</div>
+	</div>
 
 
-		<script type ="text/javascript">
-		function hover(stars) {
-			for (var i = 1; i <= stars; i++) {
-				document.getElementById("star"+ i).src = 'img/star.png';
-			}
+	<script type ="text/javascript">
+	function hover(stars) {
+		for (var i = 1; i <= stars; i++) {
+			document.getElementById("star"+ i).src = 'img/star.png';
+		}
 	}
 	function leave() {
 		for (var i = 1; i <= 5; i++) {
@@ -166,28 +159,28 @@ include "phpscripts/database.inc.php";
 		}
 	}
 
-		function ratings(elem){
-			var x =  new XMLHttpRequest();
-			var url = "phpscripts/db_rate.php";
-			var a = document.getElementById("star"+elem).value;
-			var vars = "choice="+a;
+	function ratings(elem){
+		var x =  new XMLHttpRequest();
+		var url = "phpscripts/db_rate.php";
+		var a = document.getElementById("star"+elem).value;
+		var vars = "choice="+a;
 
-			x.open("POST", url, true);
-			x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			x.onreadystatechange = function(){
-				if(x.readyState==4 && x.status ==200){
+		x.open("POST", url, true);
+		x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		x.onreadystatechange = function(){
+			if(x.readyState==4 && x.status ==200){
 
-					var return_data = x.responseText;
+				var return_data = x.responseText;
 
-					document.getElementById("status").innerHTML = return_data;
+				document.getElementById("status").innerHTML = return_data;
 
-				}
 			}
-			x.send(vars);
-
-			document.getElementById("status").innerHTML="processing...";
 		}
+		x.send(vars);
+
+		document.getElementById("status").innerHTML="processing...";
+	}
 
 
-		</script>
-		<?php include"html-elements/html_footer.php";?>
+	</script>
+	<?php include"html-elements/html_footer.php";?>
