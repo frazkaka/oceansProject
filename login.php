@@ -2,7 +2,25 @@
 include 'html-elements/html_head.php';
 include 'html-elements/html_nav.php';?>
 
+
+
+
+
 <div class='col-md-8 col-md-offset-2 well'>
+    <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>
+        <i class="fa fa-coffee"></i>
+        <?php 
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+utf8_encode($actual_link);
+$search = strrpos($actual_link,'reg');
+
+if(!empty($search)){
+echo $_GET['reg'];
+    urlencode(utf8_decode('åäö'));
+}
+?>
+      </div>
 <h2>Logga in</h2>
 <form method='post' action='phpscripts/login.inc.php' role='form'>
     <div class='form-group'>
