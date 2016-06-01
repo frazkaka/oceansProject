@@ -14,7 +14,7 @@ if (mysqli_num_rows($result)!=0)
           echo'<img class="img-responsive" id="zoom" src="'. $recept['image'].'" alt ="">';
           echo'</a> </div>';
           echo'<a href="activ_recipe.php?id='.$recept['idRecipe'].'"><h3>'.$recept['headline'].'</h3></a>';
-          echo '<b> <span class="glyphicon glyphicon-usd"></span> ';
+          echo '<b> <span class="fa fa-money"></span> ';
           echo''. $recept['cost'].'</b> kr/port &nbsp; ';
           echo '<span class="glyphicon glyphicon-time"></span> ';
           echo '<b> ' . $recept['cookingTime'] . ' min</b><br>';

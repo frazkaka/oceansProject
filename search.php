@@ -18,7 +18,7 @@ if (mysqli_num_rows($result)!=0){
   }
 }
 //Söker i recept
-$sqlrec = "SELECT * FROM recipe WHERE headline LIKE ('%$input%') OR ingredients LIKE ('%$input%') OR description LIKE ('%$input%')";
+$sqlrec = "SELECT * FROM recipe WHERE headline LIKE ('%$input%') OR dishType LIKE ('%$input%') OR ingredients LIKE ('%$input%') OR description LIKE ('%$input%')";
 $resultrec = $conn->query($sqlrec) or die(mysqli_error($conn));
 $checkrec = 0;
 if(mysqli_num_rows($resultrec)!=0){
@@ -71,14 +71,14 @@ if(mysqli_num_rows($resultrec)!=0){
 
         echo '<article class="search-result row">
         <div class="col-xs-12 col-sm-12 col-md-3">
-        <a href="#" title="'.$user['idUser'].'" class="thumbnail"><img src="'.$user['userImage'].'" alt="Profil bild" height="100px" width="100px" /></a>
+        <a href="user.php?user='.$user['idUser'].'"" title="'.$user['idUser'].'" class="thumbnail"><img src="'.$user['userImage'].'" alt="Profil bild" height="150px" width="150px" /></a>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-2">
-        <ul class="meta-search"><li><i class="glyphicon glyphicon-tags"></i><span> Följare: '.$followers.'</span></li>
+        <ul class="meta-search list-unstyled"><li><i class="glyphicon glyphicon-tags"></i><span> Följare: '.$followers.'</span></li>
         <li><i class="glyphicon glyphicon-tags"></i> <span>Följer: '.$follow.'</span></li>
         </ul>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+        <div class="col-xs-12 col-sm-12 col-md-7 excerpet" style="margin-top: -30px;">
         <h3><a href="user.php?user='.$user['idUser'].'"" title="">'.$user['username'].'</a></h3>
         <p>'.$user['about'].'</p>
         <span class="clearfix borda"></span>
@@ -106,21 +106,28 @@ if(mysqli_num_rows($resultrec)!=0){
     else{
       foreach($egenskaper as $recept){
 
-        echo '<article class="search-result row">
-        <div class="col-xs-12 col-sm-12 col-md-3">
-        <a href="#" title="'.$recept['headline'].'" class="thumbnail"><img src="'.$recept['image'].'" alt="Profil bild" height="100px" width="100px" /></a>
+        echo '<article class="search-result row" >
+        <div class="col-xs-12 col-sm-12 col-md-3" >
+        <a href="activ_recipe.php?id='.$recept['idRecipe'].'" title="'.$recept['headline'].'" class="thumbnail"><img src="'.$recept['image'].'" alt="Profil bild"  /></a>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-2">
-        <ul class="meta-search"><li><i></i><span>Betyg:';
+        <ul class="meta-search list-unstyled"><li><i></i><span>Betyg: ';
 
-        for ($x = 0; $x < $recept['average']; $x++) {
-          echo '<img style="display:inline-block" "class="img-responsive" src="img/star.jpg" alt ="" height="25px" width="25px">';}
-
+          for ($x = 0; $x < 5;  $x++)
+          {
+              if($x<$recept['average']){
+              echo '<img class="img-responsive" src="img/star.png" alt ="" height="15px" width="15px" style="display:inline-block;">';
+              }
+              else{
+                echo '<img class="img-responsive" src="img/no-star.png" alt ="" height="15px" width="15px" style="display:inline-block;">';
+              }
+          }
           echo '</span></li>
-          <li><i class="glyphicon glyphicon-time"></i><span>'.$recept['cookingTime'].'</span></li>
+          <li><i class="glyphicon glyphicon-time"></i><span>&nbsp;'.$recept['cookingTime'].'</span></li>
+          <li><i class="fa fa-money" aria-hidden="true"></i><span>&nbsp;'.$recept['cost'].' kr</span>
           </ul>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+          <div class="col-xs-12 col-sm-12 col-md-7 excerpet" style="margin-top: -30px;">
           <h3><a href="activ_recipe.php?id='.$recept['idRecipe'].'" title="">'.$recept['headline'].'</a></h3>
           <p>'.$recept['description'].'</p>
           <span class="clearfix borda"></span>

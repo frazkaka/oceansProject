@@ -26,16 +26,20 @@ include "phpscripts/database.inc.php";
 		$cookingTime= $row['cookingTime'];
 		$dishType= $row['dishType'];
 	}
+	$sqlUser = "SELECT * FROM user WHERE idUser = '$idUser'";
+	$resultUser = $conn->query($sqlUser);
+	$rowUser = $resultUser->fetch_array();
+
 	?>
 </fieldset>
 <div class='container'>
 	<div class="col-md-6">
 			<div class="row container">
-				<div class='col-md-8'>
+				<div class='col-md-6'>
 				<img class="img-responsive" style="float:left;" src="<?php echo $image;?>" alt="">
 			</div>
-			<div class='container col-md-4' style="margin-left: -3%;">
-				<h3><strong><?php echo $headline;?></strong></h3>
+			<div class='container col-md-4'>
+				<h3><strong><?php echo $headline;?></strong></h3><h5> Av: <a href="user.php?user=<?php echo $rowUser['idUser']; ?>"> <?php echo $rowUser['username']; ?></h5></a>
 				<li><i class="glyphicon glyphicon-time">&nbsp;</i><span><?php echo $cookingTime ?></span></li>
 				<li><i class="glyphicon glyphicon-usd">&nbsp;</i><span><?php echo $cost ?></span></li>
 				<li><i class="glyphicon glyphicon-cutlery">&nbsp;</i><span><?php echo ucfirst($dishType);?></span></li>
@@ -98,23 +102,24 @@ include "phpscripts/database.inc.php";
 			<div class="row">
 			<div class="col-md-12">'
 			<div class="text-center">
-				<form class="form-inline" method="POST" action = "phpscripts/kommentarer.inc.php" >
+
 					<?php
 					if(!isset($_SESSION['username'])){
 						echo 'Vänligen logga in för att kommentera receptet.<hr><br/>';
 
 					}
 					else{
+						echo '<form class="form-inline" method="POST" action = "phpscripts/kommentarer.inc.php">';
 						echo 'Användarnamn: '.$_SESSION['username'];
 
 
-						echo'<br>Kommentar:<input type="text" id="comment" name="comment">
+						echo'<br>Kommentar: <input type="text" id="comment" name="comment">
 
 
 						<input type="submit" value= "Skicka" class="btn btn-success">
 
 						</form>
-						</div>
+
 						<hr>';
 
 					}
@@ -140,47 +145,10 @@ include "phpscripts/database.inc.php";
 					?>
 
 
-
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-
-	<script type ="text/javascript">
-	function hover(stars) {
-		for (var i = 1; i <= stars; i++) {
-			document.getElementById("star"+ i).src = 'img/star.png';
-		}
-	}
-	function leave() {
-		for (var i = 1; i <= 5; i++) {
-			document.getElementById("star"+ i).src = 'img/no-star.png';
-		}
-	}
-
-	function ratings(elem){
-		var x =  new XMLHttpRequest();
-		var url = "phpscripts/db_rate.php";
-		var a = document.getElementById("star"+elem).value;
-		var vars = "choice="+a;
-
-		x.open("POST", url, true);
-		x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		x.onreadystatechange = function(){
-			if(x.readyState==4 && x.status ==200){
-
-				var return_data = x.responseText;
-
-				document.getElementById("status").innerHTML = return_data;
-
-			}
-		}
-		x.send(vars);
-
-		document.getElementById("status").innerHTML="processing...";
-	}
-
-
-	</script>
-	<?php include"html-elements/html_footer.php";?>
+	<?php include "html-elements/html_footer.php";?>
