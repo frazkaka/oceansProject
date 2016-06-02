@@ -14,6 +14,21 @@ if(!isset($_SESSION['username'])){
 
 <div class='container'>
   <div class='row'>
+       
+    
+        <?php 
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$search = strrpos($actual_link,'msg');
+
+if(!empty($search)){
+echo '<div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>';
+echo $_GET['msg'];
+echo '</div>';
+}
+
+?>
+   
     <h1 class='page-header'>Skapa ett recept!</h2>
     <div class='col-xs-12 well'>
       <fieldset class='form-group'>

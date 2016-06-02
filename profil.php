@@ -49,6 +49,17 @@ $follow++;
       <div class="well panel panel-default">
         <div class="panel-body">
           <div class="row">
+                          <?php 
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$search = strrpos($actual_link,'update');
+
+if(!empty($search)){
+echo '<div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>';
+echo $_GET['update'];
+echo '</div>';
+}
+?>
             <div class="col-xs-12 col-sm-4 text-center">
               <img src="<?php echo $row['userImage'];?>" alt="avatar" class="center-block img-circle img-thumbnail img-responsive">
             </div>

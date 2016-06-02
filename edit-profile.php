@@ -27,11 +27,7 @@ $row = $result->fetch_array(MYSQLI_ASSOC);
 
     <!-- edit form column -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info well">
-      <div class="alert alert-info alert-dismissable">
-        <a class="panel-close close" data-dismiss="alert">×</a>
-        <i class="fa fa-coffee"></i>
-        This is an <strong>.alert</strong>. Use this to show important messages to the user.
-      </div>
+  
       <h3>Ändra personuppgifter</h3>
       <form method="post" class="form-horizontal" action='phpscripts/edit-profile.inc.php' role="form">
         <div class="form-group">

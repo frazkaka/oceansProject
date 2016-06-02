@@ -60,9 +60,9 @@ if(trim($_POST['about'])!==""){
   $conn->query($sql4);
 }
 
+$edit = "Din profil har uppdaterats";
+header( "refresh:0;url=../profil.php?update=$edit" );
 
-header( "refresh:2;url=../profil.php" );
-echo "Din profil har uppdaterats";
 
 mysqli_close($conn);
 ?>

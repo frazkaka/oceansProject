@@ -7,20 +7,38 @@ include 'html-elements/html_nav.php';?>
 
 
 <div class='col-md-8 col-md-offset-2 well'>
-    <div class="alert alert-info alert-dismissable">
-        <a class="panel-close close" data-dismiss="alert">×</a>
-        <i class="fa fa-coffee"></i>
-        <?php 
+    
+    
+         <?php 
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-utf8_encode($actual_link);
-$search = strrpos($actual_link,'reg');
+$searchreg = strrpos($actual_link,'new');
 
-if(!empty($search)){
-echo $_GET['reg'];
-    urlencode(utf8_decode('åäö'));
+if(!empty($searchreg)){
+echo '<div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>';
+echo $_GET['new'];
+echo '</div>';
+}
+
+$searchemail = strrpos($actual_link,'email');
+
+if(!empty($searchemail)){
+echo '<div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>';
+echo $_GET['email'];
+echo '</div>';
+}
+
+$searchpass = strrpos($actual_link,'pass');
+
+if(!empty($searchpass)){
+echo '<div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>';
+echo $_GET['pass'];
+echo '</div>';
 }
 ?>
-      </div>
+      
 <h2>Logga in</h2>
 <form method='post' action='phpscripts/login.inc.php' role='form'>
     <div class='form-group'>

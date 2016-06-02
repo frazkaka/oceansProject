@@ -18,8 +18,9 @@ $image = $_SESSION['image'];
 
 //Sätt in data i databasen
 $sqlRecipe = "INSERT INTO recipe (headline, dishType, cost, cookingTime, ingredients, description, image, idUser) VALUES ('$headline', '$dishType', '$cost', '$cookingTime','$ingredients', '$description' ,'$image', '$idUser')";
-header( "refresh:2;url=../recept.php" );
-echo "Receptet har publicerats.";
+$message= "Receptet har publicerats.";
+header( "refresh:0;url=../publicera.php?msg=$message" );
+
 
 
 if (!mysqli_query($conn, $sqlRecipe)){

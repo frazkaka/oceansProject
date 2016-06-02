@@ -14,8 +14,9 @@ $result = $conn->query($sql) or die($conn->error);
 
 //Om e-mail inte finns med. Gå tillbaka till inloggningssidan.
 if($result->num_rows < 1) {
-    header( "refresh:2;url=../login.php" );
-    echo "Email är inte registrerad";
+    $email= "Email är inte registrerad";
+    header( "refresh:0;url=../login.php?email=$email" );
+    
 	  return false;
 }
 
@@ -40,8 +41,9 @@ if ($inputHash == $checkPass) {
 
 }
 else{
- header( "refresh:2;url=../login.php");
- echo "FEL NÅTT";
+     $pass = "Fel lösenord.";
+
+ header( "refresh:0;url=../login.php?pass=$pass");
  return false;
 }
 

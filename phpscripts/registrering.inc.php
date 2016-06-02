@@ -29,7 +29,7 @@ if (mysqli_num_rows($emailcheck) > 0) {
 //Sätt in userdata i databasen
 $sql = "INSERT INTO user (username, school, userEmail, password, salt,userType) VALUES ('$username', '$school', '$userEmail', '$hashedPass', '$salt', 'member')";
 $registrerad = "Välkommen $username Du är nu registrerad, vänligen logga in.";
-header("refresh:0;url=../login.php?reg=$registrerad");
+header("refresh:0;url=../login.php?new=$registrerad");
 
 if (!mysqli_query($conn, $sql)){
     die('error ' . mysqli_error($conn));

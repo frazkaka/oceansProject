@@ -83,18 +83,16 @@ include 'html-elements/html_nav.php';?>
       <label><input type='checkbox'> Jag accepterar <a href ='registrering.php' onclick='return conditions();'>användarvillkoren</href></a>.</label>
     </div>
     <input type='submit' name='regSubmit' value='Registrera' class='btn btn-default'>
-    <div class="alert alert-info alert-dismissable">
-        <a class="panel-close close" data-dismiss="alert">×</a>
-        <i class="fa fa-coffee"></i>
-        <?php 
+           <?php 
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $search = strrpos($actual_link,'exist');
 
 if(!empty($search)){
+echo '<div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>';
 echo $_GET['exist'];
+echo '</div>';
 }
-?>
-      </div>
   </form>
   <script>
   function conditions() {
