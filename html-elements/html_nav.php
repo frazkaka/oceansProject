@@ -31,7 +31,7 @@ session_start();
             </ul>
             <form class='navbar-form navbar-left' method='post' action='search.php' role='search'>
               <div id='form-group' class='form-group'>
-                <input type='text' id='form-control' class='form-control' placeholder='Sök i databasen..'onfocus='this.placeholder = '' onblur='this.placeholder ='Sök i databasen' name='input' required>
+                <input type='text' id='form-control' class='form-control' placeholder='Sök i databasen...'onfocus='this.placeholder = '' onblur='this.placeholder ='Sök i databasen' name='input' required>
                 <span class='glyphicon glyphicon-search'> </span>
                 <button type='submit' id='btn-default' class='btn btn-default'>Sök</button>
               </div>

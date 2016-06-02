@@ -12,7 +12,9 @@ include 'phpscripts/database.inc.php';
 <div class='container' id='container'>
 
    <div id='leftContainer'>
-      <p id='top10header'>TOP 10</p>
+     <div id='top10header'>
+      <p >Top 10</p>
+    </div>
       <?php
       $counter = 1;
 
@@ -27,8 +29,17 @@ include 'phpscripts/database.inc.php';
         echo '</div>';
         echo '<div class="div-round">' . $counter . ' </div><strong> '.$headline=$row['headline'].'</strong>';
         $counter++;
-        echo ' <div class="ratingBox"><span class="box">' . $average=$row['average'] . '</span></div>';
-        echo $username=$row['username'];
+        echo "<div class='ratingBox'>&nbsp;";
+        for ($x = 0; $x < 5;  $x++)
+        {
+            if($x<$row['average']){
+            echo '<img  src="img/star.png" alt ="" height="14px" width="14px" style="display:inline-block;">';
+            }
+            else{
+              echo '<img  src="img/no-star.png" alt ="" height="14px" width="14px" style="display:inline-block;">';
+            }
+        }
+        echo " Av: ".$row['username']."</div>";
         echo '</div></a>';
       }
       ?>
@@ -36,10 +47,12 @@ include 'phpscripts/database.inc.php';
     </div>
 
       <div id='rightContainer'>
-
+        <div id='top10header'>
+         <p >Senaste</p>
+       </div>
         <?php
 
-        $sqlfrontpage = "SELECT * FROM recipe ORDER BY idRecipe DESC";
+        $sqlfrontpage = "SELECT * FROM recipe ORDER BY idRecipe DESC LIMIT 10";
         $resultfrontpage = $conn->query($sqlfrontpage);
         while ($row = $resultfrontpage->fetch_array()){
             $idRecipe=$row['idRecipe'];

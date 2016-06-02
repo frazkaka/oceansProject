@@ -8,6 +8,7 @@ ini_set('display_errors', 'on');
     <head>
       <meta charset="utf-8">
       <title>Ocean goes fruitbasket</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
       <link rel="stylesheet" href="css/main.css">
       <link rel="stylesheet" href="<?php echoCurrentCSS(); ?>">

@@ -23,7 +23,7 @@ if(!isset($_SESSION['username'])){
                 <div class="input-group col-sm-5 col-lg-4 col-xs-12">
                   <span class="input-group-btn">
                       <span class="btn btn-primary btn-file">
-                        Bläddra...<input type="file" name="image_upload" id="image_upload" />
+                        Bläddra...<input type="file" name="image_upload" id="image_upload" required>
                   </span>
                 </span>
                 </div>
@@ -34,7 +34,7 @@ if(!isset($_SESSION['username'])){
       <form method='POST' role='form' action='phpscripts/publicera.inc.php'>
         <fieldset class='form-group'>
           <label for='recipetitle'>Titel</label>
-          <input class='form-control' id='recipetitle' rows='1' name='title' maxlength='100'>
+          <input class='form-control' id='recipetitle' rows='1' name='title' maxlength='100' required>
           <small class='text-muted'>Ge ditt recept ett kort och beskrivande namn. Börja med stor bokstav. (Max 30 tecken)</small>
         </fieldset>
         <fieldset class='form-group'>
@@ -55,7 +55,7 @@ if(!isset($_SESSION['username'])){
           </div>
         </fieldset>
         <fieldset class='form-group'>
-          <div class='btn-group btn-group-s col-lg-12' data-toggle='buttons' name='cost' id='radio'>
+          <div class='btn-group btn-group-s col-lg-12' data-toggle='buttons' name='cost' id='radio' required>
             <div>
               <label for='cost'>Pris/portion (kr)<label>
             </div>
@@ -77,7 +77,7 @@ if(!isset($_SESSION['username'])){
           </div>
         </fieldset>
         <fieldset class='form-group'>
-          <div class='btn-group btn-group-m col-lg-12' data-toggle='buttons' id='radio'>
+          <div class='btn-group btn-group-m col-lg-12' data-toggle='buttons' id='radio' required>
             <div>
               <label for='cookingTime'>Tillagningstid (min)<label>
             </div>
@@ -98,13 +98,13 @@ if(!isset($_SESSION['username'])){
         <fieldset class='form-group'>
           <div class="row col-sm-4">
           <label for='ingredients-text'>Ingredienser</label>
-          <textarea class='form-control' name='ingredients' id='ingredients-text' rows='10' maxlength='500'></textarea>
+          <textarea class='form-control' name='ingredients' id='ingredients-text' rows='10' maxlength='500' required></textarea>
           <small class='text-muted'>Ange mängd och ingrediens. Exempel: 5 dl Vispgrädde.</small>
         </div>
         </fieldset>
         <fieldset class='form-group'>
           <label for='recipe-editor-directions'>Beskrivning</label>
-          <textarea class='form-control' name='description' id='recipe-editor-directions' rows='7'></textarea>
+          <textarea class='form-control' name='description' id='recipe-editor-directions' rows='7' required></textarea>
           <small class='text-muted'>Gå igenom stegvis hur man ska göra din rätt. Börja varje nytt steg med en ny rad.</small>
         </fieldset>
         <input type='submit' class='btn btn-success' name='save-recipe-button' value='Publicera recept'>
