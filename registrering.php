@@ -8,11 +8,11 @@ include 'html-elements/html_nav.php';?>
   <form method='POST' action='phpscripts/registrering.inc.php' role='form'>
     <div class='form-group'>
       <label class='sr-only' for='username'>Namn:</label>
-      <input type='text' class='form-control' name='username' id='username' placeholder='Välj användarnamn'>
+      <input type='text' class='form-control' name='username' id='username' placeholder='Välj användarnamn' required>
     </div>
     <div class='form-group'>
       <label for='school'>Välj ditt lärosäte:</label>
-      <select class='form-control' id='sel1' name='school'>
+      <select class='form-control' id='sel1' name='school' required>
         <option>	---	</option>
         <option>	Jag är inte student	</option>
         <option><li role='separator' class='divider'></li></option>
@@ -71,28 +71,29 @@ include 'html-elements/html_nav.php';?>
     </div>
     <div class='form-group'>
       <label class='sr-only' for='userEmail'>Email:</label>
-      <input type='email' class='form-control' name='userEmail' id='email' placeholder='Fyll i din Email'>
+      <input type='email' class='form-control' name='userEmail' id='email' placeholder='Fyll i din Email' required>
     </div>
     <div class='form-group'>
       <label class='sr-only' for='pwd'>Password:</label>
-      <input type='password' name='password' class='form-control' id='pwd' placeholder='Fyll i lösenord'>
+      <input type='password' name='password' class='form-control' id='pwd' placeholder='Fyll i lösenord' required>
     </div>
     <div class='checkbox'>
 
 
-      <label><input type='checkbox'> Jag accepterar <a href ='registrering.php' onclick='return conditions();'>användarvillkoren</href></a>.</label>
+      <label><input type='checkbox'> Jag accepterar <a href ='registrering.php' onclick='return conditions();' required autofocus>användarvillkoren</href></a>.</label>
     </div>
     <input type='submit' name='regSubmit' value='Registrera' class='btn btn-default'>
-           <?php 
-$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$search = strrpos($actual_link,'exist');
+    <?php
+    $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $search = strrpos($actual_link,'exist');
 
-if(!empty($search)){
-echo '<div class="alert alert-info alert-dismissable">
-        <a class="panel-close close" data-dismiss="alert">×</a>';
-echo $_GET['exist'];
-echo '</div>';
-}
+    if(!empty($search)){
+      echo '<div class="alert alert-info alert-dismissable">
+      <a class="panel-close close" data-dismiss="alert">×</a>';
+      echo $_GET['exist'];
+      echo '</div>';
+    }
+    ?>
   </form>
   <script>
   function conditions() {
