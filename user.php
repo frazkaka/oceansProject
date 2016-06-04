@@ -47,28 +47,28 @@ while ($rowRec = $resultRec->fetch_array())
               <!--/col-->
               <div class="clearfix"></div>
               <div class="col-xs-12 col-sm-4">
-                  <?php
+                <?php
 
-$sqlfollower = "SELECT follow_idUser FROM follow WHERE followed_idUser = $otherUser";
-$resultfollow = $conn->query($sqlfollower);
-    $followers = 0;
-    if($resultfollow==true){
+                $sqlfollower = "SELECT follow_idUser FROM follow WHERE followed_idUser = $otherUser";
+                $resultfollow = $conn->query($sqlfollower);
+                $followers = 0;
+                if($resultfollow==true){
 
-while ($rowfol = $resultfollow->fetch_array()){
-$followers++;
-}
-    }
+                  while ($rowfol = $resultfollow->fetch_array()){
+                    $followers++;
+                  }
+                }
 
-$sqlfollow = "SELECT followed_idUser FROM follow WHERE follow_idUser = $otherUser";
-$resultfol = $conn->query($sqlfollow);
-    $follow = 0;
-if($resultfol==true){
+                $sqlfollow = "SELECT followed_idUser FROM follow WHERE follow_idUser = $otherUser";
+                $resultfol = $conn->query($sqlfollow);
+                $follow = 0;
+                if($resultfol==true){
 
-while ($row = $resultfol->fetch_array())
-{
-$follow++;
-}
-}?>
+                  while ($row = $resultfol->fetch_array())
+                  {
+                    $follow++;
+                  }
+                }?>
                 <h2><strong> <?php echo $followers;?></strong></h2>
                 <p>Följare</p>
               </div>
@@ -105,12 +105,12 @@ $follow++;
 
                     for ($x = 0; $x < 5;  $x++)
                     {
-                        if($x<$recept['average']){
+                      if($x<$recept['average']){
                         echo '<img class="img-responsive" src="img/star.png" alt ="" height="25px" width="25px" style="display:inline-block;">';
-                        }
-                        else{
-                          echo '<img class="img-responsive" src="img/no-star.png" alt ="" height="25px" width="25px" style="display:inline-block;">';
-                        }
+                      }
+                      else{
+                        echo '<img class="img-responsive" src="img/no-star.png" alt ="" height="25px" width="25px" style="display:inline-block;">';
+                      }
                     }
                     echo '</div>';
                   }

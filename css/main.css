@@ -5,10 +5,6 @@
 font-family: Kitten;
 src: url('../fonts/KittenSlantTrial.ttf');
 }
-@font-face {
-  font-family: cookies;
-  src: url('../fonts/cookies&milk-regular.ttf');
-}
 
 .navbar-default {
   background-color: hsl(31, 100%, 46%) !important;
